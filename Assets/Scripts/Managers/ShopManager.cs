@@ -1,36 +1,58 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
 public class ShopManager : MonoBehaviour
 {
     [SerializeField] private int _itemsCount = 3;
 
-    private List<UpgradeData> _selectedUpgrades = new List<UpgradeData>();
+    private List<ShopItem> _selectedItems;
     private UpgradesManager _upgradesManager;
     private ModulesManager _modulesManager;
 
     public void Start()
     {
-        _upgradesManager = GameManager.Instance.UpgradesManager;
-        _modulesManager = GameManager.Instance.ModulesManager;
+        _upgradesManager = ServiceLocator.Instance.UpgradesManager;
+        _modulesManager = ServiceLocator.Instance.ModulesManager;
     }
 
     public void SelectUpgrades()
     {
-        _selectedUpgrades.Clear();
+        Debug.Log("Selecting Upgrades...");
+        _selectedItems = new List<ShopItem>();
         for (int i = 0; i < _itemsCount; i++)
         {
-            if(_modulesManager.OwnedModules.Count == 0)
+            ShopItem item = new ShopItem();
+            if (_modulesManager.OwnedModules.Count == 0)
             {
-                Debug.Log(_modulesManager.GetRandomModule());
+                Debug.Log("No owned modules, selecting module as upgrade.");
+                _modulesManager.GetRandomModule();
             }
-            UpgradeData upgrade = _upgradesManager.GetPossibleWeightedUpgrade();
-            while (_selectedUpgrades.Contains(upgrade) || upgrade == null)
+            else
             {
-                upgrade = _upgradesManager.GetPossibleWeightedUpgrade();
+                int x = Random.Range(0, 99);
+                if(x < 25)
+                {
+                    Debug.Log("Selected Module as Upgrade.");
+                    _modulesManager.GetRandomModule();
+                    continue;
+                }
+
+                UpgradeData upgrade = _upgradesManager.GetPossibleWeightedUpgrade();
+                while (_selectedItems.Any(t => t.UpgradeData.Name == upgrade.Name) || upgrade == null)
+                {
+                    Debug.Log(upgrade == null ? "Upgrade is null, reselecting." : "Duplicate upgrade selected, reselecting.");
+                    upgrade = _upgradesManager.GetPossibleWeightedUpgrade();
+                }
+                item.UpgradeData = upgrade;
+                _selectedItems.Add(item);
+                Debug.Log("Selected Upgrade: " + upgrade.Name);
             }
-            _selectedUpgrades.Add(upgrade);
-            Debug.Log("Selected Upgrade: " + upgrade.Name);
         }
+    }
+
+    public void ChooseItem()
+    {
+        Debug.Log("Item chosen from shop.");
     }
 }

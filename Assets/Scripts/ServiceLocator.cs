@@ -1,16 +1,30 @@
 using UnityEngine;
 
 public class ServiceLocator : MonoBehaviour
-{
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+{   
+    public static ServiceLocator Instance => _instance;
+    public ModulesManager ModulesManager => _modulesManager;
+    public UpgradesManager UpgradesManager => _upgradesManager;
+    public ShopManager ShopManager => _shopManager;
 
-    // Update is called once per frame
-    void Update()
+    private static ServiceLocator _instance;
+
+    private ModulesManager _modulesManager;
+    private UpgradesManager _upgradesManager;
+    private ShopManager _shopManager;
+
+    private void Awake()
     {
-        
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+        _modulesManager = GetComponent<ModulesManager>();
+        _upgradesManager = GetComponent<UpgradesManager>();
+        _shopManager = GetComponent<ShopManager>();
     }
 }
