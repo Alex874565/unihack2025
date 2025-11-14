@@ -1,7 +1,8 @@
 using UnityEngine;
 
-public class ShopItem : MonoBehaviour
+public class ShopItem
 {
     public UpgradeData UpgradeData;
     public ModuleData ModuleData;
+    public GlobalModifierData BoosterData;
 }

@@ -7,13 +7,15 @@ public class UpgradesManager : MonoBehaviour
 
     public List<UpgradeData> PossibleUpgrades => _possibleUpgrades;
     public List<UpgradeData> CurrentUpgrades => _currentUpgrades;
+    public Dictionary<ModuleTypes, Modifiers> ModuleUpgradeModifiers => _moduleUpgradeModifiers;
 
     [SerializeField] private List<UpgradeData> _possibleUpgrades;
     [SerializeField] private List<UpgradeData> _currentUpgrades;
     [SerializeField] private int totalUpgrades = 56;
 
     [SerializeField] private AnimationCurve rarityCurve;
-    private Dictionary<UpgradeType, Modifiers> _typeModifiers;
+
+    [SerializeField] private Dictionary<ModuleTypes, Modifiers> _moduleUpgradeModifiers;
 
     public UpgradeData GetPossibleWeightedUpgrade()
     {
@@ -32,6 +34,7 @@ public class UpgradesManager : MonoBehaviour
                 return upgrade;
             }
         }
+        Debug.LogWarning("GetPossibleWeightedUpgrade - No upgrade selected, returning null.");
         return null; // Fallback, should not reach here
     }
 
@@ -43,26 +46,15 @@ public class UpgradesManager : MonoBehaviour
     public void MakeUpgrade(int index)
     {
         UpgradeData upgrade = GetPossibleUpgrade(index);
+        Debug.Log("MakeUpgrade - Adding: " + upgrade.Name + "; removing: " + _possibleUpgrades[index].Name);
 
         _possibleUpgrades.RemoveAt(index);
         _currentUpgrades.Add(upgrade);
+        ApplyUpgradeModifiers(upgrade);
         foreach (var u in upgrade.PossibleUpgrades)
         {
             _possibleUpgrades.Add(u);
         }
-
-        _typeModifiers[upgrade.Type] = CalculateTypeModifiers(upgrade.Type);
-    }
-
-    public Modifiers CalculateTypeModifiers(UpgradeType type)
-    {
-        Modifiers modifiers = new Modifiers();
-        foreach (var upgrade in _currentUpgrades.Where(u => u.Type == type))
-        {
-            modifiers.IncomeModifier += upgrade.IncomeModifier;
-            modifiers.PollutionModifier += upgrade.PollutionModifier;
-        }
-        return modifiers;
     }
 
     public float GetUpgradeWeight(UpgradeData upgrade)
@@ -71,5 +63,40 @@ public class UpgradesManager : MonoBehaviour
         float globalRarityMultiplier = Mathf.Lerp(1f, 0f, progress);
         float weight = rarityCurve.Evaluate((float)upgrade.Phase) * globalRarityMultiplier;
         return weight;
+    }
+
+    public int GetUpgradeIndexByName(UpgradeData upgrade)
+    {
+        for (int i = 0; i < _possibleUpgrades.Count; i++)
+        {
+            if (_possibleUpgrades[i].Name == upgrade.Name)
+            {
+                return i;
+            }
+        }
+        return -1; // Not found
+    }
+
+    public void AddPossibleUpgrade(UpgradeData upgradeData)
+    {
+        if(!_currentUpgrades.Contains(upgradeData) && !_possibleUpgrades.Contains(upgradeData))
+        {
+            _possibleUpgrades.Add(upgradeData);
+        }
+        Debug.Log("Added possible upgrade: " + upgradeData.Name);
+    }
+
+    public void ApplyUpgradeModifiers(UpgradeData upgradeData)
+    {
+        Debug.Log("ApplyUpgradeModifiers - Applying upgrade modifiers for: " + upgradeData.Name);
+        if (!_moduleUpgradeModifiers.ContainsKey(upgradeData.ModuleType))
+        {
+            _moduleUpgradeModifiers[upgradeData.ModuleType] = upgradeData.Modifiers;
+        }
+        else
+        {
+            _moduleUpgradeModifiers[upgradeData.ModuleType] += upgradeData.Modifiers;
+        }
+        Debug.Log("ApplyUpgradeModifiers - Upgrade modifiers applied to " + upgradeData.ModuleType + ": " + _moduleUpgradeModifiers[upgradeData.ModuleType]);
     }
 }

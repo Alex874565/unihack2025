@@ -12,12 +12,16 @@ public class ModuleData : ScriptableObject
 
     public Sprite ModuleIcon => _icon;
     public List<UpgradeData> Upgrades => _upgrades;
+    public GameObject ModulePrefab => _modulePrefab;
 
     [SerializeField] private string _moduleName;
+    [SerializeField] private ModuleTypes _moduleType;
     [SerializeField] private string _moduleDescription;
     [SerializeField] private string _income;
     [SerializeField] private string _pollution;
+    [SerializeField] private string _productionSpeed;
     [SerializeField] private string _cost;
     [SerializeField] private Sprite _icon;
+    [SerializeField] private GameObject _modulePrefab;
     [SerializeField] private List<UpgradeData> _upgrades;
 }

@@ -4,25 +4,33 @@ using System.Linq;
 
 public class ModulesGrid : MonoBehaviour
 {
+    public int Rows => _rows;
+    public int Columns => _columns;
+    public List<List<ModuleData>> Grid => _grid;
+
     [SerializeField] private int _rows;
     [SerializeField] private int _columns;
-    [SerializeField] private float _moduleSizeX;
-    [SerializeField] private float _moduleSizeY;
-
-    private List<List<GameObject>> _grid;
+    
+    private List<List<ModuleData>> _grid;
 
     private void Awake()
     {
-        _grid = new List<List<GameObject>>(_rows);
-        for (int i = 0; i < _rows; i++)
+        _grid = new List<List<ModuleData>>();
+
+        for (int row = 0; row < _rows; row++)
         {
-            _grid.Add(new List<GameObject>(_columns));
+            var newRow = new List<ModuleData>();
+            for (int col = 0; col < _columns; col++)
+            {
+                newRow.Add(null);
+            }
+            _grid.Add(newRow);
         }
     }
 
-    public void PlaceModule(GameObject module, int x, int y)
+    public void AddModuleToGrid(ModuleData module, int x, int y)
     {
-        _grid[y][x] = module;
+        _grid[x][y] = module;
     }
 
     public bool AreSpacesLeft()
@@ -32,20 +40,6 @@ public class ModulesGrid : MonoBehaviour
 
     public bool IsSpaceFree(int x, int y)
     {
-        return _grid[y][x] == null;
-    }
-
-    public void CommandModules(IModuleCommand command)
-    {
-        foreach (var row in _grid)
-        {
-            foreach (var module in row)
-            {
-                if (module != null)
-                {
-                    command.Execute(module.GetComponent<ModuleController>());
-                }
-            }
-        }
+        return _grid[x][y] == null;
     }
 }

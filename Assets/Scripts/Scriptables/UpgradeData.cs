@@ -10,20 +10,17 @@ public class UpgradeData: ScriptableObject
     public int Cost => _cost;
     public Sprite Icon => _icon;
     public string Description => _description;
-    public int IncomeModifier => _incomeModifier;
-    public int PollutionModifier => _pollutionModifier;
-    public UpgradeType Type => _type;
+    public Modifiers Modifiers => _modifiers;
     public List<UpgradeData> PossibleUpgrades => _possibleUpgrades;
-
-    public UpgradePhase Phase => _phase;
+    public UpgradePhases Phase => _phase;
+    public ModuleTypes ModuleType => _moduleType;
 
     [SerializeField] private string _name;
     [SerializeField] private int _cost;
     [SerializeField] private Sprite _icon;
     [SerializeField] private string _description;
-    [SerializeField] private int _incomeModifier;
-    [SerializeField] private int _pollutionModifier;
-    [SerializeField] private UpgradeType _type;
-    [SerializeField] private UpgradePhase _phase;
+    [SerializeField] private Modifiers _modifiers;
+    [SerializeField] private UpgradePhases _phase;
     [SerializeField] private List<UpgradeData> _possibleUpgrades;
+    [SerializeField] private ModuleTypes _moduleType;
 }

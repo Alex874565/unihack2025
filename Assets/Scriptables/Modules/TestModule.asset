@@ -18,6 +18,7 @@ MonoBehaviour:
   _pollution: 1
   _cost: 1
   _icon: {fileID: 0}
+  _modulePrefab: {fileID: 7456356414709372688, guid: b4ebce01b97dbe341940e9dd12acf00d, type: 3}
   _upgrades:
   - {fileID: 11400000, guid: 446c159a37cfd8940926f6de30cd98b1, type: 2}
   - {fileID: 11400000, guid: 09401c71a3743304da258c126381f1c4, type: 2}

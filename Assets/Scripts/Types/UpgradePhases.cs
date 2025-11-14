@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public enum UpgradePhase
+public enum UpgradePhases
 {
     Phase1,
     Phase2,
