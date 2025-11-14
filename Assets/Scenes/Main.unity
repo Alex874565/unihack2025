@@ -220,6 +220,7 @@ GameObject:
   - component: {fileID: 1271914298}
   - component: {fileID: 1271914300}
   - component: {fileID: 1271914299}
+  - component: {fileID: 1271914301}
   m_Layer: 0
   m_Name: -------MANAGERS-------
   m_TagString: Untagged
@@ -278,7 +279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32acbb7dbb8381e4995e896d417e8982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _modulesDatabase: {fileID: 0}
+  _modulesDatabase: {fileID: 11400000, guid: 485673ef4694e55468c6b410e9ef98ee, type: 2}
   _modulesGrid: {fileID: 0}
   _ownedModules: []
 --- !u!114 &1271914299
@@ -293,6 +294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 062315894be408a40b6bf1b306a9893a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemsCount: 3
 --- !u!114 &1271914300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,7 +309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _possibleUpgrades: []
   _currentUpgrades: []
-  _upgradesCount: 3
+  totalUpgrades: 56
   rarityCurve:
     serializedVersion: 2
     m_Curve:
@@ -350,6 +352,18 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1271914301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271914294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a3599d09822a394dbe7f3ee3d41d287, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1835214307
 GameObject:
   m_ObjectHideFlags: 0

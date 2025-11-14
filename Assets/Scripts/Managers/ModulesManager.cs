@@ -16,7 +16,9 @@ public class ModulesManager : MonoBehaviour
 
     public ModuleData GetRandomModule()
     {
-        var index = Random.Range(0, _modulesDatabase.Modules.Count);
-        return _modulesDatabase.Modules[index].ModuleData;
+        int index = Random.Range(0, _modulesDatabase.Modules.Count);
+        ModuleData module = _modulesDatabase.Modules[index].ModuleData;
+        Debug.Log(module.ModuleName);
+        return module;
     }
 }

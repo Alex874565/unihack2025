@@ -6,6 +6,7 @@ public class InputManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
+            Debug.Log("P pressed");
             GameManager.Instance.ShopManager.SelectUpgrades();
         }
     }
