@@ -19,13 +19,14 @@ MonoBehaviour:
   _modifiers:
     IncomeModifier: 0
     SpeedModifier: 0
-    AirPollutionModifier: -0.3
-    WaterPollutionModifier: -0.2
-    SoilPollutionModifier: 0
+    AirPollutionModifier: 0.7
+    WaterPollutionModifier: 0.8
+    SoilPollutionModifier: -0.1
     PollutionModifierType: 0
   _phase: 1
   _possibleUpgrades:
   - {fileID: 11400000, guid: 5772c8e0f91bb674fbd177c984291cbc, type: 2}
   - {fileID: 11400000, guid: a1eb8f625b49ad54a9b914428acfc1c9, type: 2}
+  - {fileID: 11400000, guid: a4b07516d86558e44bb778717024b6eb, type: 2}
   _moduleType: 3
   _isNewTier: 1

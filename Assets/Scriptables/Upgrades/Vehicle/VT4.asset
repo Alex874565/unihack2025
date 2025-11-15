@@ -19,9 +19,9 @@ MonoBehaviour:
   _modifiers:
     IncomeModifier: 0
     SpeedModifier: 0
-    AirPollutionModifier: -0.1
+    AirPollutionModifier: 0
     WaterPollutionModifier: 0
-    SoilPollutionModifier: -0.3
+    SoilPollutionModifier: 0
     PollutionModifierType: 0
   _phase: 3
   _possibleUpgrades: []

@@ -15,7 +15,7 @@ MonoBehaviour:
   _name: Filter Cleaning
   _cost: 0
   _icon: {fileID: 0}
-  _description: Reduces fuel  consumption and emissions
+  _description: Reduces fuel consumption and emissions
   _modifiers:
     IncomeModifier: 0
     SpeedModifier: 0
@@ -26,3 +26,4 @@ MonoBehaviour:
   _phase: 0
   _possibleUpgrades: []
   _moduleType: 0
+  _isNewTier: 0
