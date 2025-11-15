@@ -24,7 +24,7 @@ MonoBehaviour:
     PollutionModifierType: 0
   _cost: 0
   _icon: {fileID: 0}
-  _modulePrefab: {fileID: 0}
+  _modulePrefab: {fileID: 7456356414709372688, guid: 2115525600c42bc41a311fcbabb5859e, type: 3}
   _upgrades:
   - {fileID: 11400000, guid: e1fe6396255922b41a0807e2a9a55280, type: 2}
   - {fileID: 11400000, guid: 745125e54b69b3f41bdc1ab87f362cec, type: 2}

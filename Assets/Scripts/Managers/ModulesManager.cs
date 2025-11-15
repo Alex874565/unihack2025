@@ -84,7 +84,7 @@ public class ModulesManager : MonoBehaviour
         Debug.Log("CalculateModuleTypeProduction - Calculating production for module type: " + moduleType);
         Modifiers totalProduction = _modulesDatabase.Modules.Where(m => m.ModuleType == moduleType).First().BaseProduction;
 
-        if(ServiceLocator.Instance.UpgradesManager.ModuleUpgradeModifiers.ContainsKey(moduleType))
+        if(ServiceLocator.Instance.UpgradesManager.ModuleBaseModifiers.ContainsKey(moduleType))
         {
             totalProduction = ServiceLocator.Instance.UpgradesManager.ModuleBaseModifiers[moduleType];
             Debug.Log("CalculateModuleTypeProduction - Found upgrade modifiers for module type: " + moduleType + ", value: " + ServiceLocator.Instance.UpgradesManager.ModuleUpgradeModifiers[moduleType]);
