@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using UnityEngine.UI;
 
 public class ShopUIManager : MonoBehaviour
 {
@@ -10,13 +11,14 @@ public class ShopUIManager : MonoBehaviour
     [SerializeField] private Sprite _moduleBackgroundSprite;
     [SerializeField] private Sprite _boosterBackgroundSprite;
 
-    [SerializeField] private Canvas _upgradesCanvas;
+    [SerializeField] private GameObject _upgradesCanvas;
 
-    [SerializeField] private List<SpriteRenderer> _backgroundRenderers;
-    [SerializeField] private List<SpriteRenderer> _iconRenderers;
+    [SerializeField] private List<Image> _backgroundRenderers;
+    [SerializeField] private List<Image> _iconRenderers;
     [SerializeField] private List<TMP_Text> _nameFields;
     [SerializeField] private List<TMP_Text> _tierFields;
-    [SerializeField] private List<Color> _tierColors;
+    [SerializeField] private List<Color> _upgradeTierColors;
+    [SerializeField] private List<Color> _boosterTierColors;
     [SerializeField] private List<TMP_Text> _descriptionFields;
     [SerializeField] private List<TMP_Text> _incomeFields;
     [SerializeField] private List<TMP_Text> _speedFields;
@@ -25,22 +27,29 @@ public class ShopUIManager : MonoBehaviour
     [SerializeField] private List<TMP_Text> _waterPollutionFields;
     [SerializeField] private List<TMP_Text> _costFields;
 
+    [SerializeField] private List<ShopItem> items;
+
+    private void Start()
+    {
+        ShowShop(items);
+    }
+
     public void ShowShop(List<ShopItem> items)
     {
         SetAllUIElements(items);
-        _upgradesCanvas.enabled = true;
+        _upgradesCanvas.SetActive(true);
     }
 
     public void HideShop()
     {
-        _upgradesCanvas.enabled = false;
+        _upgradesCanvas.SetActive(false);
     }
 
     public void SetBackgrounds(List<ShopItem> items)
     {
         foreach (var item in items)
         {
-            SpriteRenderer backgroundRenderer = _backgroundRenderers[items.IndexOf(item)];
+            Image backgroundRenderer = _backgroundRenderers[items.IndexOf(item)];
             if (item.ShopItemType == ShopItemTypes.Upgrade)
             {
                 backgroundRenderer.sprite = _upgradeBackgroundSprite;
@@ -60,7 +69,7 @@ public class ShopUIManager : MonoBehaviour
     {
         foreach (ShopItem item in items)
         {
-            SpriteRenderer iconRenderer = _iconRenderers[items.IndexOf(item)];
+            Image iconRenderer = _iconRenderers[items.IndexOf(item)];
             iconRenderer.sprite = item.ShopItemType switch
             {
                 ShopItemTypes.Upgrade => item.UpgradeData.Icon,
@@ -104,10 +113,10 @@ public class ShopUIManager : MonoBehaviour
                 };
                 tierField.color = boosterTier switch
                 {
-                    BoosterTiers.Tier1 => _tierColors[0],
-                    BoosterTiers.Tier2 => _tierColors[1],
-                    BoosterTiers.Tier3 => _tierColors[2],
-                    BoosterTiers.Tier4 => _tierColors[3],
+                    BoosterTiers.Tier1 => _boosterTierColors[0],
+                    BoosterTiers.Tier2 => _boosterTierColors[1],
+                    BoosterTiers.Tier3 => _boosterTierColors[2],
+                    BoosterTiers.Tier4 => _boosterTierColors[3],
                     _ => Color.white
                 };
             }
@@ -123,10 +132,10 @@ public class ShopUIManager : MonoBehaviour
                 };
                 tierField.color = item.UpgradeData.Phase switch
                 {
-                    UpgradePhases.Phase1 => _tierColors[0],
-                    UpgradePhases.Phase2 => _tierColors[1],
-                    UpgradePhases.Phase3 => _tierColors[2],
-                    UpgradePhases.Phase4 => _tierColors[3],
+                    UpgradePhases.Phase1 => _upgradeTierColors[0],
+                    UpgradePhases.Phase2 => _upgradeTierColors[1],
+                    UpgradePhases.Phase3 => _upgradeTierColors[2],
+                    UpgradePhases.Phase4 => _upgradeTierColors[3],
                     _ => Color.white
                 };
             }
