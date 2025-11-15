@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class ShopUIManager : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class ShopUIManager : MonoBehaviour
     [SerializeField] private GameObject _upgradesCanvas;
 
     [SerializeField] private List<Image> _backgroundRenderers;
+    [SerializeField] private List<EventTrigger> _backgroundEventTriggers;
     [SerializeField] private List<Image> _iconRenderers;
     [SerializeField] private List<TMP_Text> _nameFields;
     [SerializeField] private List<TMP_Text> _tierFields;
@@ -27,16 +29,12 @@ public class ShopUIManager : MonoBehaviour
     [SerializeField] private List<TMP_Text> _waterPollutionFields;
     [SerializeField] private List<TMP_Text> _costFields;
 
-    [SerializeField] private List<ShopItem> items;
+    private List<ShopItem> items;
 
-    private void Start()
+    public void ShowShop()
     {
-        ShowShop(items);
-    }
-
-    public void ShowShop(List<ShopItem> items)
-    {
-        SetAllUIElements(items);
+        this.items = ServiceLocator.Instance.ShopManager.GetSelectedItems();
+        SetAllUIElements();
         _upgradesCanvas.SetActive(true);
     }
 
@@ -45,10 +43,8 @@ public class ShopUIManager : MonoBehaviour
         _upgradesCanvas.SetActive(false);
     }
 
-    public void SetBackgrounds(List<ShopItem> items)
+    public void SetBackground(ShopItem item)
     {
-        foreach (var item in items)
-        {
             Image backgroundRenderer = _backgroundRenderers[items.IndexOf(item)];
             if (item.ShopItemType == ShopItemTypes.Upgrade)
             {
@@ -62,13 +58,24 @@ public class ShopUIManager : MonoBehaviour
             {
                 backgroundRenderer.sprite = _boosterBackgroundSprite;
             }
-        }
     }
 
-    public void SetIcons(List<ShopItem> items)
+    public void SetBackGroundEventTrigger(ShopItem item)
     {
-        foreach (ShopItem item in items)
-        {
+            EventTrigger backgroundEventTrigger = _backgroundEventTriggers[items.IndexOf(item)];
+            var trigger = new EventTrigger.Entry();
+            trigger.eventID = EventTriggerType.PointerClick;
+            trigger.callback.AddListener((data) =>
+            {
+                Debug.Log("Clicked on item: " + item.ShopItemType);
+                ServiceLocator.Instance.ShopManager.ChooseItem(item);
+            });
+            backgroundEventTrigger.triggers.Add(trigger);
+        
+    }
+
+    public void SetIcon(ShopItem item)
+    {
             Image iconRenderer = _iconRenderers[items.IndexOf(item)];
             iconRenderer.sprite = item.ShopItemType switch
             {
@@ -77,13 +84,11 @@ public class ShopUIManager : MonoBehaviour
                 ShopItemTypes.Booster => item.BoosterData.Icon,
                 _ => null
             };
-        }
+        
     }
 
-    public void SetNames(List<ShopItem> items)
+    public void SetName(ShopItem item)
     {
-        foreach (ShopItem item in items)
-        {
             TMP_Text nameField = _nameFields[items.IndexOf(item)];
             nameField.text = item.ShopItemType switch
             {
@@ -92,13 +97,11 @@ public class ShopUIManager : MonoBehaviour
                 ShopItemTypes.Booster => item.BoosterData.Name,
                 _ => "Unknown Item"
             };
-        }
+        
     }
 
-    public void SetTiers(List<ShopItem> items)
+    public void SetTier(ShopItem item)
     {
-        foreach (ShopItem item in items)
-        {
             TMP_Text tierField = _tierFields[items.IndexOf(item)];
             if (item.ShopItemType == ShopItemTypes.Booster)
             {
@@ -143,13 +146,11 @@ public class ShopUIManager : MonoBehaviour
             {
                 tierField.text = "";
             }
-        }
+        
     }
 
-    public void SetDescriptions(List<ShopItem> items)
+    public void SetDescription(ShopItem item)
     {
-        foreach (ShopItem item in items)
-        {
             TMP_Text descriptionField = _descriptionFields[items.IndexOf(item)];
             descriptionField.text = item.ShopItemType switch
             {
@@ -158,13 +159,11 @@ public class ShopUIManager : MonoBehaviour
                 ShopItemTypes.Booster => item.BoosterData.Description,
                 _ => ""
             };
-        }
+       
     }
 
-    public void SetIncomeModifiers(List<ShopItem> items)
+    public void SetIncomeModifier(ShopItem item)
     {
-        foreach (ShopItem item in items)
-        {
             TMP_Text incomeField = _incomeFields[items.IndexOf(item)];
             incomeField.text = item.ShopItemType switch
             {
@@ -173,13 +172,11 @@ public class ShopUIManager : MonoBehaviour
                 ShopItemTypes.Booster => item.BoosterData.Modifiers.IncomeModifier.ToString("P0"),
                 _ => ""
             };
-        }
+        
     }
 
-    public void SetProductionSpeeds(List<ShopItem> items)
+    public void SetProductionSpeed(ShopItem item)
     {
-        foreach (ShopItem item in items)
-        {
             TMP_Text speedField = _speedFields[items.IndexOf(item)];
             speedField.text = item.ShopItemType switch
             {
@@ -188,13 +185,11 @@ public class ShopUIManager : MonoBehaviour
                 ShopItemTypes.Booster => item.BoosterData.Modifiers.SpeedModifier.ToString("P0"),
                 _ => ""
             };
-        }
+        
     }
 
-    public void SetWaterPollutions(List<ShopItem> items)
+    public void SetWaterPollution(ShopItem item)
     {
-        foreach (ShopItem item in items)
-        {
             TMP_Text waterPollutionField = _waterPollutionFields[items.IndexOf(item)];
             waterPollutionField.text = item.ShopItemType switch
             {
@@ -203,13 +198,11 @@ public class ShopUIManager : MonoBehaviour
                 ShopItemTypes.Booster => item.BoosterData.Modifiers.WaterPollutionModifier.ToString("P0"),
                 _ => ""
             };
-        }
+        
     }
 
-    public void SetSoilPollutions(List<ShopItem> items)
+    public void SetSoilPollution(ShopItem item)
     {
-        foreach (ShopItem item in items)
-        {
             TMP_Text soilPollutionField = _soilPollutionFields[items.IndexOf(item)];
             soilPollutionField.text = item.ShopItemType switch
             {
@@ -218,13 +211,11 @@ public class ShopUIManager : MonoBehaviour
                 ShopItemTypes.Booster => item.BoosterData.Modifiers.SoilPollutionModifier.ToString("P0"),
                 _ => ""
             };
-        }
+        
     }
 
-    public void SetAirPollutions(List<ShopItem> items)
+    public void SetAirPollution(ShopItem item)
     {
-        foreach (ShopItem item in items)
-        {
             TMP_Text airPollutionField = _airPollutionFields[items.IndexOf(item)];
             airPollutionField.text = item.ShopItemType switch
             {
@@ -233,13 +224,11 @@ public class ShopUIManager : MonoBehaviour
                 ShopItemTypes.Booster => item.BoosterData.Modifiers.AirPollutionModifier.ToString("P0"),
                 _ => ""
             };
-        }
+        
     }
 
-    public void SetCosts(List<ShopItem> items)
+    public void SetCost(ShopItem item)
     {
-        foreach (ShopItem item in items)
-        {
             TMP_Text costField = _costFields[items.IndexOf(item)];
             costField.text = item.ShopItemType switch
             {
@@ -248,21 +237,25 @@ public class ShopUIManager : MonoBehaviour
                 ShopItemTypes.Booster => ServiceLocator.Instance.BoostersManager.GetBoosterCost(item.BoosterData.Name).ToString(),
                 _ => ""
             };
-        }
+        
     }
 
-    public void SetAllUIElements(List<ShopItem> items)
+    public void SetAllUIElements()
     {
-        SetBackgrounds(items);
-        SetIcons(items);
-        SetNames(items);
-        SetTiers(items);
-        SetDescriptions(items);
-        SetIncomeModifiers(items);
-        SetProductionSpeeds(items);
-        SetAirPollutions(items);
-        SetSoilPollutions(items);
-        SetWaterPollutions(items);
-        SetCosts(items);
+        foreach (ShopItem item in items)
+        {
+            SetBackground(item);
+            SetBackGroundEventTrigger(item);
+            SetIcon(item);
+            SetName(item);
+            SetTier(item);
+            SetDescription(item);
+            SetIncomeModifier(item);
+            SetProductionSpeed(item);
+            SetAirPollution(item);
+            SetSoilPollution(item);
+            SetWaterPollution(item);
+            SetCost(item);
+        }
     }
 }

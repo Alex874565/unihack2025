@@ -5,6 +5,7 @@ public class BoostersManager : MonoBehaviour
 {
     public List<GlobalModifierData> ActiveBoosters => _activeBoosters;
     public Dictionary<ModuleTypes, Modifiers> ModuleBoosterModifiers => _moduleBoosterModifiers;
+    public List<float> BoosterDurations => _boosterDurations;
 
     public BoostersDatabase BoostersDatabase => _boostersDatabase;
 

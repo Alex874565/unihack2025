@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class InputManager : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class InputManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.P))
         {
-            ServiceLocator.Instance.ModulesManager.BuyModule(null);
+            ServiceLocator.Instance.ShopUIManager.ShowShop();
         }
     }
 }

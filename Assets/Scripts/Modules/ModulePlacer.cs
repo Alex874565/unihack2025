@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ModulePlacer : MonoBehaviour
@@ -12,7 +14,10 @@ public class ModulePlacer : MonoBehaviour
     [SerializeField] private Color _occupiedColor;
     [SerializeField] private Color _freeColor;
     [SerializeField] private Color _hoveringColor;
-    
+
+    [SerializeField] private AudioSource _placeAudio;
+    [SerializeField] private GameObject _placeParticles;
+
 
     private float _cellWidth;
     private float _cellHeight;
@@ -101,10 +106,27 @@ public class ModulePlacer : MonoBehaviour
             }
             _modulesGrid.AddModuleToGrid(_moduleData, x, y);
             _modulePrefab.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1f);
+            StartCoroutine(PlayPlaceEffects(_modulePrefab.transform.position));
             _modulePrefab.GetComponent<ModuleBehaviour>().Place();
             _modulePrefab = null;
             _moduleData = null;
             
+        }
+    }
+
+    IEnumerator PlayPlaceEffects(Vector3 position)
+    {
+        Time.timeScale = 0f;
+        yield return new WaitForSecondsRealtime(0.1f);
+        Time.timeScale = 1f;
+        if (_placeAudio != null)
+        {
+            _placeAudio.Play();
+        }
+        if (_placeParticles != null)
+        {
+            _placeParticles.transform.position = position;
+            _placeParticles.GetComponent<ParticleSystem>().Play();
         }
     }
 

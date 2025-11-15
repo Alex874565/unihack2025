@@ -62,7 +62,7 @@ public class ModuleBehaviour : MonoBehaviour
 
     public void FinishProduction()
     {
-        Debug.Log("ModuleBehaviour - FinishProduction: Production cycle finished, produced: " + _moneyCollected);
+        //Debug.Log("ModuleBehaviour - FinishProduction: Production cycle finished, produced: " + _moneyCollected);
         FillProductionIcon();
         _collecting = false;
     }
@@ -71,14 +71,14 @@ public class ModuleBehaviour : MonoBehaviour
     {
         float actualIncome = production.IncomeModifier * _moduleData.BaseProduction.SpeedModifier / _production.SpeedModifier;
         _moneyCollected += actualIncome;
-        Debug.Log("ModuleBehaviour - ApplyIncome: Applying income: " + actualIncome + ", total collected: " + _moneyCollected);
+        //Debug.Log("ModuleBehaviour - ApplyIncome: Applying income: " + actualIncome + ", total collected: " + _moneyCollected);
 
         SetProductionIconFill(_moneyCollected, production.IncomeModifier * _moduleData.BaseProduction.SpeedModifier);
     }
 
     public void ApplyPollution(Modifiers production)
     {
-        Debug.Log("ModuleBehaviour - ApplyPollution: Applying pollution - Air: " + production.AirPollutionModifier + ", Soil: " + production.SoilPollutionModifier + ", Water: " + production.WaterPollutionModifier);
+        //Debug.Log("ModuleBehaviour - ApplyPollution: Applying pollution - Air: " + production.AirPollutionModifier + ", Soil: " + production.SoilPollutionModifier + ", Water: " + production.WaterPollutionModifier);
         ServiceLocator.Instance.PollutionManager.ModifyAirPollution(production.AirPollutionModifier);
         ServiceLocator.Instance.PollutionManager.ModifySoilPollution(production.SoilPollutionModifier);
         ServiceLocator.Instance.PollutionManager.ModifyWaterPollution(production.WaterPollutionModifier);
@@ -86,7 +86,7 @@ public class ModuleBehaviour : MonoBehaviour
 
     public void TryCollect()
     {
-        Debug.Log("ModuleBehaviour - TryCollect: Trying to collect , collecting is: " + _collecting);
+        //Debug.Log("ModuleBehaviour - TryCollect: Trying to collect , collecting is: " + _collecting);
         if (!_collecting)
         {
             ServiceLocator.Instance.MoneyManager.GainMoney(_moneyCollected);
@@ -101,7 +101,7 @@ public class ModuleBehaviour : MonoBehaviour
     {
         if (_collectionFillIcon)
         {
-            Debug.Log("ModuleBehaviour - SetProductionIconFill: time left:" + (_production.SpeedModifier - _collectionTimeRemaining) + ", totalProduction: " + totalProduction + "value/total production:" + (value * 100) / totalProduction);
+            //Debug.Log("ModuleBehaviour - SetProductionIconFill: time left:" + (_production.SpeedModifier - _collectionTimeRemaining) + ", totalProduction: " + totalProduction + "value/total production:" + (value * 100) / totalProduction);
             float fillAmount = value / totalProduction;
             _collectionFillIcon.fillAmount = fillAmount;
         }
