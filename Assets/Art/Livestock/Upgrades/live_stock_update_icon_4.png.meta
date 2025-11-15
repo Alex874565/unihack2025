@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0520c63dcab69774886f610fd280429c
+guid: 29d3d48db2dacf944aed08c23d91833d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6358224306040858829
-    second: PondTier1_0
+      213: 8628445894666085761
+    second: live_stock_update_icon_4_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PondTier1_0
+      name: live_stock_update_icon_4_0
       rect:
         serializedVersion: 2
-        x: 166
-        y: 47
-        width: 473
-        height: 399
+        x: 0
+        y: 0
+        width: 350
+        height: 350
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dc8e1dba153fc3850800000000000000
-      internalID: 6358224306040858829
+      spriteID: 185ef3363d56eb770800000000000000
+      internalID: 8628445894666085761
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PondTier1_0: 6358224306040858829
+      live_stock_update_icon_4_0: 8628445894666085761
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

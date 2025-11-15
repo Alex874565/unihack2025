@@ -52,6 +52,7 @@ public class ModulePlacer : MonoBehaviour
             _isPlacingModule = true;
             _moduleData = moduleData;
             _modulePrefab = Instantiate(_moduleData.ModulePrefab);
+            ServiceLocator.Instance.ModulesManager.AddOwnedModule(_modulePrefab);
             _modulePrefab.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.7f);
             DrawGrid();
         }

@@ -4,6 +4,6 @@ using UnityEngine;
 [Serializable]
 public class UpgradeObjectEntry
 {
-    public UpgradeData Upgrade;
+    public UpgradePhases UpgradePhase;
     public GameObject Object;
 }

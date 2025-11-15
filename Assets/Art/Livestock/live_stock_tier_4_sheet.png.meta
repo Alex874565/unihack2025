@@ -1,37 +1,37 @@
 fileFormatVersion: 2
-guid: d76b458642b3e224ea50e7c6043d852a
+guid: 8ee7d62a06f50f94797c8f348036de57
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8150393740248722131
-    second: live_stock_tier_3_sheet_0
+      213: 6163106773054575611
+    second: live_stock_tier_4_sheet_0
   - first:
-      213: -7884866206200490227
-    second: live_stock_tier_3_sheet_1
+      213: -2530711691223703332
+    second: live_stock_tier_4_sheet_1
   - first:
-      213: -9073184055750788431
-    second: live_stock_tier_3_sheet_2
+      213: -8650546720326549535
+    second: live_stock_tier_4_sheet_2
   - first:
-      213: -8974737410848185570
-    second: live_stock_tier_3_sheet_3
+      213: -4900792184684168236
+    second: live_stock_tier_4_sheet_3
   - first:
-      213: 4186892498857612968
-    second: live_stock_tier_3_sheet_4
+      213: -4093393682817889657
+    second: live_stock_tier_4_sheet_4
   - first:
-      213: 335002790684684975
-    second: live_stock_tier_3_sheet_5
+      213: -2350842955002690334
+    second: live_stock_tier_4_sheet_5
   - first:
-      213: -5187287805834373611
-    second: live_stock_tier_3_sheet_6
+      213: -2172060529937030028
+    second: live_stock_tier_4_sheet_6
   - first:
-      213: -5562470871287029074
-    second: live_stock_tier_3_sheet_7
+      213: -4908114398033654209
+    second: live_stock_tier_4_sheet_7
   - first:
-      213: -4822669840269029054
-    second: live_stock_tier_3_sheet_8
+      213: 4956476383034189121
+    second: live_stock_tier_4_sheet_8
   - first:
-      213: 7356916233906708740
-    second: live_stock_tier_3_sheet_9
+      213: -7426082476299788768
+    second: live_stock_tier_4_sheet_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -127,7 +127,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: live_stock_tier_3_sheet_0
+      name: live_stock_tier_4_sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -142,14 +142,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d2558ec631cf3ee80800000000000000
-      internalID: -8150393740248722131
+      spriteID: bf3d8b0e4f0c78550800000000000000
+      internalID: 6163106773054575611
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: live_stock_tier_3_sheet_1
+      name: live_stock_tier_4_sheet_1
       rect:
         serializedVersion: 2
         x: 800
@@ -164,14 +164,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d0710f516f3539290800000000000000
-      internalID: -7884866206200490227
+      spriteID: cd0eea7002b11ecd0800000000000000
+      internalID: -2530711691223703332
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: live_stock_tier_3_sheet_2
+      name: live_stock_tier_4_sheet_2
       rect:
         serializedVersion: 2
         x: 0
@@ -186,14 +186,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1ba7c3f4c23951280800000000000000
-      internalID: -9073184055750788431
+      spriteID: 1eff306279513f780800000000000000
+      internalID: -8650546720326549535
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: live_stock_tier_3_sheet_3
+      name: live_stock_tier_4_sheet_3
       rect:
         serializedVersion: 2
         x: 800
@@ -208,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e132cf100e3537380800000000000000
-      internalID: -8974737410848185570
+      spriteID: 4dbb3e93973ecfbb0800000000000000
+      internalID: -4900792184684168236
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: live_stock_tier_3_sheet_4
+      name: live_stock_tier_4_sheet_4
       rect:
         serializedVersion: 2
         x: 0
@@ -230,14 +230,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8a6d72b6b84da1a30800000000000000
-      internalID: 4186892498857612968
+      spriteID: 78acfc912285137c0800000000000000
+      internalID: -4093393682817889657
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: live_stock_tier_3_sheet_5
+      name: live_stock_tier_4_sheet_5
       rect:
         serializedVersion: 2
         x: 800
@@ -252,14 +252,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fa27681634b26a400800000000000000
-      internalID: 335002790684684975
+      spriteID: 2e4c558a9c0206fd0800000000000000
+      internalID: -2350842955002690334
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: live_stock_tier_3_sheet_6
+      name: live_stock_tier_4_sheet_6
       rect:
         serializedVersion: 2
         x: 0
@@ -274,14 +274,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 516d689593d0308b0800000000000000
-      internalID: -5187287805834373611
+      spriteID: 474e472c47a4bd1e0800000000000000
+      internalID: -2172060529937030028
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: live_stock_tier_3_sheet_7
+      name: live_stock_tier_4_sheet_7
       rect:
         serializedVersion: 2
         x: 800
@@ -296,14 +296,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ea2aa7bb6322ec2b0800000000000000
-      internalID: -5562470871287029074
+      spriteID: f3e493495ffd2ebb0800000000000000
+      internalID: -4908114398033654209
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: live_stock_tier_3_sheet_8
+      name: live_stock_tier_4_sheet_8
       rect:
         serializedVersion: 2
         x: 0
@@ -318,14 +318,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 24156c5f45f621db0800000000000000
-      internalID: -4822669840269029054
+      spriteID: 145ad548201f8c440800000000000000
+      internalID: 4956476383034189121
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: live_stock_tier_3_sheet_9
+      name: live_stock_tier_4_sheet_9
       rect:
         serializedVersion: 2
         x: 800
@@ -340,8 +340,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 401605c0654091660800000000000000
-      internalID: 7356916233906708740
+      spriteID: 02ed567355141f890800000000000000
+      internalID: -7426082476299788768
       vertices: []
       indices: 
       edges: []
@@ -350,7 +350,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: bd5201f911e967544b8be01173d405e4
+    spriteID: fe061dcab09987f45983bfefc1b04eb6
     internalID: 0
     vertices: []
     indices: 
@@ -360,16 +360,16 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      live_stock_tier_3_sheet_0: -8150393740248722131
-      live_stock_tier_3_sheet_1: -7884866206200490227
-      live_stock_tier_3_sheet_2: -9073184055750788431
-      live_stock_tier_3_sheet_3: -8974737410848185570
-      live_stock_tier_3_sheet_4: 4186892498857612968
-      live_stock_tier_3_sheet_5: 335002790684684975
-      live_stock_tier_3_sheet_6: -5187287805834373611
-      live_stock_tier_3_sheet_7: -5562470871287029074
-      live_stock_tier_3_sheet_8: -4822669840269029054
-      live_stock_tier_3_sheet_9: 7356916233906708740
+      live_stock_tier_4_sheet_0: 6163106773054575611
+      live_stock_tier_4_sheet_1: -2530711691223703332
+      live_stock_tier_4_sheet_2: -8650546720326549535
+      live_stock_tier_4_sheet_3: -4900792184684168236
+      live_stock_tier_4_sheet_4: -4093393682817889657
+      live_stock_tier_4_sheet_5: -2350842955002690334
+      live_stock_tier_4_sheet_6: -2172060529937030028
+      live_stock_tier_4_sheet_7: -4908114398033654209
+      live_stock_tier_4_sheet_8: 4956476383034189121
+      live_stock_tier_4_sheet_9: -7426082476299788768
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

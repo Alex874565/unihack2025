@@ -5,12 +5,12 @@ using System.Linq;
 public class ModulesManager : MonoBehaviour
 {
     public ModulesGrid ModulesGrid => _modulesGrid;
-    public List<ModuleData> OwnedModules => _ownedModules;
+    public List<GameObject> OwnedModules => _ownedModules;
     public Dictionary<ModuleTypes, Modifiers> ModuleTypeProductions => _moduleTypeProductions;
     public ModulesDatabase ModulesDatabase => _modulesDatabase;
     [SerializeField] private ModulesDatabase _modulesDatabase;
     [SerializeField] private ModulesGrid _modulesGrid;
-    [SerializeField] private List<ModuleData> _ownedModules;
+    [SerializeField] private List<GameObject> _ownedModules;
     [SerializeField] private ModulePlacer _modulePlacer;
     [SerializeField] private Dictionary<ModuleTypes, Modifiers> _moduleTypeProductions;
 
@@ -22,7 +22,7 @@ public class ModulesManager : MonoBehaviour
 
     private void Awake()
     {
-        _ownedModules = new List<ModuleData>();
+        _ownedModules = new List<GameObject>();
         _moduleTypeProductions = new Dictionary<ModuleTypes, Modifiers>();
     }
 
@@ -60,7 +60,6 @@ public class ModulesManager : MonoBehaviour
         {
             SetModuleTypeProduction(module.ModuleType, module.BaseProduction);
         }
-        _ownedModules.Add(module);
         _modulePlacer.StartPlacingModule(module);
     }
 
@@ -123,5 +122,22 @@ public class ModulesManager : MonoBehaviour
         _moduleTypeProductions[moduleType] = production;
 
         Debug.Log("CalculateModuleTypeProduction - New production for " + moduleType + ": " + production);
+    }
+
+    public void AddOwnedModule(GameObject module)
+    {
+        _ownedModules.Add(module);
+    }
+
+    public void UpdateModuleTypeVisuals(ModuleTypes moduleType, UpgradePhases phase)
+    {
+        foreach (var module in _ownedModules)
+        {
+            ModuleBehaviour moduleBehaviour = module.GetComponent<ModuleBehaviour>();
+            if (moduleBehaviour.ModuleData.ModuleType == moduleType)
+            {
+                moduleBehaviour.UpdateVisuals(phase);
+            }
+        }
     }
 }
