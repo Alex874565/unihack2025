@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9253d7b6972ca184bb21993b9342ce11, type: 3}
+  m_Name: Fishing
+  m_EditorClassIdentifier: 
+  _moduleName: Open Pond System
+  _moduleType: 6
+  _moduleDescription: As basic as a fish basin gets.
+  _baseProduction:
+    IncomeModifier: 50
+    SpeedModifier: 4
+    AirPollutionModifier: 0.5
+    WaterPollutionModifier: 0.5
+    SoilPollutionModifier: 1.5
+    PollutionModifierType: 0
+  _cost: 80
+  _icon: {fileID: 0}
+  _modulePrefab: {fileID: 0}
+  _upgrades:
+  - {fileID: 11400000, guid: 357f7121d69c6db4ba7ee8cd1ea44374, type: 2}
+  - {fileID: 11400000, guid: a00697613da128d44ac47049f964e7c3, type: 2}
+  - {fileID: 11400000, guid: 392545cf38c67e7429baa1ec4d8b82d2, type: 2}

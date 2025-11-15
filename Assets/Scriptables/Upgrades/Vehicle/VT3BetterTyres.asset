@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 403c6365e2f19a445a9b6411ed6b9fe9, type: 3}
   m_Name: VT3BetterTyres
   m_EditorClassIdentifier: 
-  _name: Better tyres
-  _cost: 0
+  _name: Better Tyres
+  _cost: 300
   _icon: {fileID: 0}
   _description: Tyres made to not compact the soil and improve efficiency
   _modifiers:
@@ -26,3 +26,4 @@ MonoBehaviour:
   _phase: 2
   _possibleUpgrades: []
   _moduleType: 1
+  _isNewTier: 0

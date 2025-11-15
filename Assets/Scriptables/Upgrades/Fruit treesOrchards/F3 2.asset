@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: F3 2
   m_EditorClassIdentifier: 
   _name: Integrated pest management
-  _cost: 0
+  _cost: 500
   _icon: {fileID: 0}
   _description: Keeps pest and diseases at minimum with no harmful chemicals.
   _modifiers:
@@ -26,3 +26,4 @@ MonoBehaviour:
   _phase: 2
   _possibleUpgrades: []
   _moduleType: 5
+  _isNewTier: 0
