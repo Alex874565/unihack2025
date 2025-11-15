@@ -20,14 +20,8 @@ public class HUD : MonoBehaviour
     private ShopManager _shopManager;
     private ShopUIManager _shopUIManager;
 
-    private Dictionary<GlobalModifierData, BoosterIconUI> activeBoosterIcons 
-    = new Dictionary<GlobalModifierData, BoosterIconUI>();
-
-
-    private void Awake()
-    {
-
-    }
+    // Store all active booster icons
+    private List<BoosterIconUI> activeBoosterIcons = new List<BoosterIconUI>();
 
     private void Start()
     {
@@ -39,72 +33,69 @@ public class HUD : MonoBehaviour
         shopButton.onClick.AddListener(OpenShop);
 
         boostTemplate.gameObject.SetActive(false);
-        ServiceLocator.Instance.BoostersManager.OnBoostActivated += BoostersManager_OnBoostActivated;
-        ServiceLocator.Instance.BoostersManager.OnBoostDeactivated += BoostersManager_OnBoostDeactivated;
+        ServiceLocator.Instance.BoostersManager.OnBoostActivated += BoostersManager_OnBoostChanged;
+        ServiceLocator.Instance.BoostersManager.OnBoostDeactivated += BoostersManager_OnBoostChanged;
 
         UpdateBoostsVisual();
     }
 
-
-    private void BoostersManager_OnBoostActivated(object sender, System.EventArgs e)
-    {
-        UpdateBoostsVisual();
-    }
-
-    private void BoostersManager_OnBoostDeactivated(object sender, System.EventArgs e)
+    private void BoostersManager_OnBoostChanged(object sender, System.EventArgs e)
     {
         UpdateBoostsVisual();
     }
 
     private void UpdateBoostsVisual()
     {
-        // Delete previous icons safely
-        List<Transform> toDestroy = new List<Transform>();
+        // Remove old icons
         foreach (Transform child in boostsContainer)
         {
             if (child != boostTemplate)
-                toDestroy.Add(child);
+                Destroy(child.gameObject);
         }
-        foreach (Transform t in toDestroy)
-            Destroy(t.gameObject);
-
         activeBoosterIcons.Clear();
 
-        Debug.Log(ServiceLocator.Instance.BoostersManager.ActiveBoosters);
-        // ← Replace the old foreach here with the for-loop below
-        for (int i = 0; i < ServiceLocator.Instance.BoostersManager.ActiveBoosters.Count; i++)
+        var manager = ServiceLocator.Instance.BoostersManager;
+
+        for (int i = 0; i < manager.ActiveBoosters.Count; i++)
         {
-            var booster = ServiceLocator.Instance.BoostersManager.ActiveBoosters[i];
-            float remaining = ServiceLocator.Instance.BoostersManager.BoosterDurations[i];
+            var booster = manager.ActiveBoosters[i];
+            float remaining = manager.BoosterDurations[i];
 
             Transform iconObj = Instantiate(boostTemplate, boostsContainer);
             iconObj.gameObject.SetActive(true);
 
             BoosterIconUI iconUI = iconObj.GetComponent<BoosterIconUI>();
             if (iconUI == null)
-                Debug.LogError("BoosterIconUI MISSING on boostTemplate!", boostTemplate);
+            {
+                Debug.LogError("BoosterIconUI missing on boostTemplate!");
+                continue;
+            }
 
-            if (booster == null)
-                Debug.LogError("Active booster is NULL at index " + i);
+            iconUI.Initialize(booster.Icon, remaining);
 
-            if (booster.Icon == null)
-                Debug.LogError("Booster ICON is NULL for booster: " + booster.name);
-
-            iconUI.Initialize(booster.Icon, booster.Duration);
-
-            activeBoosterIcons.Add(booster, iconUI);
+            // Add to the list (duplicates allowed)
+            activeBoosterIcons.Add(iconUI);
         }
     }
 
+    private void UpdateBoosterTimers()
+    {
+        var manager = ServiceLocator.Instance.BoostersManager;
 
-
-
+        for (int i = 0; i < manager.ActiveBoosters.Count; i++)
+        {
+            float remaining = manager.BoosterDurations[i];
+            if (i < activeBoosterIcons.Count)
+            {
+                activeBoosterIcons[i].UpdateTimer(remaining);
+            }
+        }
+    }
 
     private void OpenShop()
     {
-        _shopUIManager.ShowShop();        // ShopUI retrieves items internally
+        _shopUIManager.ShowShop();
     }
-
 
     private void Update()
     {
@@ -117,38 +108,21 @@ public class HUD : MonoBehaviour
         UpdateBoosterTimers();
     }
 
-    private void UpdateBoosterTimers()
-    {
-        var manager =  ServiceLocator.Instance.BoostersManager;
-
-        for (int i = 0; i < manager.ActiveBoosters.Count; i++)
-        {
-            GlobalModifierData booster = manager.ActiveBoosters[i];
-            float remaining = manager.BoosterDurations[i];
-
-            if (activeBoosterIcons.TryGetValue(booster, out BoosterIconUI iconUI))
-            {
-                iconUI.UpdateTimer(remaining);
-            }
-        }
-    }
-
-
     private void UpdateMoneyUI()
     {
         if (moneyText != null)
-            moneyText.text = "" + Mathf.RoundToInt(_moneyManager.CurrentMoney);
+            moneyText.text = Mathf.RoundToInt(_moneyManager.CurrentMoney).ToString();
     }
 
     private void UpdatePollutionBars()
     {
         if (airSlider != null)
-            airSlider.value = _pollutionManager.AirPollutionLevel / 100;
+            airSlider.value = _pollutionManager.AirPollutionLevel / 100f;
 
         if (soilSlider != null)
-            soilSlider.value = _pollutionManager.SoilPollutionLevel / 100;
+            soilSlider.value = _pollutionManager.SoilPollutionLevel / 100f;
 
         if (waterSlider != null)
-            waterSlider.value = _pollutionManager.WaterPollutionLevel / 100;
+            waterSlider.value = _pollutionManager.WaterPollutionLevel / 100f;
     }
 }
