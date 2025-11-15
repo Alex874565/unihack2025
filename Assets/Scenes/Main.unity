@@ -8399,7 +8399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61b51a5cb9db4d74b860ccd337662171, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shopUIManager: {fileID: 0}
+  shopUIManager: {fileID: 1271914306}
   closeButton: {fileID: 295347290}
 --- !u!1 &1059307826
 GameObject:
