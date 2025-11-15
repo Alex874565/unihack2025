@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9253d7b6972ca184bb21993b9342ce11, type: 3}
-  m_Name: Diesel Power Generator
+  m_Name: Metal shed
   m_EditorClassIdentifier: 
-  _moduleName: Diesel Power Generator
-  _moduleType: 1
-  _moduleDescription: Some fuel chugging generators found on marketplace.
+  _moduleName: Simple Metal Shed
+  _moduleType: 2
+  _moduleDescription: It ain't much, but it's an honest hunk of metal.
   _baseProduction:
     IncomeModifier: 0
     SpeedModifier: 0
-    AirPollutionModifier: 0.6
-    WaterPollutionModifier: 0
-    SoilPollutionModifier: 0.8
-    PollutionModifierType: 0
+    AirPollutionModifier: 15
+    WaterPollutionModifier: 15
+    SoilPollutionModifier: 15
+    PollutionModifierType: 1
   _cost: 0
   _icon: {fileID: 0}
   _modulePrefab: {fileID: 0}
   _upgrades:
-  - {fileID: 11400000, guid: 652a869e6c0b7574b9a16469d3d45156, type: 2}
-  - {fileID: 11400000, guid: d6a6602e0bbb9864985d388d4f2c7c7c, type: 2}
-  - {fileID: 11400000, guid: 3ab0797d6f9b1d64ebc6d741dca82901, type: 2}
+  - {fileID: 11400000, guid: f6ecdd04f1b48f1479cdf7448485fff4, type: 2}
+  - {fileID: 11400000, guid: a7247a0abb13d4449b3bb69d23e032b4, type: 2}
+  - {fileID: 11400000, guid: f257e547e12a01343adea7c8e4f7a488, type: 2}

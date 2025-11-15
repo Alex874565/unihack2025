@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 403c6365e2f19a445a9b6411ed6b9fe9, type: 3}
-  m_Name: T4
+  m_Name: BT3Filtration
   m_EditorClassIdentifier: 
-  _name: Solar PV Array
+  _name: Automated spill detection
   _cost: 0
   _icon: {fileID: 0}
-  _description: Self-sufficient, operates only  on clean energy
+  _description: Has sensors that monitorize for unwanted spills.
   _modifiers:
     IncomeModifier: 0
     SpeedModifier: 0
-    AirPollutionModifier: -0.3
-    WaterPollutionModifier: 0
-    SoilPollutionModifier: -0.2
-    PollutionModifierType: 0
-  _phase: 3
+    AirPollutionModifier: 0
+    WaterPollutionModifier: -5
+    SoilPollutionModifier: -5
+    PollutionModifierType: 1
+  _phase: 2
   _possibleUpgrades: []
-  _moduleType: 0
+  _moduleType: 2

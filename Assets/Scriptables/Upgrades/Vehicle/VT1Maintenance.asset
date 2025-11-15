@@ -10,22 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 403c6365e2f19a445a9b6411ed6b9fe9, type: 3}
-  m_Name: T3
+  m_Name: VT1Maintenance
   m_EditorClassIdentifier: 
-  _name: Farm-scale Wind Turbine
+  _name: Basic Maintenance
   _cost: 0
   _icon: {fileID: 0}
-  _description: A wind turbine scaled for a farm's needs!
+  _description: 
   _modifiers:
     IncomeModifier: 0
     SpeedModifier: 0
-    AirPollutionModifier: -0.2
+    AirPollutionModifier: 0
     WaterPollutionModifier: 0
-    SoilPollutionModifier: -0.4
+    SoilPollutionModifier: -0.1
     PollutionModifierType: 0
-  _phase: 2
-  _possibleUpgrades:
-  - {fileID: 11400000, guid: fc6bcb5cf56211049bc6565b4a1396ba, type: 2}
-  - {fileID: 11400000, guid: 16e0cbe6d1c1957418d3d0761061a5e7, type: 2}
-  - {fileID: 11400000, guid: 54e629a38f4e0924b92f520743ce8388, type: 2}
-  _moduleType: 0
+  _phase: 0
+  _possibleUpgrades: []
+  _moduleType: 1
