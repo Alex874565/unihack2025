@@ -14,6 +14,7 @@ public class ServiceLocator : MonoBehaviour
     public EnvironmentManager EnvironmentManager => _environmentManager;
     public ShopUIManager ShopUIManager => _shopUIManager;
     public DialogueManager DialogueManager => _dialogueManager;
+    private TutorialManager _tutorialManager;
 
     private ModulesManager _modulesManager;
     private UpgradesManager _upgradesManager;
@@ -24,6 +25,7 @@ public class ServiceLocator : MonoBehaviour
     private EnvironmentManager _environmentManager;
     private ShopUIManager _shopUIManager;
     private DialogueManager _dialogueManager;
+    public TutorialManager TutorialManager => _tutorialManager;
 
     private void Awake()
     {
@@ -44,5 +46,6 @@ public class ServiceLocator : MonoBehaviour
         _environmentManager = GetComponent<EnvironmentManager>();
         _shopUIManager = GetComponent<ShopUIManager>();
         _dialogueManager = GetComponent<DialogueManager>();
+        _tutorialManager = GetComponent<TutorialManager>();
     }
 }

@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class ModulePlacer : MonoBehaviour
@@ -43,6 +42,8 @@ public class ModulePlacer : MonoBehaviour
         _totalHeight = _maxY - _minY;
         _cellWidth = _totalWidth / _modulesGrid.Columns;
         _cellHeight = _totalHeight / _modulesGrid.Rows;
+
+        ServiceLocator.Instance.ModulesManager.BuyInitialModules();
     }
 
     public void StartPlacingModule(ModuleData moduleData)
@@ -64,12 +65,21 @@ public class ModulePlacer : MonoBehaviour
 
     private void Update()
     {
-        if (!_isPlacingModule && _modulesToPlace.Count > 0)
+        if (!_isPlacingModule)
         {
-            ModuleData nextModule = _modulesToPlace[0];
-            _modulesToPlace.RemoveAt(0);
-            StartPlacingModule(nextModule);
+            if (_modulesToPlace.Count > 0)
+            {
+                ModuleData nextModule = _modulesToPlace[0];
+                _modulesToPlace.RemoveAt(0);
+                StartPlacingModule(nextModule);
+            }else if (ServiceLocator.Instance.TutorialManager.IsPlacingModules)
+            {
+                ServiceLocator.Instance.TutorialManager.StopPlacingModules();
+            }
         }
+
+        
+
         if (_modulePrefab != null)
         {
             Vector3 mousePosition = Input.mousePosition;
@@ -87,6 +97,8 @@ public class ModulePlacer : MonoBehaviour
             {
                 if (_lastMouseCol != -1 && _lastMouseRow != -1)
                 {
+                    Debug.Log("Resetting color of last cell: " + _lastMouseRow + ", " + _lastMouseCol);
+                    Debug.Log("Grid size: " + _gridCells.Count + ", " + _gridCells[0].Count);
                     if (_modulesGrid.IsSpaceFree(_lastMouseRow, _lastMouseCol))
                     {
                         _gridCells[_lastMouseRow][_lastMouseCol].GetComponent<SpriteRenderer>().color = _freeColor;
@@ -104,7 +116,11 @@ public class ModulePlacer : MonoBehaviour
             _modulePrefab.transform.position = new Vector3(moduleX, moduleY, 0);
             if (_modulesGrid.IsSpaceFree(mouseRow, mouseColumn))
             {
+                _modulePrefab.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.7f);
                 _gridCells[mouseRow][mouseColumn].GetComponent<SpriteRenderer>().color = _hoveringColor;
+            } else
+            {
+                _modulePrefab.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0f);
             }
             if (Input.GetMouseButtonDown(0))
             {

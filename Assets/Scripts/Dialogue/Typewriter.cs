@@ -1,36 +1,69 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Typewriter : MonoBehaviour
 {
-    [SerializeField] private TMP_Text displayedText;
-    [SerializeField] private TMP_Text hiddenFullText;
-    [SerializeField] private float typingSpeed = 0.03f;
+    public bool IsTyping => _isTyping;
+    [SerializeField] private float normalDelay;
+    [SerializeField] private float spaceDelay;
+    [SerializeField] private float lineDelay;
+    private bool _isTyping;
 
-    private Coroutine typingCoroutine;
+    private Coroutine coroutine;
 
-    public void StartTyping(string text)
+    public void StartTyping(TMP_Text textField)
     {
-        hiddenFullText.text = text;     // store the full text (invisible)
-        displayedText.text = "";        // clear visible text
-
-        if (typingCoroutine != null)
-            StopCoroutine(typingCoroutine);
-
-        typingCoroutine = StartCoroutine(TypeRoutine());
-    }
-
-    private IEnumerator TypeRoutine()
-    {
-        string full = hiddenFullText.text;
-        displayedText.maxVisibleCharacters = 0;
-        displayedText.text = full;
-
-        for (int i = 0; i <= full.Length; i++)
+        if (coroutine != null)
         {
-            displayedText.maxVisibleCharacters = i;
-            yield return new WaitForSeconds(typingSpeed);
+            StopCoroutine(coroutine);
+            coroutine = null;
         }
+
+
+        coroutine = StartCoroutine(TypeRoutine(textField));
     }
+
+    public IEnumerator TypeRoutine(TMP_Text textField)
+    {
+        _isTyping = true;
+        textField.maxVisibleCharacters = 0;
+
+        // Wait for TMP to update layout before reading characterInfo
+        yield return null;
+
+        int totalChars = textField.textInfo.characterCount;
+
+        for (int i = 0; i < totalChars; i++)
+        {
+            textField.maxVisibleCharacters = i + 1;
+
+            char c = textField.text[i];
+
+            // Determine delay
+            if (c == ' ')
+            {
+                yield return new WaitForSecondsRealtime(spaceDelay);
+            }
+            else if (c == '\n')
+            {
+                yield return new WaitForSecondsRealtime(lineDelay);
+            }
+            else
+            {
+                yield return new WaitForSecondsRealtime(normalDelay);
+            }
+        }
+        _isTyping = false;
+    }
+
+    public void StopCurrentCoroutine()
+    {
+        if (coroutine != null)
+            StopCoroutine(coroutine);
+
+        _isTyping = false;
+    }
+
 }

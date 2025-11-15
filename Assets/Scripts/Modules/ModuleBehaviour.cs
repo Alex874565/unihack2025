@@ -21,6 +21,8 @@ public class ModuleBehaviour : MonoBehaviour
     private bool _collecting;
     private bool _isPlaced;
 
+    private bool _tutorialContinued;
+
     private void Start()
     {
         _modulesManager = ServiceLocator.Instance.ModulesManager;
@@ -28,10 +30,14 @@ public class ModuleBehaviour : MonoBehaviour
         _collecting = false;
         _collectionBackgroundIcon.enabled = false;
         _isPlaced = false;
+        _tutorialContinued = false;
     }
 
     private void Update()
     {
+        if (ServiceLocator.Instance.TutorialManager.InTutorial)
+            return;
+
         if (!_isPlaced)
             return;
         
@@ -67,6 +73,11 @@ public class ModuleBehaviour : MonoBehaviour
         //Debug.Log("ModuleBehaviour - FinishProduction: Production cycle finished, produced: " + _moneyCollected);
         FillProductionIcon();
         _collecting = false;
+        if (!_tutorialContinued)
+        {
+            ServiceLocator.Instance.TutorialManager.ContinueTutorial();
+            _tutorialContinued = true;
+        }
     }
 
     public void ApplyIncome(Modifiers production)

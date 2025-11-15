@@ -117,12 +117,12 @@ public class HUD : MonoBehaviour
     private void UpdatePollutionBars()
     {
         if (airSlider != null)
-            airSlider.value = _pollutionManager.AirPollutionLevel / 100f;
+            airSlider.value = 1 - _pollutionManager.AirPollutionLevel / 100f;
 
         if (soilSlider != null)
-            soilSlider.value = _pollutionManager.SoilPollutionLevel / 100f;
+            soilSlider.value = 1 - _pollutionManager.SoilPollutionLevel / 100f;
 
         if (waterSlider != null)
-            waterSlider.value = _pollutionManager.WaterPollutionLevel / 100f;
+            waterSlider.value = 1 - _pollutionManager.WaterPollutionLevel / 100f;
     }
 }

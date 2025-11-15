@@ -54,16 +54,17 @@ public class BoostersManager : MonoBehaviour
 
     public GlobalModifierData GetWeightedBooster()
     {
+        List<BoosterData> availableBoosters = _boostersDatabase.Boosters;
         //Debug.Log("GetWeightedBooster - Selecting a weighted booster...");
         float totalWeight = 0f;
-        foreach (var booster in _boostersDatabase.Boosters)
+        foreach (var booster in availableBoosters)
         {
             totalWeight += GetBoosterWeight(booster);
         }
         Debug.Log("GetWeightedBooster - Total Weight: " + totalWeight);
         float randomValue = UnityEngine.Random.Range(0f, totalWeight);
         float cumulativeWeight = 0f;
-        foreach (var booster in _boostersDatabase.Boosters)
+        foreach (var booster in availableBoosters)
         {
             cumulativeWeight += GetBoosterWeight(booster);
             if (randomValue <= cumulativeWeight)

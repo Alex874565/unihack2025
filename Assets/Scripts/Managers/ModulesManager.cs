@@ -28,11 +28,11 @@ public class ModulesManager : MonoBehaviour
 
     private void Start()
     {
-        BuyInitialModules();
     }
 
     public void BuyInitialModules()
     {
+        ServiceLocator.Instance.TutorialManager.StartPlacingModules();
         BuyModule(_barn);
         BuyModule(_vehicles);
         BuyModule(_generator);
