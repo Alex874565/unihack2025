@@ -3,26 +3,31 @@ using UnityEngine.UI;
 
 public class BoosterIconUI : MonoBehaviour
 {
-    public Image iconImage;      // the main icon
-    public Image timerFill;      // radial fill image
+    [Header("References")]
+    [SerializeField] private Image iconImage;      // normal icon
+    [SerializeField] private Image timerImage;     // radial overlay
 
-    private float _duration;
-    private float _remaining;
+    private float duration;
 
-    public void Initialize(Sprite sprite, float duration)
+    public void Initialize(Sprite icon, float duration)
     {
-        iconImage.sprite = sprite;
-        _duration = duration;
-        _remaining = duration;
+        this.duration = duration;
+
+        // Normal icon
+        iconImage.sprite = icon;
+
+        // Timer overlay uses same sprite
+        timerImage.sprite = icon;
+
+        // Timer starts full
+        timerImage.fillAmount = 1f;
     }
 
-    public void UpdateTimer(float remainingTime)
+    public void UpdateTimer(float remaining)
     {
-        _remaining = remainingTime;
+        if (duration <= 0f) return;
 
-        if (_duration > 0)
-            timerFill.fillAmount = remainingTime / _duration;
-        else
-            timerFill.fillAmount = 0f;
+        float fill = Mathf.Clamp01(remaining / duration);
+        timerImage.fillAmount = fill;
     }
 }

@@ -32,16 +32,25 @@ public class ShopUIManager : MonoBehaviour
     private List<ShopItem> items;
 
     public void ShowShop()
-    {
-        items = ServiceLocator.Instance.ShopManager.GetSelectedItems();
-        SetAllUIElements();
-        _upgradesCanvas.SetActive(true);
-    }
+{
+    items = ServiceLocator.Instance.ShopManager.GetSelectedItems();
+    SetAllUIElements();
+    _upgradesCanvas.SetActive(true);
 
-    public void HideShop()
-    {
-        _upgradesCanvas.SetActive(false);
-    }
+    PauseManager.Instance.PauseGame(); // Works now
+    Debug.Log("Shop opened, game paused");
+}
+
+public void HideShop()
+{
+    _upgradesCanvas.SetActive(false);
+
+    PauseManager.Instance.ResumeGame(); // Works
+    Debug.Log("Shop closed, game resumed");
+}
+
+
+
 
     public void SetBackground(ShopItem item)
     {
