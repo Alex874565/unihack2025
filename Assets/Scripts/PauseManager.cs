@@ -39,12 +39,21 @@ public class PauseManager : MonoBehaviour
     }
 
     private void OnPause(InputAction.CallbackContext context)
+{
+    // If Options menu is open, close it and return
+    if (OptionsUI.Instance != null && OptionsUI.Instance.gameObject.activeSelf)
     {
-        if (isPaused)
-            ResumeGame();
-        else
-            PauseGame();
+        OptionsUI.Instance.Hide();
+        return;
     }
+
+    // Otherwise, toggle pause
+    if (isPaused)
+        ResumeGame();
+    else
+        PauseGame();
+}
+
 
     public void PauseGame()
 {

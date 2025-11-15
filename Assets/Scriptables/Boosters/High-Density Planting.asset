@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cddc0e82b5369b043ba7a0142a80b5db, type: 3}
+  m_Name: High-Density Planting
+  m_EditorClassIdentifier: 
+  _name: High-Density Planting
+  _description: Packs crops too densely for maximum yield. Boosts profit significantly
+    (2x Revenue), but results in noticeable increase in chemical runoff (WP).
+  _icon: {fileID: 0}
+  _modifiers:
+    IncomeModifier: 100
+    SpeedModifier: 0
+    AirPollutionModifier: 0
+    WaterPollutionModifier: 30
+    SoilPollutionModifier: 0
+    PollutionModifierType: 1
+  _isOneTime: 0
+  _duration: 20
+  _isPerModule: 0
+  _affectedModules: 

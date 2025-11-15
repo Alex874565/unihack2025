@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 403c6365e2f19a445a9b6411ed6b9fe9, type: 3}
   m_Name: BT2
   m_EditorClassIdentifier: 
-  _name: Full storage barn
-  _cost: 0
+  _name: Full Storage Barn
+  _cost: 500
   _icon: {fileID: 0}
   _description: A proper shed.
   _modifiers:
     IncomeModifier: 0
     SpeedModifier: 0
-    AirPollutionModifier: -10
-    WaterPollutionModifier: -10
-    SoilPollutionModifier: -10
+    AirPollutionModifier: 5
+    WaterPollutionModifier: 5
+    SoilPollutionModifier: 5
     PollutionModifierType: 1
   _phase: 1
   _possibleUpgrades:

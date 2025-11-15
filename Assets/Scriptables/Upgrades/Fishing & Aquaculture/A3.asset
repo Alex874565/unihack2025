@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 403c6365e2f19a445a9b6411ed6b9fe9, type: 3}
+  m_Name: A3
+  m_EditorClassIdentifier: 
+  _name: Recirculating Aquaculture System
+  _cost: 1400
+  _icon: {fileID: 0}
+  _description: Closed loop tanks improves water consumption and use.
+  _modifiers:
+    IncomeModifier: 360
+    SpeedModifier: 5
+    AirPollutionModifier: 0.1
+    WaterPollutionModifier: 0.6
+    SoilPollutionModifier: 0
+    PollutionModifierType: 0
+  _phase: 2
+  _possibleUpgrades:
+  - {fileID: 11400000, guid: 2fe3282afdd867348a9b244ce75b87d4, type: 2}
+  - {fileID: 11400000, guid: 0637b866438c45d4c8a694d854bb8437, type: 2}
+  - {fileID: 11400000, guid: cf423bf820da5754eb91614233d9fd10, type: 2}
+  _moduleType: 6
+  _isNewTier: 1
