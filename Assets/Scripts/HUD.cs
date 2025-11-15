@@ -26,6 +26,11 @@ public class HUD : MonoBehaviour
 
     private void Awake()
     {
+
+    }
+
+    private void Start()
+    {
         _moneyManager = ServiceLocator.Instance.MoneyManager;
         _pollutionManager = ServiceLocator.Instance.PollutionManager;
         _shopManager = ServiceLocator.Instance.ShopManager;
@@ -34,12 +39,8 @@ public class HUD : MonoBehaviour
         shopButton.onClick.AddListener(OpenShop);
 
         boostTemplate.gameObject.SetActive(false);
-    }
-
-    private void Start()
-    {
-        BoostersManager.Instance.OnBoostActivated += BoostersManager_OnBoostActivated;
-        BoostersManager.Instance.OnBoostDeactivated += BoostersManager_OnBoostDeactivated;
+        ServiceLocator.Instance.BoostersManager.OnBoostActivated += BoostersManager_OnBoostActivated;
+        ServiceLocator.Instance.BoostersManager.OnBoostDeactivated += BoostersManager_OnBoostDeactivated;
 
         UpdateBoostsVisual();
     }
@@ -69,17 +70,28 @@ public class HUD : MonoBehaviour
 
         activeBoosterIcons.Clear();
 
+        Debug.Log(ServiceLocator.Instance.BoostersManager.ActiveBoosters);
         // ← Replace the old foreach here with the for-loop below
-        for (int i = 0; i < BoostersManager.Instance.ActiveBoosters.Count; i++)
+        for (int i = 0; i < ServiceLocator.Instance.BoostersManager.ActiveBoosters.Count; i++)
         {
-            var booster = BoostersManager.Instance.ActiveBoosters[i];
-            float remaining = BoostersManager.Instance.BoosterDurations[i];
+            var booster = ServiceLocator.Instance.BoostersManager.ActiveBoosters[i];
+            float remaining = ServiceLocator.Instance.BoostersManager.BoosterDurations[i];
 
             Transform iconObj = Instantiate(boostTemplate, boostsContainer);
             iconObj.gameObject.SetActive(true);
 
             BoosterIconUI iconUI = iconObj.GetComponent<BoosterIconUI>();
+            if (iconUI == null)
+                Debug.LogError("BoosterIconUI MISSING on boostTemplate!", boostTemplate);
+
+            if (booster == null)
+                Debug.LogError("Active booster is NULL at index " + i);
+
+            if (booster.Icon == null)
+                Debug.LogError("Booster ICON is NULL for booster: " + booster.name);
+
             iconUI.Initialize(booster.Icon, booster.Duration);
+
 
             activeBoosterIcons.Add(booster, iconUI);
         }
@@ -108,7 +120,7 @@ public class HUD : MonoBehaviour
 
     private void UpdateBoosterTimers()
     {
-        var manager = BoostersManager.Instance;
+        var manager =  ServiceLocator.Instance.BoostersManager;
 
         for (int i = 0; i < manager.ActiveBoosters.Count; i++)
         {

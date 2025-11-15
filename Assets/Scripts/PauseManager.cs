@@ -46,14 +46,14 @@ public class PauseManager : MonoBehaviour
             PauseGame();
     }
 
-    private void PauseGame()
-    {
-        Time.timeScale = 0f; // Stop game time
-        OnGamePaused?.Invoke(this, EventArgs.Empty);
-        isPaused = true;
-        Debug.Log("Game Paused");
-        // enable pause UI here if you want
-    }
+    public void PauseGame()
+{
+    Time.timeScale = 0f; // Stop game time
+    OnGamePaused?.Invoke(this, EventArgs.Empty);
+    isPaused = true;
+    Debug.Log("Game Paused");
+}
+
 
     public void ResumeGame()
     {

@@ -5,7 +5,6 @@ using Unity.VisualScripting;
 
 public class BoostersManager : MonoBehaviour
 {
-    public static BoostersManager Instance { get; private set; }
 
     public event EventHandler OnBoostActivated;
     public event EventHandler OnBoostDeactivated;
@@ -27,13 +26,14 @@ public class BoostersManager : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        
+        _activeBoosters = new List<GlobalModifierData>();
+        
+        _boosterDurations = new List<float>();
     }
 
     private void Start()
     {
-        _activeBoosters = new List<GlobalModifierData>();
-        _boosterDurations = new List<float>();
     }
 
     private void Update()
