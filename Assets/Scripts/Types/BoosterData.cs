@@ -5,4 +5,5 @@ public class BoosterData
 {
     public GlobalModifierData Booster;
     public BoosterTiers Tier;
+    public int Cost;
 }
