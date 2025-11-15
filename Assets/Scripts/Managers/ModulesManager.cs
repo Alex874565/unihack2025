@@ -83,7 +83,13 @@ public class ModulesManager : MonoBehaviour
         }
         Debug.Log("CalculateModuleTypeProduction - Calculating production for module type: " + moduleType);
         Modifiers totalProduction = _modulesDatabase.Modules.Where(m => m.ModuleType == moduleType).First().BaseProduction;
-        
+
+        if(ServiceLocator.Instance.UpgradesManager.ModuleUpgradeModifiers.ContainsKey(moduleType))
+        {
+            totalProduction = ServiceLocator.Instance.UpgradesManager.ModuleBaseModifiers[moduleType];
+            Debug.Log("CalculateModuleTypeProduction - Found upgrade modifiers for module type: " + moduleType + ", value: " + ServiceLocator.Instance.UpgradesManager.ModuleUpgradeModifiers[moduleType]);
+        }
+
         // add flat upgrade modifiers
         if (ServiceLocator.Instance.UpgradesManager.ModuleUpgradeModifiers.ContainsKey(moduleType)) {
             totalProduction += ServiceLocator.Instance.UpgradesManager.ModuleUpgradeModifiers[moduleType];
@@ -91,6 +97,11 @@ public class ModulesManager : MonoBehaviour
 
         // add barn modifiers 
         Modifiers barnModifiers = _barn.BaseProduction;
+        if(ServiceLocator.Instance.UpgradesManager.ModuleBaseModifiers.ContainsKey(ModuleTypes.Barn))
+        {
+            barnModifiers = ServiceLocator.Instance.UpgradesManager.ModuleBaseModifiers[ModuleTypes.Barn];
+        }
+
         if (ServiceLocator.Instance.UpgradesManager.ModuleUpgradeModifiers.ContainsKey(ModuleTypes.Barn))
         {
             barnModifiers += ServiceLocator.Instance.UpgradesManager.ModuleUpgradeModifiers[ModuleTypes.Barn];
@@ -103,6 +114,8 @@ public class ModulesManager : MonoBehaviour
         }
 
         SetModuleTypeProduction(moduleType, totalProduction);
+
+        Debug.Log("CalculateModuleTypeProduction - Total production for " + moduleType + ": " + totalProduction);
     }
 
     public void SetModuleTypeProduction(ModuleTypes moduleType, Modifiers production)

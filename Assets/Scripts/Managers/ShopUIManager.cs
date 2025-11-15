@@ -67,7 +67,7 @@ public class ShopUIManager : MonoBehaviour
         backgroundEventTrigger.triggers[0].callback.RemoveAllListeners();
         backgroundEventTrigger.triggers[0].callback.AddListener((data) =>
         {
-            Debug.Log("Clicked on item: " + item.ShopItemType);
+            //Debug.Log("Clicked on item: " + item.ShopItemType);
             ServiceLocator.Instance.ShopManager.ChooseItem(item);
         });
     }

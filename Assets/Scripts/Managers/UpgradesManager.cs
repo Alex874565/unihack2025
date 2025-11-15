@@ -8,6 +8,7 @@ public class UpgradesManager : MonoBehaviour
     public List<UpgradeData> PossibleUpgrades => _possibleUpgrades;
     public List<UpgradeData> CurrentUpgrades => _currentUpgrades;
     public Dictionary<ModuleTypes, Modifiers> ModuleUpgradeModifiers => _moduleUpgradeModifiers;
+    public Dictionary<ModuleTypes, Modifiers> ModuleBaseModifiers => _moduleBaseModifiers;
 
     [SerializeField] private List<UpgradeData> _possibleUpgrades;
     [SerializeField] private List<UpgradeData> _currentUpgrades;
@@ -16,10 +17,12 @@ public class UpgradesManager : MonoBehaviour
     [SerializeField] private AnimationCurve rarityCurve;
 
     [SerializeField] private Dictionary<ModuleTypes, Modifiers> _moduleUpgradeModifiers;
+    [SerializeField] private Dictionary<ModuleTypes, Modifiers> _moduleBaseModifiers;
 
     public void Awake()
     {
         _moduleUpgradeModifiers = new Dictionary<ModuleTypes, Modifiers>();
+        _moduleBaseModifiers = new Dictionary<ModuleTypes, Modifiers>();
         _possibleUpgrades = new List<UpgradeData>();
         _currentUpgrades = new List<UpgradeData>();
     }
@@ -53,10 +56,19 @@ public class UpgradesManager : MonoBehaviour
     public void MakeUpgrade(int index)
     {
         UpgradeData upgrade = GetPossibleUpgrade(index);
-        Debug.Log("MakeUpgrade - Adding: " + upgrade.Name + "; removing: " + _possibleUpgrades[index].Name);
-
-        _possibleUpgrades.RemoveAt(index);
-        _currentUpgrades.Add(upgrade);
+        //Debug.Log("MakeUpgrade - Adding: " + upgrade.Name + "; removing: " + _possibleUpgrades[index].Name);
+        if (upgrade.IsNewTier)
+        {
+            _possibleUpgrades = _possibleUpgrades.Where(u => u.ModuleType != upgrade.ModuleType).ToList();
+            _currentUpgrades = _currentUpgrades.Where(u => u.ModuleType != upgrade.ModuleType).ToList();
+            _moduleUpgradeModifiers.Remove(upgrade.ModuleType);
+            _moduleBaseModifiers[upgrade.ModuleType] = upgrade.Modifiers;
+        }
+        else
+        {
+            _possibleUpgrades.RemoveAt(index);
+            _currentUpgrades.Add(upgrade);
+        }
         ApplyUpgradeModifiers(upgrade);
         foreach (var u in upgrade.PossibleUpgrades)
         {
@@ -90,12 +102,12 @@ public class UpgradesManager : MonoBehaviour
         {
             _possibleUpgrades.Add(upgradeData);
         }
-        Debug.Log("Added possible upgrade: " + upgradeData.Name);
+        //Debug.Log("Added possible upgrade: " + upgradeData.Name);
     }
 
     public void ApplyUpgradeModifiers(UpgradeData upgradeData)
     {
-        Debug.Log("ApplyUpgradeModifiers - Applying upgrade modifiers for: " + upgradeData.Name);
+        //Debug.Log("ApplyUpgradeModifiers - Applying upgrade modifiers for: " + upgradeData.Name);
         if (!_moduleUpgradeModifiers.ContainsKey(upgradeData.ModuleType))
         {
             _moduleUpgradeModifiers[upgradeData.ModuleType] = upgradeData.Modifiers;
@@ -104,7 +116,7 @@ public class UpgradesManager : MonoBehaviour
         {
             _moduleUpgradeModifiers[upgradeData.ModuleType] += upgradeData.Modifiers;
         }
-        Debug.Log("ApplyUpgradeModifiers - Upgrade modifiers applied to " + upgradeData.ModuleType + ": " + _moduleUpgradeModifiers[upgradeData.ModuleType]);
+        //Debug.Log("ApplyUpgradeModifiers - Upgrade modifiers applied to " + upgradeData.ModuleType + ": " + _moduleUpgradeModifiers[upgradeData.ModuleType]);
         ServiceLocator.Instance.ModulesManager.CalculateModuleTypeProduction(upgradeData.ModuleType);
     }
 }

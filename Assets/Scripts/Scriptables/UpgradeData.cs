@@ -14,6 +14,7 @@ public class UpgradeData: ScriptableObject
     public List<UpgradeData> PossibleUpgrades => _possibleUpgrades;
     public UpgradePhases Phase => _phase;
     public ModuleTypes ModuleType => _moduleType;
+    public bool IsNewTier => _isNewTier;
 
     [SerializeField] private string _name;
     [SerializeField] private int _cost;
@@ -23,4 +24,5 @@ public class UpgradeData: ScriptableObject
     [SerializeField] private UpgradePhases _phase;
     [SerializeField] private List<UpgradeData> _possibleUpgrades;
     [SerializeField] private ModuleTypes _moduleType;
+    [SerializeField] private bool _isNewTier;
 }

@@ -42,13 +42,13 @@ public class BoostersManager : MonoBehaviour
 
     public GlobalModifierData GetWeightedBooster()
     {
-        Debug.Log("GetWeightedBooster - Selecting a weighted booster...");
+        //Debug.Log("GetWeightedBooster - Selecting a weighted booster...");
         float totalWeight = 0f;
         foreach (var booster in _boostersDatabase.Boosters)
         {
             totalWeight += GetBoosterWeight(booster);
         }
-        Debug.Log("GetWeightedBooster - Total Weight: " + totalWeight);
+        //Debug.Log("GetWeightedBooster - Total Weight: " + totalWeight);
         float randomValue = Random.Range(0f, totalWeight);
         float cumulativeWeight = 0f;
         foreach (var booster in _boostersDatabase.Boosters)
@@ -56,11 +56,11 @@ public class BoostersManager : MonoBehaviour
             cumulativeWeight += GetBoosterWeight(booster);
             if (randomValue <= cumulativeWeight)
             {
-                Debug.Log("GetWeightedBooster - Selected Booster: " + booster.Booster.name);
+                //Debug.Log("GetWeightedBooster - Selected Booster: " + booster.Booster.name);
                 return booster.Booster;
             }
         }
-        Debug.LogWarning("GetWeightedBooster - No booster selected, returning null.");
+        //Debug.LogWarning("GetWeightedBooster - No booster selected, returning null.");
         return null;
     }
 
@@ -75,12 +75,12 @@ public class BoostersManager : MonoBehaviour
         AddBoosterModifiers(booster);
         _activeBoosters.Add(booster);
         _boosterDurations.Add(booster.Duration);
-        Debug.Log("AddBooster - Booster added!");
+        //Debug.Log("AddBooster - Booster added!");
     }
 
     public void AddBoosterModifiers(GlobalModifierData booster)
     {
-        Debug.Log("ApplyBoosterModifiers - Booster modifiers applied!");
+        //Debug.Log("ApplyBoosterModifiers - Booster modifiers applied!");
         if (booster.IsPerModule)
         {
             foreach (var moduleType in booster.AffectedModules)
@@ -110,7 +110,7 @@ public class BoostersManager : MonoBehaviour
 
     public void RemoveBoosterModifiers(GlobalModifierData booster)
     {
-        Debug.Log("RemoveBoosterModifiers - Booster modifiers removed!");
+        //Debug.Log("RemoveBoosterModifiers - Booster modifiers removed!");
         if (booster.IsPerModule)
         {
             foreach (var moduleType in booster.AffectedModules)
@@ -140,14 +140,14 @@ public class BoostersManager : MonoBehaviour
         _boosterDurations.RemoveAt(index);
         _activeBoosters.RemoveAt(index);
 
-        Debug.Log("RemoveBooster - Booster expired and removed!");
+        //Debug.Log("RemoveBooster - Booster expired and removed!");
     }
 
     public void SetBoosterModifiers(ModuleTypes moduleType, Modifiers modifiers)
     {
         _moduleBoosterModifiers[moduleType] = modifiers;
 
-        Debug.Log("SetBoosterModifiers - set " + moduleType + " to:" + _moduleBoosterModifiers[moduleType].ToString());
+        //Debug.Log("SetBoosterModifiers - set " + moduleType + " to:" + _moduleBoosterModifiers[moduleType].ToString());
 
         ServiceLocator.Instance.ModulesManager.CalculateModuleTypeProduction(moduleType);
     }
@@ -155,14 +155,14 @@ public class BoostersManager : MonoBehaviour
     public BoosterTiers GetBoosterTier(string boosterName)
     {
         var booster = _boostersDatabase.Boosters.Find(b => b.Booster.Name == boosterName);
-        Debug.Log("GetBoosterTier - Booster " + boosterName + " is of tier " + booster.Tier);
+        //Debug.Log("GetBoosterTier - Booster " + boosterName + " is of tier " + booster.Tier);
         return booster.Tier;
     }
 
     public int GetBoosterCost(string boosterName)
     {
         var booster = _boostersDatabase.Boosters.Find(b => b.Booster.Name == boosterName);
-        Debug.Log("GetBoosterCost - Booster " + boosterName + " costs " + booster.Cost);
+        //Debug.Log("GetBoosterCost - Booster " + boosterName + " costs " + booster.Cost);
         return booster.Cost;
     }
 }
