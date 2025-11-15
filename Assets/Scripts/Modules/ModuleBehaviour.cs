@@ -19,6 +19,7 @@ public class ModuleBehaviour : MonoBehaviour
     private Modifiers _production;
 
     private bool _collecting;
+    private bool _isPlaced;
 
     private void Start()
     {
@@ -26,29 +27,32 @@ public class ModuleBehaviour : MonoBehaviour
         _collectionFillIcon.fillAmount = 0f;
         _collecting = false;
         _collectionBackgroundIcon.enabled = false;
+        _isPlaced = false;
     }
 
     private void Update()
     {
-        if (!_collecting)
+        if (!_isPlaced)
             return;
-
+        
         // always get current production (to reflect upgrades)
         _production = _modulesManager.ModuleTypeProductions[_moduleData.ModuleType];
 
+        // compute income for this frame
+        Modifiers production = _production * Time.deltaTime;
+
+        ApplyPollution(production);
+
+        if (!_collecting)
+            return;
+        
         if (_collectionTimeRemaining > 0f)
         {
-            // compute income for this frame
-            Modifiers production = _production * Time.deltaTime;
 
-            // apply production
-            ApplyProduction(production);
+            ApplyIncome(production);
 
             // subtract real time passed from remaining collection time
-            _collectionTimeRemaining -= Time.deltaTime;
-
-            SetProductionIconFill(_moneyCollected, _production.IncomeModifier * _moduleData.BaseProduction.SpeedModifier);
-        }
+            _collectionTimeRemaining -= Time.deltaTime;       }
         else
         {
             FinishProduction();
@@ -63,10 +67,18 @@ public class ModuleBehaviour : MonoBehaviour
         _collecting = false;
     }
 
-    public void ApplyProduction(Modifiers production)
+    public void ApplyIncome(Modifiers production)
     {
         float actualIncome = production.IncomeModifier * _moduleData.BaseProduction.SpeedModifier / _production.SpeedModifier;
         _moneyCollected += actualIncome;
+        Debug.Log("ModuleBehaviour - ApplyIncome: Applying income: " + actualIncome + ", total collected: " + _moneyCollected);
+
+        SetProductionIconFill(_moneyCollected, production.IncomeModifier * _moduleData.BaseProduction.SpeedModifier);
+    }
+
+    public void ApplyPollution(Modifiers production)
+    {
+        Debug.Log("ModuleBehaviour - ApplyPollution: Applying pollution - Air: " + production.AirPollutionModifier + ", Soil: " + production.SoilPollutionModifier + ", Water: " + production.WaterPollutionModifier);
         ServiceLocator.Instance.PollutionManager.ModifyAirPollution(production.AirPollutionModifier);
         ServiceLocator.Instance.PollutionManager.ModifySoilPollution(production.SoilPollutionModifier);
         ServiceLocator.Instance.PollutionManager.ModifyWaterPollution(production.WaterPollutionModifier);
@@ -110,6 +122,7 @@ public class ModuleBehaviour : MonoBehaviour
         _production = _modulesManager.ModuleTypeProductions[_moduleData.ModuleType];
         _collectionTimeRemaining = _production.SpeedModifier;
         _collecting = true;
+        _isPlaced = true;
     }
 
     public void ShowUpgrade(UpgradeData upgrade)

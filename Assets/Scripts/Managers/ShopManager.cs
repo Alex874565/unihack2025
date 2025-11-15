@@ -66,6 +66,7 @@ public class ShopManager : MonoBehaviour
         ShopItem item = new ShopItem();
         Debug.Log("Selected Module as item.");
         ModuleData module = _modulesManager.GetRandomModule();
+        item.ShopItemType = ShopItemTypes.Module;
         item.ModuleData = module;
         Debug.Log("Selected Module: " + module.ModuleName);
         _selectedItems.Add(item);
@@ -76,6 +77,7 @@ public class ShopManager : MonoBehaviour
         var item = new ShopItem();
         Debug.Log("Selected Booster as item.");
         GlobalModifierData booster = ServiceLocator.Instance.BoostersManager.GetWeightedBooster();
+        item.ShopItemType = ShopItemTypes.Booster;
         item.BoosterData = booster;
         Debug.Log("Selected Booster: " + booster.Name);
         _selectedItems.Add(item);
@@ -99,6 +101,7 @@ public class ShopManager : MonoBehaviour
             upgrade = _upgradesManager.GetPossibleWeightedUpgrade();
             index++;
         }
+        item.ShopItemType = ShopItemTypes.Upgrade;
         item.UpgradeData = upgrade;
         _selectedItems.Add(item);
         Debug.Log("Selected Upgrade: " + upgrade.Name);
@@ -127,13 +130,13 @@ public class ShopManager : MonoBehaviour
     public void ChooseItem(ShopItem item)
     {
         Debug.Log("Item chosen from shop.");
-        if(item.UpgradeData)
+        if(item.ShopItemType == ShopItemTypes.Upgrade)
         {
             _upgradesManager.MakeUpgrade(_upgradesManager.GetUpgradeIndexByName(item.UpgradeData));
-        }else if (item.ModuleData)
+        }else if (item.ShopItemType == ShopItemTypes.Module)
         {
             _modulesManager.BuyModule(item.ModuleData);
-        }else if (item.BoosterData)
+        }else if (item.ShopItemType == ShopItemTypes.Booster)
         {
             ServiceLocator.Instance.BoostersManager.AddBooster(item.BoosterData);
         }
