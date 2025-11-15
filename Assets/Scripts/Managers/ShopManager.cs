@@ -141,4 +141,9 @@ public class ShopManager : MonoBehaviour
             ServiceLocator.Instance.BoostersManager.AddBooster(item.BoosterData);
         }
     }
+
+    public List<ShopItem> GetSelectedItems()
+    {
+        return _selectedItems;
+    }
 }

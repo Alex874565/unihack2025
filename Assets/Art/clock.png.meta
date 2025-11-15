@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8a33af0f841074e478e0cfd2c5b51023
+guid: c057ab26fab00554ba9be828861b99bb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5326115596840996586
-    second: CloudsTileWIP1_0
+      213: 8581363780399802525
+    second: clock_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CloudsTileWIP1_0
+      name: clock_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1919
-        height: 866
+        x: 8
+        y: 7
+        width: 135
+        height: 132
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 611ff996516d516b0800000000000000
-      internalID: -5326115596840996586
+      spriteID: d98222b64e0271770800000000000000
+      internalID: 8581363780399802525
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      CloudsTileWIP1_0: -5326115596840996586
+      clock_0: 8581363780399802525
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
