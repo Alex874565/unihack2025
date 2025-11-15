@@ -23,8 +23,8 @@ MonoBehaviour:
     SoilPollutionModifier: -0.1
     PollutionModifierType: 0
   _cost: 90
-  _icon: {fileID: 0}
-  _modulePrefab: {fileID: 7456356414709372688, guid: e5437177402e0304681a440286a3fc24, type: 3}
+  _icon: {fileID: -5297276345658572775, guid: e8c21f535fb654641a82f3d9bac05ba7, type: 3}
+  _modulePrefab: {fileID: 8570059522791550157, guid: e5437177402e0304681a440286a3fc24, type: 3}
   _upgrades:
   - {fileID: 11400000, guid: 69d84866bbcf49442adb28638f4f4a39, type: 2}
   - {fileID: 11400000, guid: 44194f39341a5ce429c446c4ae864fe9, type: 2}

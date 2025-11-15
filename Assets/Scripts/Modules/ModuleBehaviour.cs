@@ -104,7 +104,7 @@ public class ModuleBehaviour : MonoBehaviour
         if (_collectionFillIcon)
         {
             //Debug.Log("ModuleBehaviour - SetProductionIconFill: time left:" + (_production.SpeedModifier - _collectionTimeRemaining) + ", totalProduction: " + totalProduction + "value/total production:" + (value * 100) / totalProduction);
-            float fillAmount = value / totalProduction;
+            float fillAmount = value / totalProduction - .1f;
             _collectionFillIcon.fillAmount = fillAmount;
         }
     }
@@ -131,8 +131,12 @@ public class ModuleBehaviour : MonoBehaviour
         _isPlaced = true;
     }
 
-    public void ShowUpgrade(UpgradeData upgrade)
+    public void UpdateVisuals(UpgradePhases upgradePhase)
     {
-        _upgradeObjects.Where(uo => uo.Upgrade.Name == upgrade.Name).First().Object.SetActive(true);
+        foreach (var uo in _upgradeObjects)
+        {
+            uo.Object.SetActive(false);
+        }
+        _upgradeObjects.Where(uo => uo.UpgradePhase == upgradePhase).First().Object.SetActive(true);
     }
 }

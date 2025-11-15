@@ -1,0 +1,429 @@
+fileFormatVersion: 2
+guid: 331abb11dc5b6f5448729e4950b72ea6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7368145687204613427
+    second: PondTier1_f1-sheet_0
+  - first:
+      213: 134705328626752216
+    second: PondTier1_f1-sheet_1
+  - first:
+      213: 7704582913491609099
+    second: PondTier1_f1-sheet_2
+  - first:
+      213: -4439946813767978431
+    second: PondTier1_f1-sheet_3
+  - first:
+      213: 6866766349993721294
+    second: PondTier1_f1-sheet_4
+  - first:
+      213: 8936500020142794257
+    second: PondTier1_f1-sheet_5
+  - first:
+      213: -6839206754655952636
+    second: PondTier1_f1-sheet_6
+  - first:
+      213: -4871068257238242097
+    second: PondTier1_f1-sheet_7
+  - first:
+      213: 7613211288351870066
+    second: PondTier1_f1-sheet_8
+  - first:
+      213: -2404705216846211101
+    second: PondTier1_f1-sheet_9
+  - first:
+      213: -3040408016172487704
+    second: PondTier1_f1-sheet_10
+  - first:
+      213: -5162010810467022547
+    second: PondTier1_f1-sheet_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PondTier1_f1-sheet_0
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 2547
+        width: 475
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc2b7dc19861fb990800000000000000
+      internalID: -7368145687204613427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PondTier1_f1-sheet_1
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 2547
+        width: 475
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8da562e58c19ed100800000000000000
+      internalID: 134705328626752216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PondTier1_f1-sheet_2
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 2047
+        width: 475
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b062635d65d2cea60800000000000000
+      internalID: 7704582913491609099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PondTier1_f1-sheet_3
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 2047
+        width: 475
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1427bbf85e32262c0800000000000000
+      internalID: -4439946813767978431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PondTier1_f1-sheet_4
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 1546
+        width: 475
+        height: 401
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecd3bf61d97ab4f50800000000000000
+      internalID: 6866766349993721294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PondTier1_f1-sheet_5
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 1546
+        width: 475
+        height: 401
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 116e1e3bb63d40c70800000000000000
+      internalID: 8936500020142794257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PondTier1_f1-sheet_6
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 1047
+        width: 475
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 401a74b31b14611a0800000000000000
+      internalID: -6839206754655952636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PondTier1_f1-sheet_7
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 1047
+        width: 475
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcc22a26a3d766cb0800000000000000
+      internalID: -4871068257238242097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PondTier1_f1-sheet_8
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 547
+        width: 475
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27c053a845f87a960800000000000000
+      internalID: 7613211288351870066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PondTier1_f1-sheet_9
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 547
+        width: 475
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e75a509855c0aed0800000000000000
+      internalID: -2404705216846211101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PondTier1_f1-sheet_10
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 46
+        width: 475
+        height: 401
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ebe9cf940d4ec5d0800000000000000
+      internalID: -3040408016172487704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PondTier1_f1-sheet_11
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 46
+        width: 475
+        height: 401
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d290363748adc58b0800000000000000
+      internalID: -5162010810467022547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 086bc6d12cf233f45affe08bb0fdbf43
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      PondTier1_f1-sheet_0: -7368145687204613427
+      PondTier1_f1-sheet_1: 134705328626752216
+      PondTier1_f1-sheet_10: -3040408016172487704
+      PondTier1_f1-sheet_11: -5162010810467022547
+      PondTier1_f1-sheet_2: 7704582913491609099
+      PondTier1_f1-sheet_3: -4439946813767978431
+      PondTier1_f1-sheet_4: 6866766349993721294
+      PondTier1_f1-sheet_5: 8936500020142794257
+      PondTier1_f1-sheet_6: -6839206754655952636
+      PondTier1_f1-sheet_7: -4871068257238242097
+      PondTier1_f1-sheet_8: 7613211288351870066
+      PondTier1_f1-sheet_9: -2404705216846211101
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
