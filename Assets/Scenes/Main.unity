@@ -1686,6 +1686,15 @@ MonoBehaviour:
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 3.0045848
+      value: 0.053437114
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -1741,10 +1750,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6930f0f1f63aaa74fba54b99ec167191, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _upgradeSprites: []
-  _moduleSprite: {fileID: 0}
-  _boosterSprites: []
-  _backgrounds: []
+  _upgradeBackgroundSprites: []
+  _moduleBackgroundSprite: {fileID: 0}
+  __boosterBackgroundSprites: []
+  _backgroundRenderers: []
+  _iconRenderers: []
+  _nameFields: []
+  _tierFields: []
+  _descriptionFields: []
+  _incomeFields: []
+  _speedFields: []
+  _airPollutionFields: []
+  _soilPollutionFields: []
+  _waterPollutionFields: []
+  _costFields: []
 --- !u!1 &1280350763
 GameObject:
   m_ObjectHideFlags: 0

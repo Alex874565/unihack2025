@@ -7,9 +7,9 @@ public class ModuleData : ScriptableObject
     public string ModuleName => _moduleName;
     public string ModuleDescription => _moduleDescription;
     public Modifiers BaseProduction => _baseProduction;
-    public string Cost => _cost;
+    public int Cost => _cost;
 
-    public Sprite ModuleIcon => _icon;
+    public Sprite Icon => _icon;
     public List<UpgradeData> Upgrades => _upgrades;
     public GameObject ModulePrefab => _modulePrefab;
     public ModuleTypes ModuleType => _moduleType;
@@ -18,7 +18,7 @@ public class ModuleData : ScriptableObject
     [SerializeField] private ModuleTypes _moduleType;
     [SerializeField] private string _moduleDescription;
     [SerializeField] private Modifiers _baseProduction;
-    [SerializeField] private string _cost;
+    [SerializeField] private int _cost;
     [SerializeField] private Sprite _icon;
     [SerializeField] private GameObject _modulePrefab;
     [SerializeField] private List<UpgradeData> _upgrades;

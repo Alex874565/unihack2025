@@ -149,4 +149,11 @@ public class BoostersManager : MonoBehaviour
         Debug.Log("GetBoosterTier - Booster " + boosterName + " is of tier " + booster.Tier);
         return booster.Tier;
     }
+
+    public int GetBoosterCost(string boosterName)
+    {
+        var booster = _boostersDatabase.Boosters.Find(b => b.Booster.Name == boosterName);
+        Debug.Log("GetBoosterCost - Booster " + boosterName + " costs " + booster.Cost);
+        return booster.Cost;
+    }
 }
