@@ -99,8 +99,12 @@ public class BoostersManager : MonoBehaviour
         {
             foreach (var moduleType in _moduleBoosterModifiers.Keys)
             {
-                SetBoosterModifiers(moduleType, _moduleBoosterModifiers[moduleType] + booster.Modifiers);
+                if(moduleType == ModuleTypes.Barn)
+                {
+                    continue;
                 }
+                SetBoosterModifiers(moduleType, _moduleBoosterModifiers[moduleType] + booster.Modifiers);
+            }
         }
     }
 
@@ -121,6 +125,10 @@ public class BoostersManager : MonoBehaviour
         {
             foreach (var moduleType in _moduleBoosterModifiers.Keys)
             {
+                if(moduleType == ModuleTypes.Barn)
+                {
+                    continue;
+                }
                 SetBoosterModifiers(moduleType, _moduleBoosterModifiers[moduleType] - booster.Modifiers);
             }
         }

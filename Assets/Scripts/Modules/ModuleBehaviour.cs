@@ -45,7 +45,9 @@ public class ModuleBehaviour : MonoBehaviour
 
         if (!_collecting)
             return;
-        
+
+        //Debug.Log("ModuleBehaviour - Update: Collecting, time remaining: " + _collectionTimeRemaining);
+
         if (_collectionTimeRemaining > 0f)
         {
 
@@ -72,8 +74,7 @@ public class ModuleBehaviour : MonoBehaviour
         float actualIncome = production.IncomeModifier * _moduleData.BaseProduction.SpeedModifier / _production.SpeedModifier;
         _moneyCollected += actualIncome;
         //Debug.Log("ModuleBehaviour - ApplyIncome: Applying income: " + actualIncome + ", total collected: " + _moneyCollected);
-
-        SetProductionIconFill(_moneyCollected, production.IncomeModifier * _moduleData.BaseProduction.SpeedModifier);
+        SetProductionIconFill(_moneyCollected, production.IncomeModifier * _moduleData.BaseProduction.SpeedModifier / Time.deltaTime);
     }
 
     public void ApplyPollution(Modifiers production)
@@ -99,6 +100,7 @@ public class ModuleBehaviour : MonoBehaviour
 
     public void SetProductionIconFill(float value, float totalProduction)
     {
+        //Debug.Log("ModuleBehaviour - SetProductionIconFill: Setting production icon fill, value: " + value + ", totalProduction: " + totalProduction);
         if (_collectionFillIcon)
         {
             //Debug.Log("ModuleBehaviour - SetProductionIconFill: time left:" + (_production.SpeedModifier - _collectionTimeRemaining) + ", totalProduction: " + totalProduction + "value/total production:" + (value * 100) / totalProduction);
@@ -117,11 +119,15 @@ public class ModuleBehaviour : MonoBehaviour
 
     public void Place()
     {
-        Debug.Log("ModuleBehaviour - Place: Module placed.");
-        _collectionBackgroundIcon.enabled = true;
-        _production = _modulesManager.ModuleTypeProductions[_moduleData.ModuleType];
-        _collectionTimeRemaining = _production.SpeedModifier;
-        _collecting = true;
+        //Debug.Log("ModuleBehaviour - Place: Module placed.");
+        if (_moduleData.BaseProduction.SpeedModifier != 0)
+        {
+            _collectionBackgroundIcon.enabled = true;
+            _production = _modulesManager.ModuleTypeProductions[_moduleData.ModuleType];
+            _collectionTimeRemaining = _production.SpeedModifier;
+            _collecting = true;
+        }
+
         _isPlaced = true;
     }
 
