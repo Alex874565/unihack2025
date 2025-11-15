@@ -13,6 +13,7 @@ public class ServiceLocator : MonoBehaviour
     public MoneyManager MoneyManager => _moneyManager;
     public EnvironmentManager EnvironmentManager => _environmentManager;
     public ShopUIManager ShopUIManager => _shopUIManager;
+    public DialogueManager DialogueManager => _dialogueManager;
 
     private ModulesManager _modulesManager;
     private UpgradesManager _upgradesManager;
@@ -22,6 +23,7 @@ public class ServiceLocator : MonoBehaviour
     private MoneyManager _moneyManager;
     private EnvironmentManager _environmentManager;
     private ShopUIManager _shopUIManager;
+    private DialogueManager _dialogueManager;
 
     private void Awake()
     {
@@ -41,5 +43,6 @@ public class ServiceLocator : MonoBehaviour
         _moneyManager = GetComponent<MoneyManager>();
         _environmentManager = GetComponent<EnvironmentManager>();
         _shopUIManager = GetComponent<ShopUIManager>();
+        _dialogueManager = GetComponent<DialogueManager>();
     }
 }
