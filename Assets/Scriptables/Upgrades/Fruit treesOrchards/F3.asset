@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 403c6365e2f19a445a9b6411ed6b9fe9, type: 3}
+  m_Name: F3
+  m_EditorClassIdentifier: 
+  _name: Integrated pest management
+  _cost: 0
+  _icon: {fileID: 0}
+  _description: Keeps pest and diseases at minimum with no harmful chemicals.
+  _modifiers:
+    IncomeModifier: 0
+    SpeedModifier: 0
+    AirPollutionModifier: -0.5
+    WaterPollutionModifier: -0.3
+    SoilPollutionModifier: -0.1
+    PollutionModifierType: 0
+  _phase: 2
+  _possibleUpgrades:
+  - {fileID: 11400000, guid: 303f7891e4ec53c429ba7e98a014e495, type: 2}
+  - {fileID: 11400000, guid: 530aa6f1b64ea98448e982bb612ddcf8, type: 2}
+  - {fileID: 11400000, guid: 86b6f3634a6cf3443abb31555a8d9ed0, type: 2}
+  _moduleType: 5

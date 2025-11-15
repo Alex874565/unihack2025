@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9253d7b6972ca184bb21993b9342ce11, type: 3}
+  m_Name: Livestock
+  m_EditorClassIdentifier: 
+  _moduleName: INTENSIVE FEEDLOT
+  _moduleType: 3
+  _moduleDescription: Highly wasteful methane producing module
+  _baseProduction:
+    IncomeModifier: 50
+    SpeedModifier: 4.5
+    AirPollutionModifier: 1
+    WaterPollutionModifier: 1
+    SoilPollutionModifier: -0.1
+    PollutionModifierType: 0
+  _cost: 90
+  _icon: {fileID: 0}
+  _modulePrefab: {fileID: 0}
+  _upgrades:
+  - {fileID: 11400000, guid: 69d84866bbcf49442adb28638f4f4a39, type: 2}
+  - {fileID: 11400000, guid: 44194f39341a5ce429c446c4ae864fe9, type: 2}
+  - {fileID: 11400000, guid: 233db87a909f62344aed659515075419, type: 2}

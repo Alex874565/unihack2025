@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 403c6365e2f19a445a9b6411ed6b9fe9, type: 3}
+  m_Name: LT3 2
+  m_EditorClassIdentifier: 
+  _name: Digestate spreading kit
+  _cost: 0
+  _icon: {fileID: 0}
+  _description: Good food, good life.
+  _modifiers:
+    IncomeModifier: 0
+    SpeedModifier: 0
+    AirPollutionModifier: 0
+    WaterPollutionModifier: -0.1
+    SoilPollutionModifier: 0
+    PollutionModifierType: 0
+  _phase: 2
+  _possibleUpgrades: []
+  _moduleType: 3

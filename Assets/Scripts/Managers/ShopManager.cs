@@ -17,11 +17,13 @@ public class ShopManager : MonoBehaviour
     {
         _upgradesManager = ServiceLocator.Instance.UpgradesManager;
         _modulesManager = ServiceLocator.Instance.ModulesManager;
+
+        SelectNextItems();
     }
 
     public void SelectNextItems()
     {
-        Debug.Log("Selecting Upgrades...");
+        //Debug.Log("Selecting Upgrades...");
 
         if (!_modulesManager.ModulesGrid.AreSpacesLeft())
         {
@@ -35,7 +37,7 @@ public class ShopManager : MonoBehaviour
         {
             if (_modulesManager.OwnedModules.Count == 0)
             {
-                Debug.Log("No owned modules.");
+                //Debug.Log("No owned modules.");
                 SelectModule();
             }
             else if(_upgradesManager.PossibleUpgrades.Count > 0)
@@ -64,22 +66,22 @@ public class ShopManager : MonoBehaviour
     private void SelectModule()
     {
         ShopItem item = new ShopItem();
-        Debug.Log("Selected Module as item.");
+        //Debug.Log("Selected Module as item.");
         ModuleData module = _modulesManager.GetRandomModule();
         item.ShopItemType = ShopItemTypes.Module;
         item.ModuleData = module;
-        Debug.Log("Selected Module: " + module.ModuleName);
+        //Debug.Log("Selected Module: " + module.ModuleName);
         _selectedItems.Add(item);
     }
 
     private void SelectBooster()
     {
         var item = new ShopItem();
-        Debug.Log("Selected Booster as item.");
+        //Debug.Log("Selected Booster as item.");
         GlobalModifierData booster = ServiceLocator.Instance.BoostersManager.GetWeightedBooster();
         item.ShopItemType = ShopItemTypes.Booster;
         item.BoosterData = booster;
-        Debug.Log("Selected Booster: " + booster.Name);
+        //Debug.Log("Selected Booster: " + booster.Name);
         _selectedItems.Add(item);
     }
 
@@ -87,24 +89,24 @@ public class ShopManager : MonoBehaviour
     {
         ShopItem item = new ShopItem();
         UpgradeData upgrade = _upgradesManager.GetPossibleWeightedUpgrade();
-        Debug.Log("Attempting to select upgrade: " + (upgrade != null ? upgrade.Name : "null"));
+        //Debug.Log("Attempting to select upgrade: " + (upgrade != null ? upgrade.Name : "null"));
         int index = 0;
         while (_selectedItems.Any(t => t.UpgradeData && t.UpgradeData.Name == upgrade.Name) || upgrade == null)
         {
-            if (index > 5)
+            if (index > 2)
             {
-                Debug.Log("Too many attempts to select a unique upgrade, choosing others.");
+                //Debug.Log("Too many attempts to select a unique upgrade, choosing others.");
                 SelectModuleOrBooster();
                 break;
             }
-            Debug.Log(upgrade == null ? "Upgrade is null, reselecting." : "Duplicate upgrade selected, reselecting.");
+            //Debug.Log(upgrade == null ? "Upgrade is null, reselecting." : "Duplicate upgrade selected, reselecting.");
             upgrade = _upgradesManager.GetPossibleWeightedUpgrade();
             index++;
         }
         item.ShopItemType = ShopItemTypes.Upgrade;
         item.UpgradeData = upgrade;
         _selectedItems.Add(item);
-        Debug.Log("Selected Upgrade: " + upgrade.Name);
+        //Debug.Log("Selected Upgrade: " + upgrade.Name);
     }
 
     public void SelectModuleOrBooster()
@@ -129,8 +131,9 @@ public class ShopManager : MonoBehaviour
 
     public void ChooseItem(ShopItem item)
     {
-        Debug.Log("Item chosen from shop.");
-        if(item.ShopItemType == ShopItemTypes.Upgrade)
+        //Debug.Log("Item chosen from shop.");
+        //Debug.Log("Chosen item type: " + item.ShopItemType);
+        if (item.ShopItemType == ShopItemTypes.Upgrade)
         {
             _upgradesManager.MakeUpgrade(_upgradesManager.GetUpgradeIndexByName(item.UpgradeData));
         }else if (item.ShopItemType == ShopItemTypes.Module)
@@ -140,6 +143,8 @@ public class ShopManager : MonoBehaviour
         {
             ServiceLocator.Instance.BoostersManager.AddBooster(item.BoosterData);
         }
+        ServiceLocator.Instance.ShopUIManager.HideShop();
+        SelectNextItems();
     }
 
     public List<ShopItem> GetSelectedItems()

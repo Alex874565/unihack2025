@@ -7,11 +7,16 @@ public class ModulesManager : MonoBehaviour
     public ModulesGrid ModulesGrid => _modulesGrid;
     public List<ModuleData> OwnedModules => _ownedModules;
     public Dictionary<ModuleTypes, Modifiers> ModuleTypeProductions => _moduleTypeProductions;
+    public ModulesDatabase ModulesDatabase => _modulesDatabase;
     [SerializeField] private ModulesDatabase _modulesDatabase;
     [SerializeField] private ModulesGrid _modulesGrid;
     [SerializeField] private List<ModuleData> _ownedModules;
     [SerializeField] private ModulePlacer _modulePlacer;
     [SerializeField] private Dictionary<ModuleTypes, Modifiers> _moduleTypeProductions;
+
+    [SerializeField] private ModuleData _generator;
+    [SerializeField] private ModuleData _barn;
+    [SerializeField] private ModuleData _vehicles;
 
     public ModuleData test;
 
@@ -21,31 +26,61 @@ public class ModulesManager : MonoBehaviour
         _moduleTypeProductions = new Dictionary<ModuleTypes, Modifiers>();
     }
 
+    private void Start()
+    {
+        BuyInitialModules();
+    }
+
+    public void BuyInitialModules()
+    {
+        BuyModule(_barn);
+        BuyModule(_vehicles);
+        BuyModule(_generator);
+    }
+
     public void BuyModule(ModuleData module)
     {
         if (!module)
         {
             module = test;
         }
-        foreach(var upgrade in module.Upgrades)
+        foreach (var upgrade in module.Upgrades)
         {
             ServiceLocator.Instance.UpgradesManager.AddPossibleUpgrade(upgrade);
         }
-        SetModuleTypeProduction(module.ModuleType, module.BaseProduction);
+        if (module.ModuleType == ModuleTypes.Barn)
+        {
+            Modifiers barnProduction = new Modifiers();
+            barnProduction.AirPollutionModifier = 0;
+            barnProduction.SoilPollutionModifier = 0;
+            barnProduction.WaterPollutionModifier = 0;
+            SetModuleTypeProduction(ModuleTypes.Barn, barnProduction);
+        }
+        else
+        {
+            SetModuleTypeProduction(module.ModuleType, module.BaseProduction);
+        }
         _ownedModules.Add(module);
         _modulePlacer.StartPlacingModule(module);
     }
 
     public ModuleData GetRandomModule()
     {
-        int index = Random.Range(0, _modulesDatabase.Modules.Count);
-        ModuleData module = _modulesDatabase.Modules[index];
+        List<ModuleData> buyableModules = _modulesDatabase.Modules.Where(m => m.ModuleType != ModuleTypes.Generator && m.ModuleType != ModuleTypes.Vehicles && m.ModuleType != ModuleTypes.Barn).ToList();
+        int index = Random.Range(0, buyableModules.Count - 1);
+        ModuleData module = buyableModules[index];
         Debug.Log(module.ModuleName);
         return module;
     }
 
     public void CalculateModuleTypeProduction(ModuleTypes moduleType)
     {
+        if(moduleType == ModuleTypes.Barn)
+        {
+            Debug.LogWarning("CalculateModuleTypeProduction - moduleType is Barn, returning.");
+
+            return;
+        }
         Debug.Log("CalculateModuleTypeProduction - Calculating production for module type: " + moduleType);
         Modifiers totalProduction = _modulesDatabase.Modules.Where(m => m.ModuleType == moduleType).First().BaseProduction;
         
@@ -54,12 +89,18 @@ public class ModulesManager : MonoBehaviour
             totalProduction += ServiceLocator.Instance.UpgradesManager.ModuleUpgradeModifiers[moduleType];
         }
 
+        // add barn modifiers 
+        Modifiers barnModifiers = _barn.BaseProduction;
+        if (ServiceLocator.Instance.UpgradesManager.ModuleUpgradeModifiers.ContainsKey(ModuleTypes.Barn))
+        {
+            barnModifiers += ServiceLocator.Instance.UpgradesManager.ModuleUpgradeModifiers[ModuleTypes.Barn];
+        }
+        totalProduction += totalProduction * barnModifiers / 100;
+
         // add percent booster modifiers
         if (ServiceLocator.Instance.BoostersManager.ModuleBoosterModifiers.ContainsKey(moduleType)) {
             totalProduction += totalProduction * (ServiceLocator.Instance.BoostersManager.ModuleBoosterModifiers[moduleType]/100);
         }
-        
-        // add flat event modifiers
 
         SetModuleTypeProduction(moduleType, totalProduction);
     }

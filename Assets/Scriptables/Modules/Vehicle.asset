@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9253d7b6972ca184bb21993b9342ce11, type: 3}
+  m_Name: Vehicle
+  m_EditorClassIdentifier: 
+  _moduleName: OLD DIESEL FLEET
+  _moduleType: 1
+  _moduleDescription: A bunch of old pickup trucks.
+  _baseProduction:
+    IncomeModifier: 0
+    SpeedModifier: 0
+    AirPollutionModifier: 0.7
+    WaterPollutionModifier: 0.4
+    SoilPollutionModifier: 0.8
+    PollutionModifierType: 0
+  _cost: 0
+  _icon: {fileID: 0}
+  _modulePrefab: {fileID: 0}
+  _upgrades:
+  - {fileID: 11400000, guid: 54f8b258e74cf1342b760b0d7672197b, type: 2}
+  - {fileID: 11400000, guid: 7dd513e1f79f56d4187d81c8b3994acd, type: 2}
+  - {fileID: 11400000, guid: fcce95d99c2c6344282c322f32d88845, type: 2}

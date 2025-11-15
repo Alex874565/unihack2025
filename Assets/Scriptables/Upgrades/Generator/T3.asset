@@ -23,7 +23,7 @@ MonoBehaviour:
     WaterPollutionModifier: 0
     SoilPollutionModifier: -0.4
     PollutionModifierType: 0
-  _phase: 0
+  _phase: 2
   _possibleUpgrades:
   - {fileID: 11400000, guid: fc6bcb5cf56211049bc6565b4a1396ba, type: 2}
   - {fileID: 11400000, guid: 16e0cbe6d1c1957418d3d0761061a5e7, type: 2}

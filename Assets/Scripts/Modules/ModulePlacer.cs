@@ -31,6 +31,9 @@ public class ModulePlacer : MonoBehaviour
     private GameObject _modulePrefab;
     private ModuleData _moduleData;
 
+    private bool _isPlacingModule;
+    private List<ModuleData> _modulesToPlace = new List<ModuleData>();
+
     private void Start()
     {
         _lastMouseCol = -1;
@@ -44,13 +47,28 @@ public class ModulePlacer : MonoBehaviour
 
     public void StartPlacingModule(ModuleData moduleData)
     {
-        _moduleData = moduleData;
-        _modulePrefab = Instantiate(_moduleData.ModulePrefab);
-        _modulePrefab.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.7f);
-        DrawGrid();
+        if (!_isPlacingModule)
+        {
+            _isPlacingModule = true;
+            _moduleData = moduleData;
+            _modulePrefab = Instantiate(_moduleData.ModulePrefab);
+            _modulePrefab.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.7f);
+            DrawGrid();
+        }
+        else
+        {
+            _modulesToPlace.Add(moduleData);
+        }
     }
+
     private void Update()
     {
+        if (!_isPlacingModule && _modulesToPlace.Count > 0)
+        {
+            ModuleData nextModule = _modulesToPlace[0];
+            _modulesToPlace.RemoveAt(0);
+            StartPlacingModule(nextModule);
+        }
         if (_modulePrefab != null)
         {
             Vector3 mousePosition = Input.mousePosition;
@@ -110,7 +128,6 @@ public class ModulePlacer : MonoBehaviour
             _modulePrefab.GetComponent<ModuleBehaviour>().Place();
             _modulePrefab = null;
             _moduleData = null;
-            
         }
     }
 
@@ -128,6 +145,8 @@ public class ModulePlacer : MonoBehaviour
             _placeParticles.transform.position = position;
             _placeParticles.GetComponent<ParticleSystem>().Play();
         }
+        yield return new WaitForSeconds(0.5f);
+        _isPlacingModule = false;
     }
 
     private void DrawGrid()

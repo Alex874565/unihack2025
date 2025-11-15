@@ -23,6 +23,6 @@ MonoBehaviour:
     WaterPollutionModifier: 0
     SoilPollutionModifier: -0.2
     PollutionModifierType: 0
-  _phase: 0
+  _phase: 3
   _possibleUpgrades: []
   _moduleType: 0

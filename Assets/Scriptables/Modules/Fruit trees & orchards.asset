@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9253d7b6972ca184bb21993b9342ce11, type: 3}
+  m_Name: Fruit trees & orchards
+  m_EditorClassIdentifier: 
+  _moduleName: CHEMICAL MONOCULTURE
+  _moduleType: 5
+  _moduleDescription: An orchard with heavy anti-pest spraying.
+  _baseProduction:
+    IncomeModifier: 0
+    SpeedModifier: 0
+    AirPollutionModifier: 2
+    WaterPollutionModifier: 0.7
+    SoilPollutionModifier: 0.5
+    PollutionModifierType: 0
+  _cost: 0
+  _icon: {fileID: 0}
+  _modulePrefab: {fileID: 0}
+  _upgrades:
+  - {fileID: 11400000, guid: e1fe6396255922b41a0807e2a9a55280, type: 2}
+  - {fileID: 11400000, guid: 745125e54b69b3f41bdc1ab87f362cec, type: 2}
+  - {fileID: 11400000, guid: 966d98df3e765ee41bdb958c2ae6870e, type: 2}

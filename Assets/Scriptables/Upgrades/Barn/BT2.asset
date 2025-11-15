@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 403c6365e2f19a445a9b6411ed6b9fe9, type: 3}
+  m_Name: BT2
+  m_EditorClassIdentifier: 
+  _name: Full storage barn
+  _cost: 0
+  _icon: {fileID: 0}
+  _description: A proper shed.
+  _modifiers:
+    IncomeModifier: 0
+    SpeedModifier: 0
+    AirPollutionModifier: -10
+    WaterPollutionModifier: -10
+    SoilPollutionModifier: -10
+    PollutionModifierType: 1
+  _phase: 1
+  _possibleUpgrades:
+  - {fileID: 11400000, guid: 946de52f9f1b1b643938604eeb9b7799, type: 2}
+  - {fileID: 11400000, guid: 9a0857d6d63baf74c8fabecbd4a0c364, type: 2}
+  - {fileID: 11400000, guid: 5b120ffc722438d4eba9645cad6c689e, type: 2}
+  _moduleType: 2
