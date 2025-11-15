@@ -1,0 +1,377 @@
+fileFormatVersion: 2
+guid: d76b458642b3e224ea50e7c6043d852a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8150393740248722131
+    second: live_stock_tier_3_sheet_0
+  - first:
+      213: -7884866206200490227
+    second: live_stock_tier_3_sheet_1
+  - first:
+      213: -9073184055750788431
+    second: live_stock_tier_3_sheet_2
+  - first:
+      213: -8974737410848185570
+    second: live_stock_tier_3_sheet_3
+  - first:
+      213: 4186892498857612968
+    second: live_stock_tier_3_sheet_4
+  - first:
+      213: 335002790684684975
+    second: live_stock_tier_3_sheet_5
+  - first:
+      213: -5187287805834373611
+    second: live_stock_tier_3_sheet_6
+  - first:
+      213: -5562470871287029074
+    second: live_stock_tier_3_sheet_7
+  - first:
+      213: -4822669840269029054
+    second: live_stock_tier_3_sheet_8
+  - first:
+      213: 7356916233906708740
+    second: live_stock_tier_3_sheet_9
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: live_stock_tier_3_sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2029
+        width: 797
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2558ec631cf3ee80800000000000000
+      internalID: -8150393740248722131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: live_stock_tier_3_sheet_1
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 2029
+        width: 798
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0710f516f3539290800000000000000
+      internalID: -7884866206200490227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: live_stock_tier_3_sheet_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1529
+        width: 797
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ba7c3f4c23951280800000000000000
+      internalID: -9073184055750788431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: live_stock_tier_3_sheet_3
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 1529
+        width: 798
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e132cf100e3537380800000000000000
+      internalID: -8974737410848185570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: live_stock_tier_3_sheet_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1029
+        width: 797
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a6d72b6b84da1a30800000000000000
+      internalID: 4186892498857612968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: live_stock_tier_3_sheet_5
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 1029
+        width: 798
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa27681634b26a400800000000000000
+      internalID: 335002790684684975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: live_stock_tier_3_sheet_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 529
+        width: 797
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 516d689593d0308b0800000000000000
+      internalID: -5187287805834373611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: live_stock_tier_3_sheet_7
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 529
+        width: 798
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea2aa7bb6322ec2b0800000000000000
+      internalID: -5562470871287029074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: live_stock_tier_3_sheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 29
+        width: 797
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24156c5f45f621db0800000000000000
+      internalID: -4822669840269029054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: live_stock_tier_3_sheet_9
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 29
+        width: 798
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 401605c0654091660800000000000000
+      internalID: 7356916233906708740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      live_stock_tier_3_sheet_0: -8150393740248722131
+      live_stock_tier_3_sheet_1: -7884866206200490227
+      live_stock_tier_3_sheet_2: -9073184055750788431
+      live_stock_tier_3_sheet_3: -8974737410848185570
+      live_stock_tier_3_sheet_4: 4186892498857612968
+      live_stock_tier_3_sheet_5: 335002790684684975
+      live_stock_tier_3_sheet_6: -5187287805834373611
+      live_stock_tier_3_sheet_7: -5562470871287029074
+      live_stock_tier_3_sheet_8: -4822669840269029054
+      live_stock_tier_3_sheet_9: 7356916233906708740
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
