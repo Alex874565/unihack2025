@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 403c6365e2f19a445a9b6411ed6b9fe9, type: 3}
   m_Name: CT2
   m_EditorClassIdentifier: 
-  _name: Reduced till-field system
-  _cost: 0
+  _name: Reduced Till-field System
+  _cost: 400
   _icon: {fileID: 0}
   _description: 
   _modifiers:
-    IncomeModifier: 0
-    SpeedModifier: 0
+    IncomeModifier: 125
+    SpeedModifier: 5.5
     AirPollutionModifier: 0.5
     WaterPollutionModifier: 1
     SoilPollutionModifier: 0.5

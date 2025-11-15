@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 403c6365e2f19a445a9b6411ed6b9fe9, type: 3}
   m_Name: A4
   m_EditorClassIdentifier: 
-  _name: 
-  _cost: 0
+  _name: Integrated Multi-Trophic Aqua Farm
+  _cost: 5200
   _icon: {fileID: 0}
-  _description: 
+  _description: A net-zero aquaculture basin.
   _modifiers:
-    IncomeModifier: 0
-    SpeedModifier: 0
+    IncomeModifier: 1020
+    SpeedModifier: 5
     AirPollutionModifier: 0
     WaterPollutionModifier: 0
     SoilPollutionModifier: 0
     PollutionModifierType: 0
-  _phase: 0
+  _phase: 3
   _possibleUpgrades: []
-  _moduleType: 0
-  _isNewTier: 0
+  _moduleType: 6
+  _isNewTier: 1

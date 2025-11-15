@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BT2
   m_EditorClassIdentifier: 
   _name: Full Storage Barn
-  _cost: 0
+  _cost: 500
   _icon: {fileID: 0}
   _description: A proper shed.
   _modifiers:

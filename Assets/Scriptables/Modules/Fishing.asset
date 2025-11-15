@@ -12,17 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9253d7b6972ca184bb21993b9342ce11, type: 3}
   m_Name: Fishing
   m_EditorClassIdentifier: 
-  _moduleName: 
-  _moduleType: 0
-  _moduleDescription: 
+  _moduleName: Open Pond System
+  _moduleType: 6
+  _moduleDescription: As basic as a fish basin gets.
   _baseProduction:
-    IncomeModifier: 0
-    SpeedModifier: 0
-    AirPollutionModifier: 0
-    WaterPollutionModifier: 0
-    SoilPollutionModifier: 0
+    IncomeModifier: 50
+    SpeedModifier: 4
+    AirPollutionModifier: 0.5
+    WaterPollutionModifier: 0.5
+    SoilPollutionModifier: 1.5
     PollutionModifierType: 0
-  _cost: 0
+  _cost: 80
   _icon: {fileID: 0}
   _modulePrefab: {fileID: 0}
-  _upgrades: []
+  _upgrades:
+  - {fileID: 11400000, guid: 357f7121d69c6db4ba7ee8cd1ea44374, type: 2}
+  - {fileID: 11400000, guid: a00697613da128d44ac47049f964e7c3, type: 2}
+  - {fileID: 11400000, guid: 392545cf38c67e7429baa1ec4d8b82d2, type: 2}

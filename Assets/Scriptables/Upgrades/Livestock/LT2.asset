@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: LT2
   m_EditorClassIdentifier: 
   _name: 'Rotational grazing system '
-  _cost: 0
+  _cost: 400
   _icon: {fileID: 0}
   _description: Cleaner management.
   _modifiers:
-    IncomeModifier: 0
-    SpeedModifier: 0
+    IncomeModifier: 150
+    SpeedModifier: 4.5
     AirPollutionModifier: 0.7
     WaterPollutionModifier: 0.8
     SoilPollutionModifier: -0.1
