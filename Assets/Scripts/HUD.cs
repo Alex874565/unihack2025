@@ -92,7 +92,6 @@ public class HUD : MonoBehaviour
 
             iconUI.Initialize(booster.Icon, booster.Duration);
 
-
             activeBoosterIcons.Add(booster, iconUI);
         }
     }
@@ -144,12 +143,12 @@ public class HUD : MonoBehaviour
     private void UpdatePollutionBars()
     {
         if (airSlider != null)
-            airSlider.value = _pollutionManager.AirPollutionLevel;
+            airSlider.value = _pollutionManager.AirPollutionLevel / 100;
 
         if (soilSlider != null)
-            soilSlider.value = _pollutionManager.SoilPollutionLevel;
+            soilSlider.value = _pollutionManager.SoilPollutionLevel / 100;
 
         if (waterSlider != null)
-            waterSlider.value = _pollutionManager.WaterPollutionLevel;
+            waterSlider.value = _pollutionManager.WaterPollutionLevel / 100;
     }
 }
