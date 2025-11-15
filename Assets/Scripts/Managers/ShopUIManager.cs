@@ -33,7 +33,7 @@ public class ShopUIManager : MonoBehaviour
 
     public void ShowShop()
     {
-        this.items = ServiceLocator.Instance.ShopManager.GetSelectedItems();
+        items = ServiceLocator.Instance.ShopManager.GetSelectedItems();
         SetAllUIElements();
         _upgradesCanvas.SetActive(true);
     }
@@ -45,7 +45,8 @@ public class ShopUIManager : MonoBehaviour
 
     public void SetBackground(ShopItem item)
     {
-            Image backgroundRenderer = _backgroundRenderers[items.IndexOf(item)];
+        Debug.Log("SetBackground - index: " + items.IndexOf(item));
+        Image backgroundRenderer = _backgroundRenderers[items.IndexOf(item)];
             if (item.ShopItemType == ShopItemTypes.Upgrade)
             {
                 backgroundRenderer.sprite = _upgradeBackgroundSprite;
@@ -60,18 +61,15 @@ public class ShopUIManager : MonoBehaviour
             }
     }
 
-    public void SetBackGroundEventTrigger(ShopItem item)
+    public void SetBackgroundEventTrigger(ShopItem item)
     {
-            EventTrigger backgroundEventTrigger = _backgroundEventTriggers[items.IndexOf(item)];
-            var trigger = new EventTrigger.Entry();
-            trigger.eventID = EventTriggerType.PointerClick;
-            trigger.callback.AddListener((data) =>
-            {
-                Debug.Log("Clicked on item: " + item.ShopItemType);
-                ServiceLocator.Instance.ShopManager.ChooseItem(item);
-            });
-            backgroundEventTrigger.triggers.Add(trigger);
-        
+        EventTrigger backgroundEventTrigger = _backgroundEventTriggers[items.IndexOf(item)];
+        backgroundEventTrigger.triggers[0].callback.RemoveAllListeners();
+        backgroundEventTrigger.triggers[0].callback.AddListener((data) =>
+        {
+            Debug.Log("Clicked on item: " + item.ShopItemType);
+            ServiceLocator.Instance.ShopManager.ChooseItem(item);
+        });
     }
 
     public void SetIcon(ShopItem item)
@@ -92,9 +90,9 @@ public class ShopUIManager : MonoBehaviour
             TMP_Text nameField = _nameFields[items.IndexOf(item)];
             nameField.text = item.ShopItemType switch
             {
-                ShopItemTypes.Upgrade => item.UpgradeData.Name,
-                ShopItemTypes.Module => item.ModuleData.ModuleType.ToString(),
-                ShopItemTypes.Booster => item.BoosterData.Name,
+                ShopItemTypes.Upgrade => item.UpgradeData.Name + ", Upgrade",
+                ShopItemTypes.Module => item.ModuleData.ModuleType.ToString() + ", Building",
+                ShopItemTypes.Booster => item.BoosterData.Name + ", Booster",
                 _ => "Unknown Item"
             };
         
@@ -232,9 +230,9 @@ public class ShopUIManager : MonoBehaviour
             TMP_Text costField = _costFields[items.IndexOf(item)];
             costField.text = item.ShopItemType switch
             {
-                ShopItemTypes.Upgrade => item.UpgradeData.Cost.ToString(),
-                ShopItemTypes.Module => item.ModuleData.Cost.ToString(),
-                ShopItemTypes.Booster => ServiceLocator.Instance.BoostersManager.GetBoosterCost(item.BoosterData.Name).ToString(),
+                ShopItemTypes.Upgrade => "Cost: " + item.UpgradeData.Cost.ToString(),
+                ShopItemTypes.Module => "Cost: " + item.ModuleData.Cost.ToString(),
+                ShopItemTypes.Booster => "Cost: " + ServiceLocator.Instance.BoostersManager.GetBoosterCost(item.BoosterData.Name).ToString(),
                 _ => ""
             };
         
@@ -245,7 +243,7 @@ public class ShopUIManager : MonoBehaviour
         foreach (ShopItem item in items)
         {
             SetBackground(item);
-            SetBackGroundEventTrigger(item);
+            SetBackgroundEventTrigger(item);
             SetIcon(item);
             SetName(item);
             SetTier(item);

@@ -17,6 +17,13 @@ public class UpgradesManager : MonoBehaviour
 
     [SerializeField] private Dictionary<ModuleTypes, Modifiers> _moduleUpgradeModifiers;
 
+    public void Awake()
+    {
+        _moduleUpgradeModifiers = new Dictionary<ModuleTypes, Modifiers>();
+        _possibleUpgrades = new List<UpgradeData>();
+        _currentUpgrades = new List<UpgradeData>();
+    }
+
     public UpgradeData GetPossibleWeightedUpgrade()
     {
         float totalWeight = 0f;
