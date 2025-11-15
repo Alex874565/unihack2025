@@ -1,8 +1,15 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System;
+using Unity.VisualScripting;
 
 public class BoostersManager : MonoBehaviour
 {
+    public static BoostersManager Instance { get; private set; }
+
+    public event EventHandler OnBoostActivated;
+    public event EventHandler OnBoostDeactivated;
+
     public List<GlobalModifierData> ActiveBoosters => _activeBoosters;
     public Dictionary<ModuleTypes, Modifiers> ModuleBoosterModifiers => _moduleBoosterModifiers;
     public List<float> BoosterDurations => _boosterDurations;
@@ -17,6 +24,11 @@ public class BoostersManager : MonoBehaviour
     private List<float> _boosterDurations;
 
     private Dictionary<ModuleTypes, Modifiers> _moduleBoosterModifiers = new Dictionary<ModuleTypes, Modifiers>();
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {
@@ -49,7 +61,7 @@ public class BoostersManager : MonoBehaviour
             totalWeight += GetBoosterWeight(booster);
         }
         Debug.Log("GetWeightedBooster - Total Weight: " + totalWeight);
-        float randomValue = Random.Range(0f, totalWeight);
+        float randomValue = UnityEngine.Random.Range(0f, totalWeight);
         float cumulativeWeight = 0f;
         foreach (var booster in _boostersDatabase.Boosters)
         {
@@ -75,8 +87,11 @@ public class BoostersManager : MonoBehaviour
         AddBoosterModifiers(booster);
         _activeBoosters.Add(booster);
         _boosterDurations.Add(booster.Duration);
+
         Debug.Log("AddBooster - Booster added!");
+        OnBoostActivated?.Invoke(this, EventArgs.Empty);
     }
+
 
     public void AddBoosterModifiers(GlobalModifierData booster)
     {
@@ -129,11 +144,14 @@ public class BoostersManager : MonoBehaviour
     public void RemoveBooster(int index)
     {
         RemoveBoosterModifiers(_activeBoosters[index]);
+
         _boosterDurations.RemoveAt(index);
         _activeBoosters.RemoveAt(index);
 
         Debug.Log("RemoveBooster - Booster expired and removed!");
+        OnBoostDeactivated?.Invoke(this, EventArgs.Empty);
     }
+
 
     public void SetBoosterModifiers(ModuleTypes moduleType, Modifiers modifiers)
     {
