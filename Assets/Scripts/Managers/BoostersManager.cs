@@ -6,6 +6,8 @@ public class BoostersManager : MonoBehaviour
     public List<GlobalModifierData> ActiveBoosters => _activeBoosters;
     public Dictionary<ModuleTypes, Modifiers> ModuleBoosterModifiers => _moduleBoosterModifiers;
 
+    public BoostersDatabase BoostersDatabase => _boostersDatabase;
+
     [SerializeField] private BoostersDatabase _boostersDatabase;
 
     [SerializeField] private AnimationCurve _rarityCurve;
@@ -139,5 +141,12 @@ public class BoostersManager : MonoBehaviour
         Debug.Log("SetBoosterModifiers - set " + moduleType + " to:" + _moduleBoosterModifiers[moduleType].ToString());
 
         ServiceLocator.Instance.ModulesManager.CalculateModuleTypeProduction(moduleType);
+    }
+
+    public BoosterTiers GetBoosterTier(string boosterName)
+    {
+        var booster = _boostersDatabase.Boosters.Find(b => b.Booster.Name == boosterName);
+        Debug.Log("GetBoosterTier - Booster " + boosterName + " is of tier " + booster.Tier);
+        return booster.Tier;
     }
 }
