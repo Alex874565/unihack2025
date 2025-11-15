@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 403c6365e2f19a445a9b6411ed6b9fe9, type: 3}
-  m_Name: LT3
+  m_Name: CT3
   m_EditorClassIdentifier: 
-  _name: Biogas-linked dairy
+  _name: No-till planter system
   _cost: 0
   _icon: {fileID: 0}
-  _description: Turns waste into power!
+  _description: No tills, no thrills!
   _modifiers:
     IncomeModifier: 0
     SpeedModifier: 0
-    AirPollutionModifier: -0.4
-    WaterPollutionModifier: -0.6
-    SoilPollutionModifier: 0
+    AirPollutionModifier: -0.2
+    WaterPollutionModifier: -0.3
+    SoilPollutionModifier: -0.2
     PollutionModifierType: 0
   _phase: 2
   _possibleUpgrades:
-  - {fileID: 11400000, guid: 256b58712aa24f040807c65831359114, type: 2}
-  - {fileID: 11400000, guid: 4528acf9822aec742ad6d71c030e13b7, type: 2}
-  - {fileID: 11400000, guid: b65b6734312642044ba1411b86aacd3a, type: 2}
-  _moduleType: 3
+  - {fileID: 11400000, guid: c304f6b74c09f2f40b7aa3fd285bd494, type: 2}
+  - {fileID: 11400000, guid: 48c834f1a0c6f7b4a9988b0f73c88151, type: 2}
+  - {fileID: 11400000, guid: e7d4a6126e7328246a1f0a4c53aa7d48, type: 2}
+  _moduleType: 4

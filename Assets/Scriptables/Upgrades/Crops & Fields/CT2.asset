@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 403c6365e2f19a445a9b6411ed6b9fe9, type: 3}
-  m_Name: LT3
+  m_Name: CT2
   m_EditorClassIdentifier: 
-  _name: Biogas-linked dairy
+  _name: Reduced till-field system
   _cost: 0
   _icon: {fileID: 0}
-  _description: Turns waste into power!
+  _description: 
   _modifiers:
     IncomeModifier: 0
     SpeedModifier: 0
-    AirPollutionModifier: -0.4
-    WaterPollutionModifier: -0.6
-    SoilPollutionModifier: 0
+    AirPollutionModifier: -0.5
+    WaterPollutionModifier: -0.2
+    SoilPollutionModifier: -0.3
     PollutionModifierType: 0
-  _phase: 2
+  _phase: 1
   _possibleUpgrades:
-  - {fileID: 11400000, guid: 256b58712aa24f040807c65831359114, type: 2}
-  - {fileID: 11400000, guid: 4528acf9822aec742ad6d71c030e13b7, type: 2}
-  - {fileID: 11400000, guid: b65b6734312642044ba1411b86aacd3a, type: 2}
-  _moduleType: 3
+  - {fileID: 11400000, guid: 55b443a90d53c164485810f92c82fe5b, type: 2}
+  - {fileID: 11400000, guid: ab738976fde8ebe4ba2dbd82f3c6b25f, type: 2}
+  - {fileID: 11400000, guid: bd0af6fffff32fc4f86daf8c49a6f552, type: 2}
+  _moduleType: 4

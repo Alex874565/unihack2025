@@ -10,22 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 403c6365e2f19a445a9b6411ed6b9fe9, type: 3}
-  m_Name: LT3
+  m_Name: F4
   m_EditorClassIdentifier: 
-  _name: Biogas-linked dairy
+  _name: Agroforestry eco-system
   _cost: 0
   _icon: {fileID: 0}
-  _description: Turns waste into power!
+  _description: Fuly zero chemical zone!
   _modifiers:
     IncomeModifier: 0
     SpeedModifier: 0
-    AirPollutionModifier: -0.4
-    WaterPollutionModifier: -0.6
-    SoilPollutionModifier: 0
+    AirPollutionModifier: -0.5
+    WaterPollutionModifier: 0
+    SoilPollutionModifier: -0.1
     PollutionModifierType: 0
-  _phase: 2
-  _possibleUpgrades:
-  - {fileID: 11400000, guid: 256b58712aa24f040807c65831359114, type: 2}
-  - {fileID: 11400000, guid: 4528acf9822aec742ad6d71c030e13b7, type: 2}
-  - {fileID: 11400000, guid: b65b6734312642044ba1411b86aacd3a, type: 2}
-  _moduleType: 3
+  _phase: 3
+  _possibleUpgrades: []
+  _moduleType: 5
