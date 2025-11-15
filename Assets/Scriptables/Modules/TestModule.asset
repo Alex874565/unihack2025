@@ -13,9 +13,15 @@ MonoBehaviour:
   m_Name: TestModule
   m_EditorClassIdentifier: 
   _moduleName: test
+  _moduleType: 0
   _moduleDescription: test
-  _income: 1
-  _pollution: 1
+  _baseProduction:
+    IncomeModifier: 1
+    SpeedModifier: 5
+    AirPollutionModifier: 1
+    WaterPollutionModifier: 1
+    SoilPollutionModifier: 1
+    PollutionModifierType: 0
   _cost: 1
   _icon: {fileID: 0}
   _modulePrefab: {fileID: 7456356414709372688, guid: b4ebce01b97dbe341940e9dd12acf00d, type: 3}

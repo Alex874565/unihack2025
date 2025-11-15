@@ -101,6 +101,7 @@ public class ModulePlacer : MonoBehaviour
             }
             _modulesGrid.AddModuleToGrid(_moduleData, x, y);
             _modulePrefab.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1f);
+            _modulePrefab.GetComponent<ModuleBehaviour>().Place();
             _modulePrefab = null;
             _moduleData = null;
             

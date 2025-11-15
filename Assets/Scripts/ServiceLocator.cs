@@ -9,12 +9,16 @@ public class ServiceLocator : MonoBehaviour
     public UpgradesManager UpgradesManager => _upgradesManager;
     public ShopManager ShopManager => _shopManager;
     public BoostersManager BoostersManager => _boostersManager;
+    public PollutionManager PollutionManager => _pollutionManager;
+    public MoneyManager MoneyManager => _moneyManager;
 
     private ModulesManager _modulesManager;
     private UpgradesManager _upgradesManager;
     private ShopManager _shopManager;
     private BoostersManager _boostersManager;
-
+    private PollutionManager _pollutionManager;
+    private MoneyManager _moneyManager;
+    
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -29,5 +33,7 @@ public class ServiceLocator : MonoBehaviour
         _upgradesManager = GetComponent<UpgradesManager>();
         _shopManager = GetComponent<ShopManager>();
         _boostersManager = GetComponent<BoostersManager>();
+        _pollutionManager = GetComponent<PollutionManager>();
+        _moneyManager = GetComponent<MoneyManager>();
     }
 }

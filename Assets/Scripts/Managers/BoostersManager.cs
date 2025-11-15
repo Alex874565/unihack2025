@@ -69,13 +69,13 @@ public class BoostersManager : MonoBehaviour
 
     public void AddBooster(GlobalModifierData booster)
     {
-        ApplyBoosterModifiers(booster);
+        AddBoosterModifiers(booster);
         _activeBoosters.Add(booster);
         _boosterDurations.Add(booster.Duration);
         Debug.Log("AddBooster - Booster added!");
     }
 
-    public void ApplyBoosterModifiers(GlobalModifierData booster)
+    public void AddBoosterModifiers(GlobalModifierData booster)
     {
         Debug.Log("ApplyBoosterModifiers - Booster modifiers applied!");
         if (booster.IsPerModule)
@@ -84,23 +84,20 @@ public class BoostersManager : MonoBehaviour
             {
                 if (_moduleBoosterModifiers.ContainsKey(moduleType))
                 {
-                    _moduleBoosterModifiers[moduleType] += booster.Modifiers;
+                    SetBoosterModifiers(moduleType, _moduleBoosterModifiers[moduleType] + booster.Modifiers);
                 }
                 else
                 {
-                    _moduleBoosterModifiers[moduleType] = booster.Modifiers;
+                    SetBoosterModifiers(moduleType, booster.Modifiers);
                 }
-
-                Debug.Log(moduleType + ":" + _moduleBoosterModifiers[moduleType].ToString());
             }
         }
         else
         {
-            foreach (var key in _moduleBoosterModifiers.Keys)
+            foreach (var moduleType in _moduleBoosterModifiers.Keys)
             {
-                _moduleBoosterModifiers[key] += booster.Modifiers;
-                Debug.Log("ApplyBoosterModifiers - " + key + ": " + _moduleBoosterModifiers[key].ToString());
-            }
+                SetBoosterModifiers(moduleType, _moduleBoosterModifiers[moduleType] + booster.Modifiers);
+                }
         }
     }
 
@@ -113,17 +110,15 @@ public class BoostersManager : MonoBehaviour
             {
                 if (_moduleBoosterModifiers.ContainsKey(moduleType))
                 {
-                    _moduleBoosterModifiers[moduleType] -= booster.Modifiers;
+                    SetBoosterModifiers(moduleType, _moduleBoosterModifiers[moduleType] - booster.Modifiers);
                 }
-                Debug.Log("RemoveBoosterModifiers - " + moduleType + ": " + _moduleBoosterModifiers[moduleType]);
             }
         }
         else
         {
-            foreach (var key in _moduleBoosterModifiers.Keys)
+            foreach (var moduleType in _moduleBoosterModifiers.Keys)
             {
-                _moduleBoosterModifiers[key] += booster.Modifiers;
-                Debug.Log("RemoveBoosterModifiers  - " + key + ": " +  (_moduleBoosterModifiers[key].ToString()));
+                SetBoosterModifiers(moduleType, _moduleBoosterModifiers[moduleType] - booster.Modifiers);
             }
         }
     }
@@ -135,5 +130,14 @@ public class BoostersManager : MonoBehaviour
         _activeBoosters.RemoveAt(index);
 
         Debug.Log("RemoveBooster - Booster expired and removed!");
+    }
+
+    public void SetBoosterModifiers(ModuleTypes moduleType, Modifiers modifiers)
+    {
+        _moduleBoosterModifiers[moduleType] = modifiers;
+
+        Debug.Log("SetBoosterModifiers - set " + moduleType + " to:" + _moduleBoosterModifiers[moduleType].ToString());
+
+        ServiceLocator.Instance.ModulesManager.CalculateModuleTypeProduction(moduleType);
     }
 }

@@ -3,12 +3,12 @@ using UnityEngine;
 [System.Serializable]
 public class Modifiers
 {
-    public int IncomeModifier;
-    public int SpeedModifier;
-    public int AirPollutionModifier;
-    public int WaterPollutionModifier;
-    public int SoilPollutionModifier;
-    public bool ArePollutionModifiersPercentage;
+    public float IncomeModifier;
+    public float SpeedModifier;
+    public float AirPollutionModifier;
+    public float WaterPollutionModifier;
+    public float SoilPollutionModifier;
+    public ModifierTypes PollutionModifierType;
 
     public static Modifiers operator +(Modifiers a, Modifiers b)
     {
@@ -25,7 +25,7 @@ public class Modifiers
             SoilPollutionModifier = a.SoilPollutionModifier + b.SoilPollutionModifier,
 
             // Keep the bool from "a", or pick whichever logic you prefer
-            ArePollutionModifiersPercentage = a.ArePollutionModifiersPercentage
+            PollutionModifierType = a.PollutionModifierType
         };
     }
 
@@ -40,7 +40,7 @@ public class Modifiers
             AirPollutionModifier = -b.AirPollutionModifier,
             WaterPollutionModifier = -b.WaterPollutionModifier,
             SoilPollutionModifier = -b.SoilPollutionModifier,
-            ArePollutionModifiersPercentage = b.ArePollutionModifiersPercentage
+            PollutionModifierType = b.PollutionModifierType
         };
         if (b == null) return a;
 
@@ -53,7 +53,49 @@ public class Modifiers
             SoilPollutionModifier = a.SoilPollutionModifier - b.SoilPollutionModifier,
 
             // Same bool rule as +
-            ArePollutionModifiersPercentage = a.ArePollutionModifiersPercentage
+            PollutionModifierType = a.PollutionModifierType
+        };
+    }
+
+    public static Modifiers operator *(Modifiers a, Modifiers b)
+    {
+        if (a == null || b == null) return null;
+        return new Modifiers
+        {
+            IncomeModifier = a.IncomeModifier * b.IncomeModifier / 100f,
+            SpeedModifier = a.SpeedModifier * b.SpeedModifier / 100f,
+            AirPollutionModifier = a.AirPollutionModifier * b.AirPollutionModifier / 100f,
+            WaterPollutionModifier = a.WaterPollutionModifier * b.WaterPollutionModifier / 100f,
+            SoilPollutionModifier = a.SoilPollutionModifier * b.SoilPollutionModifier / 100f,
+            PollutionModifierType = a.PollutionModifierType
+        };
+    }
+
+    public static Modifiers operator *(Modifiers a, float scalar)
+    {
+        if (a == null) return null;
+        return new Modifiers
+        {
+            IncomeModifier = a.IncomeModifier * scalar,
+            SpeedModifier = a.SpeedModifier * scalar,
+            AirPollutionModifier = a.AirPollutionModifier * scalar,
+            WaterPollutionModifier = a.WaterPollutionModifier * scalar,
+            SoilPollutionModifier = a.SoilPollutionModifier * scalar,
+            PollutionModifierType = a.PollutionModifierType
+        };
+    }
+
+    public static Modifiers operator /(Modifiers a, float scalar)
+    {
+        if (a == null) return null;
+        return new Modifiers
+        {
+            IncomeModifier = a.IncomeModifier / scalar,
+            SpeedModifier = a.SpeedModifier / scalar,
+            AirPollutionModifier = a.AirPollutionModifier / scalar,
+            WaterPollutionModifier = a.WaterPollutionModifier / scalar,
+            SoilPollutionModifier = a.SoilPollutionModifier / scalar,
+            PollutionModifierType = a.PollutionModifierType
         };
     }
 
@@ -65,7 +107,7 @@ public class Modifiers
             $"AirPollution: {AirPollutionModifier}, " +
             $"WaterPollution: {WaterPollutionModifier}, " +
             $"SoilPollution: {SoilPollutionModifier}, " +
-            $"PollutionIsPercent: {ArePollutionModifiersPercentage}";
+            $"PollutionIsPercent: {PollutionModifierType}";
     }
 
 }

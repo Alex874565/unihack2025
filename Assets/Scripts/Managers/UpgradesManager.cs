@@ -98,5 +98,6 @@ public class UpgradesManager : MonoBehaviour
             _moduleUpgradeModifiers[upgradeData.ModuleType] += upgradeData.Modifiers;
         }
         Debug.Log("ApplyUpgradeModifiers - Upgrade modifiers applied to " + upgradeData.ModuleType + ": " + _moduleUpgradeModifiers[upgradeData.ModuleType]);
+        ServiceLocator.Instance.ModulesManager.CalculateModuleTypeProduction(upgradeData.ModuleType);
     }
 }
