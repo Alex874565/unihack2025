@@ -29,7 +29,6 @@ public class EnvironmentManager : MonoBehaviour
         foreach (Animator grassAnimator in _grassAnimators)
         {
             grassAnimator.SetFloat("SoilPollution", ServiceLocator.Instance.PollutionManager.SoilPollutionLevel);
-            Debug.Log("EnvironmentManager - Update: Setting SoilPollution to " + ServiceLocator.Instance.PollutionManager.SoilPollutionLevel);
             _cloudsAnimator.SetFloat("AirPollution", ServiceLocator.Instance.PollutionManager.AirPollutionLevel);
         }
     }
