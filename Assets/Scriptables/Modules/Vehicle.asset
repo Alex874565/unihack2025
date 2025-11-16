@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9253d7b6972ca184bb21993b9342ce11, type: 3}
   m_Name: Vehicle
   m_EditorClassIdentifier: 
-  _moduleName: OLD DIESEL FLEET
+  _moduleName: Old Diesel Fleet
   _moduleType: 1
   _moduleDescription: A bunch of old pickup trucks.
   _baseProduction:

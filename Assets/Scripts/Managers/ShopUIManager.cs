@@ -176,7 +176,7 @@ public void HideShop()
             {
                 ShopItemTypes.Upgrade => item.UpgradeData.Modifiers.IncomeModifier.ToString(),
                 ShopItemTypes.Module => item.ModuleData.BaseProduction.IncomeModifier.ToString(),
-                ShopItemTypes.Booster => item.BoosterData.Modifiers.IncomeModifier.ToString("P0"),
+                ShopItemTypes.Booster => item.BoosterData.Modifiers.IncomeModifier.ToString(),
                 _ => ""
             };
         
@@ -189,7 +189,7 @@ public void HideShop()
             {
                 ShopItemTypes.Upgrade => item.UpgradeData.Modifiers.SpeedModifier.ToString(),
                 ShopItemTypes.Module => item.ModuleData.BaseProduction.SpeedModifier.ToString(),
-                ShopItemTypes.Booster => item.BoosterData.Modifiers.SpeedModifier.ToString("P0"),
+                ShopItemTypes.Booster => item.BoosterData.Modifiers.SpeedModifier.ToString(),
                 _ => ""
             };
         
@@ -202,7 +202,7 @@ public void HideShop()
             {
                 ShopItemTypes.Upgrade => item.UpgradeData.Modifiers.WaterPollutionModifier.ToString(),
                 ShopItemTypes.Module => item.ModuleData.BaseProduction.WaterPollutionModifier.ToString(),
-                ShopItemTypes.Booster => item.BoosterData.Modifiers.WaterPollutionModifier.ToString("P0"),
+                ShopItemTypes.Booster => item.BoosterData.Modifiers.WaterPollutionModifier.ToString(),
                 _ => ""
             };
         
@@ -215,7 +215,7 @@ public void HideShop()
             {
                 ShopItemTypes.Upgrade => item.UpgradeData.Modifiers.SoilPollutionModifier.ToString(),
                 ShopItemTypes.Module => item.ModuleData.BaseProduction.SoilPollutionModifier.ToString(),
-                ShopItemTypes.Booster => item.BoosterData.Modifiers.SoilPollutionModifier.ToString("P0"),
+                ShopItemTypes.Booster => item.BoosterData.Modifiers.SoilPollutionModifier.ToString(),
                 _ => ""
             };
         
@@ -228,7 +228,7 @@ public void HideShop()
             {
                 ShopItemTypes.Upgrade => item.UpgradeData.Modifiers.AirPollutionModifier.ToString(),
                 ShopItemTypes.Module => item.ModuleData.BaseProduction.AirPollutionModifier.ToString(),
-                ShopItemTypes.Booster => item.BoosterData.Modifiers.AirPollutionModifier.ToString("P0"),
+                ShopItemTypes.Booster => item.BoosterData.Modifiers.AirPollutionModifier.ToString(),
                 _ => ""
             };
         

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9253d7b6972ca184bb21993b9342ce11, type: 3}
   m_Name: Generator
   m_EditorClassIdentifier: 
-  _moduleName: DIESEL POWER GENERATOR
+  _moduleName: Diesel Power Generator
   _moduleType: 0
   _moduleDescription: Some fuel chugging generators found on marketplace.
   _baseProduction:
