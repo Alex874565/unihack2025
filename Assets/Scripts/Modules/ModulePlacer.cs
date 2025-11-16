@@ -15,7 +15,7 @@ public class ModulePlacer : MonoBehaviour
     [SerializeField] private Color _freeColor;
     [SerializeField] private Color _hoveringColor;
 
-    [SerializeField] private AudioSource _placeAudio;
+    [SerializeField] private AudioClip _placeAudio;
     [SerializeField] private GameObject _placeParticles;
 
 
@@ -156,7 +156,7 @@ public class ModulePlacer : MonoBehaviour
         Time.timeScale = 1f;
         if (_placeAudio != null)
         {
-            _placeAudio.Play();
+            AudioManager.Instance.PlaySound(_placeAudio);
         }
         if (_placeParticles != null)
         {

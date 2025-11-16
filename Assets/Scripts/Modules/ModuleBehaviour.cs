@@ -13,6 +13,9 @@ public class ModuleBehaviour : MonoBehaviour
     [SerializeField] private RectTransform _maskTransform;
     [SerializeField] private List<UpgradeObjectEntry> _upgradeObjects;
 
+    [SerializeField] private AudioClip _moduleAudio;
+    [SerializeField] private AudioClip _collectAudio;
+
     private float _collectionTimeRemaining;
 
     private float _moneyCollected;
