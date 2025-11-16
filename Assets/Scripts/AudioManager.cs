@@ -11,6 +11,12 @@ public class AudioManager : MonoBehaviour
     public AudioClip hover;
     public AudioClip click;
 
+    private void Awake()
+{
+    DontDestroyOnLoad(gameObject);
+}
+
+
     private void Start()
     {
         musicAudioSource.clip = background;
