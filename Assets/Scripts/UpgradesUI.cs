@@ -4,16 +4,21 @@ using UnityEngine.UI;
 public class UpgradesUI : MonoBehaviour
 {
     [SerializeField] private ShopUIManager shopUIManager; // assign in inspector
+    [SerializeField] private Button closeButton;
 
     private void Awake()
-    {
-        closeButton.onClick.AddListener(() =>
-        {
-            shopUIManager.HideShop(); // <-- calls proper hide and resumes game
-        });
-    }
+{
+    Debug.Log("closeButton = " + closeButton);
+    Debug.Log("shopUIManager = " + shopUIManager);
 
-    [SerializeField] private Button closeButton;
+    closeButton.onClick.AddListener(() =>
+    {
+        shopUIManager.HideShop();
+    });
+}
+
+
+    
 
     public void Hide()
     {
