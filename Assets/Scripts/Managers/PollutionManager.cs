@@ -5,12 +5,10 @@ public class PollutionManager : MonoBehaviour
     public float AirPollutionLevel => _airPollutionLevel;
     public float SoilPollutionLevel => _soilPollutionLevel;
     public float WaterPollutionLevel => _waterPollutionLevel;
-    public float TotalPollutionLevel => _totalPollutionLevel;
 
     private float _airPollutionLevel;
     [SerializeField] private float _soilPollutionLevel;
     private float _waterPollutionLevel;
-    private float _totalPollutionLevel;
 
     public void ModifyAirPollution(float amount)
     {
@@ -28,9 +26,9 @@ public class PollutionManager : MonoBehaviour
         //Debug.Log("WaterPollutionLevel - " + _waterPollutionLevel);
     }
 
-    private void UpdateTotalPollution()
+    public float GetTotalPollution()
     {
-        _totalPollutionLevel = _airPollutionLevel + _soilPollutionLevel + _waterPollutionLevel;
+        return _airPollutionLevel + _soilPollutionLevel + _waterPollutionLevel;
     }
 
 }

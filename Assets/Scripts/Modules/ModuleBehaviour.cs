@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Linq;
 using System.Collections;
+using TMPro;
 
 public class ModuleBehaviour : MonoBehaviour
 {
@@ -16,6 +17,13 @@ public class ModuleBehaviour : MonoBehaviour
     [SerializeField] private AudioClip _moduleAudio;
     [SerializeField] private AudioClip _collectAudio;
 
+    [SerializeField] private TMP_Text _productionText;
+    [SerializeField] private TMP_Text _airPollutionText;
+    [SerializeField] private TMP_Text _soilPollutionText;
+    [SerializeField] private TMP_Text _waterPollutionText;
+
+    [SerializeField] private GameObject _stats;
+
     private float _collectionTimeRemaining;
 
     private float _moneyCollected;
@@ -28,13 +36,18 @@ public class ModuleBehaviour : MonoBehaviour
 
     private Coroutine _flashCoroutine;
 
+    private Color _positiveColor;
+    private Color _negativeColor;
+
     private void Start()
     {
         _modulesManager = ServiceLocator.Instance.ModulesManager;
         _collectionFillIcon.fillAmount = 0f;
         _collecting = false;
-        _collectionBackgroundIcon.enabled = false;
+        _stats.SetActive(false);
         _isPlaced = false;
+        _positiveColor = ServiceLocator.Instance.ShopUIManager.PositiveModifierColor;
+        _negativeColor = ServiceLocator.Instance.ShopUIManager.NegativeModifierColor;
     }
 
     private void Update()
@@ -44,12 +57,14 @@ public class ModuleBehaviour : MonoBehaviour
 
         if (!_isPlaced)
             return;
-        
+
         // always get current production (to reflect upgrades)
         _production = _modulesManager.ModuleTypeProductions[_moduleData.ModuleType];
 
         // compute income for this frame
         Modifiers production = _production * Time.deltaTime;
+
+        UpdateHUDStats(_production);
 
         ApplyPollution(production);
 
@@ -148,8 +163,7 @@ public class ModuleBehaviour : MonoBehaviour
         //Debug.Log("ModuleBehaviour - Place: Module placed.");
         if (_moduleData.BaseProduction.SpeedModifier != 0)
         {
-            _collectionBackgroundIcon.enabled = true;
-            if(!_modulesManager.ModuleTypeProductions.ContainsKey(_moduleData.ModuleType))
+            if (!_modulesManager.ModuleTypeProductions.ContainsKey(_moduleData.ModuleType))
             {
                 ServiceLocator.Instance.ModulesManager.CalculateModuleTypeProduction(_moduleData.ModuleType);
             }
@@ -158,6 +172,7 @@ public class ModuleBehaviour : MonoBehaviour
             _collecting = true;
         }
 
+        _stats.SetActive(true);
         _isPlaced = true;
     }
 
@@ -181,5 +196,27 @@ public class ModuleBehaviour : MonoBehaviour
             maskTransform.localScale = Vector3.one;
             yield return new WaitForSeconds(0.5f);
         }
+    }
+
+    public void UpdateHUDStats(Modifiers production)
+    {
+        if (_moduleData.ModuleType == ModuleTypes.Barn)
+        {
+            _productionText.text = $"{production.IncomeModifier:F2}%";
+            _airPollutionText.text = $"{production.AirPollutionModifier / 10:F2}%";
+            _soilPollutionText.text = $"{production.SoilPollutionModifier / 10:F2}%";
+            _waterPollutionText.text = $"{production.WaterPollutionModifier / 10:F2}%";
+        }
+        else
+        {
+            _productionText.text = $"{production.IncomeModifier:F2}/s";
+            _airPollutionText.text = $"{production.AirPollutionModifier / 10:F2}/s";
+            _soilPollutionText.text = $"{production.SoilPollutionModifier / 10:F2}/s";
+            _waterPollutionText.text = $"{production.WaterPollutionModifier / 10:F2}/s";
+        }
+
+        _airPollutionText.color = production.AirPollutionModifier >= 0 ? _negativeColor : _positiveColor;
+        _soilPollutionText.color = production.SoilPollutionModifier >= 0 ? _negativeColor : _positiveColor;
+        _waterPollutionText.color = production.WaterPollutionModifier >= 0 ? _negativeColor : _positiveColor;
     }
 }

@@ -18,6 +18,7 @@ public class ModulePlacer : MonoBehaviour
     [SerializeField] private AudioClip _placeAudio;
     [SerializeField] private GameObject _placeParticles;
 
+    [SerializeField] private AudioClip _hoverGridCellAudio;
 
     private float _cellWidth;
     private float _cellHeight;
@@ -102,6 +103,7 @@ public class ModulePlacer : MonoBehaviour
                     Debug.Log("Grid size: " + _gridCells.Count + ", " + _gridCells[0].Count);
                     if (_modulesGrid.IsSpaceFree(_lastMouseRow, _lastMouseCol))
                     {
+                        ServiceLocator.Instance.AudioManager.PlaySFX(_hoverGridCellAudio);
                         _gridCells[_lastMouseRow][_lastMouseCol].GetComponent<SpriteRenderer>().color = _freeColor;
                     }
                     else
@@ -121,7 +123,7 @@ public class ModulePlacer : MonoBehaviour
                 _gridCells[mouseRow][mouseColumn].GetComponent<SpriteRenderer>().color = _hoveringColor;
             } else
             {
-                _modulePrefab.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0f);
+                _modulePrefab.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0f);
             }
             if (Input.GetMouseButtonDown(0))
             {
@@ -140,9 +142,9 @@ public class ModulePlacer : MonoBehaviour
                     cell.SetActive(false);
                 }
             }
+            StartCoroutine(PlayPlaceEffects(_modulePrefab.transform.position));
             _modulesGrid.AddModuleToGrid(_moduleData, x, y);
             _modulePrefab.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1f);
-            StartCoroutine(PlayPlaceEffects(_modulePrefab.transform.position));
             _modulePrefab.GetComponent<ModuleBehaviour>().Place();
             _modulePrefab = null;
             _moduleData = null;
@@ -151,12 +153,14 @@ public class ModulePlacer : MonoBehaviour
 
     IEnumerator PlayPlaceEffects(Vector3 position)
     {
+        if (_placeAudio != null)
+        {
+            ServiceLocator.Instance.AudioManager.PlaySFX(_placeAudio);
+        }
         Time.timeScale = 0f;
         yield return new WaitForSecondsRealtime(0.1f);
         Time.timeScale = 1f;
-        if (_placeAudio != null)
-        {
-        }
+        
         if (_placeParticles != null)
         {
             _placeParticles.transform.position = position;
