@@ -14,8 +14,10 @@ public class ServiceLocator : MonoBehaviour
     public EnvironmentManager EnvironmentManager => _environmentManager;
     public ShopUIManager ShopUIManager => _shopUIManager;
     public DialogueManager DialogueManager => _dialogueManager;
-    private TutorialManager _tutorialManager;
+    public TutorialManager TutorialManager => _tutorialManager;
+    public AudioManager AudioManager => _audioManager;
 
+    private TutorialManager _tutorialManager;
     private ModulesManager _modulesManager;
     private UpgradesManager _upgradesManager;
     private ShopManager _shopManager;
@@ -25,7 +27,8 @@ public class ServiceLocator : MonoBehaviour
     private EnvironmentManager _environmentManager;
     private ShopUIManager _shopUIManager;
     private DialogueManager _dialogueManager;
-    public TutorialManager TutorialManager => _tutorialManager;
+
+    [SerializeField] private AudioManager _audioManager;
 
     private void Awake()
     {

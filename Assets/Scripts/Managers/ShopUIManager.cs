@@ -5,9 +5,13 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class ShopUIManager : MonoBehaviour
 {
+    public Color PositiveModifierColor => _positiveModifierColor;
+    public Color NegativeModifierColor => _negativeModifierColor;
+
     // Implementation of ShopUIManager
     [SerializeField] private Sprite _upgradeBackgroundSprite;
     [SerializeField] private Sprite _moduleBackgroundSprite;
@@ -136,12 +140,23 @@ public class ShopUIManager : MonoBehaviour
         if (item.ShopItemType == ShopItemTypes.Booster)
         {
             var boosterTier = ServiceLocator.Instance.BoostersManager.GetBoosterTier(item.BoosterData.Name);
+
+            string boosterModules = "";
+            if (item.BoosterData.IsPerModule)
+            {
+                boosterModules = " ";
+                foreach (var moduleType in item.BoosterData.AffectedModules)
+                {
+                    boosterModules += moduleType.ToString() + ", ";
+                }
+                boosterModules = boosterModules.TrimEnd(',', ' ');
+            }
             tierField.text = boosterTier switch
             {
-                BoosterTiers.Tier1 => "Common Booster",
-                BoosterTiers.Tier2 => "Uncommon Booster",
-                BoosterTiers.Tier3 => "Rare Booster",
-                BoosterTiers.Tier4 => "High Risk High Reward Booster",
+                BoosterTiers.Tier1 => "Common" + boosterModules + " Booster",
+                BoosterTiers.Tier2 => "Uncommon " + boosterModules + " Booster",
+                BoosterTiers.Tier3 => "Rare" + boosterModules + " Booster",
+                BoosterTiers.Tier4 => "High Risk High Reward" + boosterModules + " Booster",
                 _ => ""
             };
             tierField.color = boosterTier switch
@@ -157,10 +172,10 @@ public class ShopUIManager : MonoBehaviour
         {
             tierField.text = item.UpgradeData.Phase switch
             {
-                UpgradePhases.Phase1 => "Common Upgrade",
-                UpgradePhases.Phase2 => "Uncommon Upgrade",
-                UpgradePhases.Phase3 => "Rare Upgrade",
-                UpgradePhases.Phase4 => "Awesome Upgrade",
+                UpgradePhases.Phase1 => "Common " + item.UpgradeData.ModuleType + " Upgrade",
+                UpgradePhases.Phase2 => "Uncommon " + item.UpgradeData.ModuleType + " Upgrade",
+                UpgradePhases.Phase3 => "Rare " + item.UpgradeData.ModuleType + " Upgrade",
+                UpgradePhases.Phase4 => "Awesome " + item.UpgradeData.ModuleType + " Upgrade",
                 _ => ""
             };
             tierField.color = item.UpgradeData.Phase switch
@@ -174,7 +189,7 @@ public class ShopUIManager : MonoBehaviour
         }
         else
         {
-            tierField.text = "Building";
+            tierField.text = item.ModuleData.ModuleType + " Building";
             tierField.color = Color.white;
         }
 

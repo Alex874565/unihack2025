@@ -2027,6 +2027,8 @@ MonoBehaviour:
   musicAudioSource: {fileID: 102866791}
   SFXAudioSource: {fileID: 1684004864}
   background: {fileID: 8300000, guid: 384ed6f804ed9114d801ef21ae5b68d5, type: 3}
+  hover: {fileID: 0}
+  click: {fileID: 0}
 --- !u!4 &198478237
 Transform:
   m_ObjectHideFlags: 0
@@ -2187,8 +2189,9 @@ MonoBehaviour:
   _occupiedColor: {r: 1, g: 0, b: 0, a: 0.4}
   _freeColor: {r: 1, g: 1, b: 1, a: 0.2}
   _hoveringColor: {r: 0, g: 1, b: 0, a: 0.4}
-  _placeAudio: {fileID: 0}
+  _placeAudio: {fileID: 8300000, guid: 68513f965de07ca4e8948efdf7985030, type: 3}
   _placeParticles: {fileID: 1601229753}
+  _hoverGridCellAudio: {fileID: 8300000, guid: cb3fc5dc7ec1c504da4630c732a3cee0, type: 3}
 --- !u!1 &205023339
 GameObject:
   m_ObjectHideFlags: 0
@@ -10186,6 +10189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a3599d09822a394dbe7f3ee3d41d287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _audioManager: {fileID: 198478236}
 --- !u!114 &1271914302
 MonoBehaviour:
   m_ObjectHideFlags: 0
