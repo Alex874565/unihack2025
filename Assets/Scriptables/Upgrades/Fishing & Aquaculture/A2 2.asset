@@ -15,7 +15,7 @@ MonoBehaviour:
   _name: Mechanical filter
   _cost: 150
   _icon: {fileID: 0}
-  _description: Recirculates water by filtering some of it.
+  _description: Upgrades the filter for better recirculation.
   _modifiers:
     IncomeModifier: 0
     SpeedModifier: 0

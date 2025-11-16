@@ -15,7 +15,7 @@ MonoBehaviour:
   _name: Reduced Till-field System
   _cost: 400
   _icon: {fileID: 0}
-  _description: 
+  _description: Less tilling, less damage to the soil.
   _modifiers:
     IncomeModifier: 125
     SpeedModifier: 5.5

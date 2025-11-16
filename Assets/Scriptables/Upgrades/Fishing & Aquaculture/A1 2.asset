@@ -15,7 +15,7 @@ MonoBehaviour:
   _name: Basic Sediment Dredge
   _cost: 60
   _icon: {fileID: 0}
-  _description: 
+  _description: By cleaning the bed of mud, water flow is improved.
   _modifiers:
     IncomeModifier: 0
     SpeedModifier: 0
