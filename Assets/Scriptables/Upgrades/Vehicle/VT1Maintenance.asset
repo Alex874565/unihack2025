@@ -15,7 +15,7 @@ MonoBehaviour:
   _name: Basic Maintenance
   _cost: 0
   _icon: {fileID: 572240949181110524, guid: 3f255ad9b1de7064e9896d1dd95ac0a7, type: 3}
-  _description: 
+  _description: Should've been done years ago.
   _modifiers:
     IncomeModifier: 0
     SpeedModifier: 0
