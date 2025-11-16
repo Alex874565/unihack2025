@@ -24,6 +24,8 @@ public class ModuleBehaviour : MonoBehaviour
 
     [SerializeField] private GameObject _stats;
 
+    [SerializeField] private GameObject _collectionParticles;
+
     private float _collectionTimeRemaining;
 
     private float _moneyCollected;
@@ -123,6 +125,7 @@ public class ModuleBehaviour : MonoBehaviour
         if (!_collecting)
         {
             ServiceLocator.Instance.MoneyManager.GainMoney(_moneyCollected);
+            StartCoroutine(SpawnParticles(_collectionParticles));
             _collecting = true;
             _collectionTimeRemaining = _production.SpeedModifier;
             _moneyCollected = 0f;
@@ -196,6 +199,14 @@ public class ModuleBehaviour : MonoBehaviour
             maskTransform.localScale = Vector3.one;
             yield return new WaitForSeconds(0.5f);
         }
+    }
+
+    IEnumerator SpawnParticles(GameObject particlePrefab)
+    {
+        Debug.Log("ModuleBehaviour - SpawnParticles: Spawning collection particles.");
+        GameObject particles = Instantiate(particlePrefab, transform.position + new Vector3(0, 1.5f), Quaternion.identity);
+        yield return new WaitForSeconds(2f);
+        Destroy(particles);
     }
 
     public void UpdateHUDStats(Modifiers production)

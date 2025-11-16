@@ -1744,6 +1744,7 @@ MonoBehaviour:
   _soilPollutionText: {fileID: 7231483395190140382}
   _waterPollutionText: {fileID: 8698652771644718160}
   _stats: {fileID: 6778856649339754260}
+  _collectionParticles: {fileID: 2353600328335836179, guid: ceec7516237b4104b94300043ca39784, type: 3}
   _positiveColor: {r: 0.15574601, g: 0.6377357, b: 0.018049015, a: 1}
   _negativeColor: {r: 0.81886786, g: 0.33449426, b: 0.19621924, a: 1}
 --- !u!212 &5763143348350129309
