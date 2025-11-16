@@ -156,7 +156,6 @@ public class ModulePlacer : MonoBehaviour
         Time.timeScale = 1f;
         if (_placeAudio != null)
         {
-            AudioManager.Instance.PlaySound(_placeAudio);
         }
         if (_placeParticles != null)
         {
