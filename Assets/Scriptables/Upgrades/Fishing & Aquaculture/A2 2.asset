@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Mechanical filter
   _cost: 150
-  _icon: {fileID: 0}
+  _icon: {fileID: 2997319495297565821, guid: a4ecc04f674ecde4f9206ef4caa2dc8c, type: 3}
   _description: Recirculates water by filtering some of it.
   _modifiers:
     IncomeModifier: 0

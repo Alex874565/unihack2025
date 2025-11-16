@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Basic Sediment Dredge
   _cost: 60
-  _icon: {fileID: 0}
+  _icon: {fileID: 6358224306040858829, guid: 8a1cbda1a9397214f80e4afd948cb4b2, type: 3}
   _description: 
   _modifiers:
     IncomeModifier: 0
