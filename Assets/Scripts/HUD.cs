@@ -45,52 +45,76 @@ public class HUD : MonoBehaviour
     }
 
     private void UpdateBoostsVisual()
+{
+    var manager = ServiceLocator.Instance.BoostersManager;
+    var activeBoosters = manager.ActiveBoosters;
+    var durations = manager.BoosterDurations;
+
+    // Count stacks for each modifier
+    Dictionary<GlobalModifierData, int> stackCounts = new Dictionary<GlobalModifierData, int>();
+    foreach (var mod in activeBoosters)
     {
-        // Remove old icons
-        foreach (Transform child in boostsContainer)
+        if (stackCounts.ContainsKey(mod))
+            stackCounts[mod]++;
+        else
+            stackCounts[mod] = 1;
+    }
+
+    // Remove icons no longer active
+    for (int i = activeBoosterIcons.Count - 1; i >= 0; i--)
+    {
+        if (!activeBoosters.Contains(activeBoosterIcons[i].Modifier))
         {
-            if (child != boostTemplate)
-                Destroy(child.gameObject);
+            Destroy(activeBoosterIcons[i].gameObject);
+            activeBoosterIcons.RemoveAt(i);
         }
-        activeBoosterIcons.Clear();
+    }
 
-        var manager = ServiceLocator.Instance.BoostersManager;
-
-        for (int i = 0; i < manager.ActiveBoosters.Count; i++)
+    // Add new icons or update stack
+    for (int i = 0; i < activeBoosters.Count; i++)
+    {
+        var mod = activeBoosters[i];
+        bool exists = activeBoosterIcons.Exists(icon => icon.Modifier == mod);
+        if (!exists)
         {
-            var booster = manager.ActiveBoosters[i];
-            float remaining = manager.BoosterDurations[i];
-
             Transform iconObj = Instantiate(boostTemplate, boostsContainer);
             iconObj.gameObject.SetActive(true);
 
             BoosterIconUI iconUI = iconObj.GetComponent<BoosterIconUI>();
-            if (iconUI == null)
+            if (iconUI != null)
             {
-                Debug.LogError("BoosterIconUI missing on boostTemplate!");
-                continue;
+                iconUI.Initialize(mod, durations[i], stackCounts[mod]);
+                activeBoosterIcons.Add(iconUI);
             }
-
-            iconUI.Initialize(booster.Icon, remaining);
-
-            // Add to the list (duplicates allowed)
-            activeBoosterIcons.Add(iconUI);
+        }
+        else
+        {
+            // Update stack if already exists
+            var iconUI = activeBoosterIcons.Find(icon => icon.Modifier == mod);
+            iconUI?.SetStack(stackCounts[mod]);
         }
     }
+}
+
+
+
+
+
 
     private void UpdateBoosterTimers()
-    {
-        var manager = ServiceLocator.Instance.BoostersManager;
+{
+    var manager = ServiceLocator.Instance.BoostersManager;
 
-        for (int i = 0; i < manager.ActiveBoosters.Count; i++)
+    for (int i = 0; i < manager.ActiveBoosters.Count; i++)
+    {
+        float remaining = manager.BoosterDurations[i];
+        if (i < activeBoosterIcons.Count)
         {
-            float remaining = manager.BoosterDurations[i];
-            if (i < activeBoosterIcons.Count)
-            {
-                activeBoosterIcons[i].UpdateTimer(remaining);
-            }
+            activeBoosterIcons[i].UpdateTimer(remaining);
         }
     }
+}
+
 
     private void OpenShop()
     {
