@@ -63,6 +63,7 @@ public class UpgradesManager : MonoBehaviour
             _currentUpgrades = _currentUpgrades.Where(u => u.ModuleType != upgrade.ModuleType).ToList();
             _moduleUpgradeModifiers.Remove(upgrade.ModuleType);
             _moduleBaseModifiers[upgrade.ModuleType] = upgrade.Modifiers;
+            Debug.Log("MakeUpgrade - New tier upgrade made for module type: " + upgrade.ModuleType + upgrade.Modifiers);
 
             ServiceLocator.Instance.ModulesManager.UpdateModuleTypeVisuals(upgrade.ModuleType, upgrade.Phase);
         }

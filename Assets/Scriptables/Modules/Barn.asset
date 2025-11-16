@@ -18,9 +18,9 @@ MonoBehaviour:
   _baseProduction:
     IncomeModifier: 0
     SpeedModifier: 0
-    AirPollutionModifier: 15
-    WaterPollutionModifier: 15
-    SoilPollutionModifier: 15
+    AirPollutionModifier: 5
+    WaterPollutionModifier: 5
+    SoilPollutionModifier: 5
     PollutionModifierType: 1
   _cost: 0
   _icon: {fileID: 21300000, guid: 8ddaac72862ae3f4d835a4f8f26111da, type: 3}

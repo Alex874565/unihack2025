@@ -97,12 +97,12 @@ public class ModulesManager : MonoBehaviour
 
         Debug.Log("Barn Modifier for " + moduleType + ": " + barnProduction);
         Debug.Log("Pre-Barn Total production for " + moduleType + ": " + totalProduction);
-        totalProduction += totalProduction.Abs() * barnProduction / 100;
+        totalProduction += totalProduction.Abs() * barnProduction;
         Debug.Log("Post-Barn Total production for " + moduleType + ": " + totalProduction);
 
         // add percent booster modifiers
         if (ServiceLocator.Instance.BoostersManager.ModuleBoosterModifiers.ContainsKey(moduleType)) {
-            totalProduction += totalProduction.Abs() * (ServiceLocator.Instance.BoostersManager.ModuleBoosterModifiers[moduleType]/100);
+            totalProduction += totalProduction.Abs() * (ServiceLocator.Instance.BoostersManager.ModuleBoosterModifiers[moduleType]);
         }
 
         SetModuleTypeProduction(moduleType, totalProduction);
