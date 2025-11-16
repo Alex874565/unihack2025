@@ -8,11 +8,15 @@ public class FirstMenuUI : MonoBehaviour
     [SerializeField] private Button quitButton;
     [SerializeField] private Button optionsButton;
 
+    [SerializeField] private GameObject levelSelector;
+
     private void Awake()
     {
         playButton.onClick.AddListener(() =>
         {
-            SceneManager.LoadScene(1);
+            //SceneManager.LoadScene(1);
+            levelSelector.SetActive(true);
+            gameObject.SetActive(false);
         });
         optionsButton.onClick.AddListener(() =>
         {

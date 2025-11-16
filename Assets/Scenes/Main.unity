@@ -13707,14 +13707,14 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1791429206}
-  - {fileID: 1529370765}
-  - {fileID: 1761296634}
-  - {fileID: 785198213}
   - {fileID: 1315550307}
   - {fileID: 2012253659}
   - {fileID: 1059124606}
   - {fileID: 2076324054}
+  - {fileID: 1791429206}
+  - {fileID: 1761296634}
+  - {fileID: 785198213}
+  - {fileID: 1529370765}
   - {fileID: 747940174}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15133,6 +15133,7 @@ MonoBehaviour:
   - {fileID: 101842013}
   - {fileID: 1957202937}
   - {fileID: 1609960576}
+  _loseMusic: {fileID: 8300000, guid: 24f08128cfdfe2743865aaed62cb742f, type: 3}
 --- !u!114 &1271914298
 MonoBehaviour:
   m_ObjectHideFlags: 0

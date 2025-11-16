@@ -13,48 +13,22 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<Slider> _soilSliders;
     [SerializeField] private List<Slider> _airSliders;
 
+    [SerializeField] private AudioClip _loseMusic;
+
+    private bool _gameOver;
+
+    private void Start()
+    {
+        _gameOver = false;
+    }
+
     private void Update()
     {
-        if(ServiceLocator.Instance.PollutionManager.GetTotalPollution() < 0.1 && ServiceLocator.Instance.MoneyManager.CurrentMoney >= 50000)
-        {
-            //Debug.Log("You Win!");
-            Time.timeScale = 0f;
-            foreach (var slider in _waterSliders)
+        if (!_gameOver) {
+            if (ServiceLocator.Instance.PollutionManager.GetTotalPollution() < 0.1 && ServiceLocator.Instance.MoneyManager.CurrentMoney >= 50000)
             {
-                slider.value = 1 - ServiceLocator.Instance.PollutionManager.WaterPollutionLevel / 100;
-            }
-            foreach (var slider in _soilSliders)
-            {
-                slider.value = 1 - ServiceLocator.Instance.PollutionManager.SoilPollutionLevel / 100;
-            }
-            foreach (var slider in _airSliders)
-            {
-                slider.value = 1 - ServiceLocator.Instance.PollutionManager.AirPollutionLevel / 100;
-            }
-            _winUI.SetActive(true);
-        }
-        else
-        {
-            if(ServiceLocator.Instance.PollutionManager.AirPollutionLevel > 99)
-            {
-                //Debug.Log("You Lose!");
-                Time.timeScale = 0f;
-                foreach (var slider in _airSliders)
-                {
-                    slider.value = 1 - ServiceLocator.Instance.PollutionManager.AirPollutionLevel / 100;
-                }
-                foreach (var slider in _soilSliders)
-                {
-                    slider.value = 1 - ServiceLocator.Instance.PollutionManager.SoilPollutionLevel / 100;
-                }
-                foreach (var slider in _waterSliders)
-                {
-                    slider.value = 1 - ServiceLocator.Instance.PollutionManager.WaterPollutionLevel / 100;
-                }
-                _airLoseUI.SetActive(true);
-            }
-            else if (ServiceLocator.Instance.PollutionManager.SoilPollutionLevel > 99)
-            {
+                _gameOver = true;
+                //Debug.Log("You Win!");
                 Time.timeScale = 0f;
                 foreach (var slider in _waterSliders)
                 {
@@ -68,24 +42,68 @@ public class GameManager : MonoBehaviour
                 {
                     slider.value = 1 - ServiceLocator.Instance.PollutionManager.AirPollutionLevel / 100;
                 }
-                _soilLoseUI.SetActive(true);
+                _winUI.SetActive(true);
             }
-            else if (ServiceLocator.Instance.PollutionManager.WaterPollutionLevel > 99)
+            else 
             {
-                Time.timeScale = 0f;
-                foreach (var slider in _waterSliders)
+                if (ServiceLocator.Instance.PollutionManager.AirPollutionLevel > 09)
                 {
-                    slider.value = 1 - ServiceLocator.Instance.PollutionManager.WaterPollutionLevel / 100;
+                    _gameOver = true;
+                    ServiceLocator.Instance.AudioManager.ChangeBackgroundMusic(_loseMusic);
+                    //Debug.Log("You Lose!");
+                    Time.timeScale = 0f;
+                    foreach (var slider in _airSliders)
+                    {
+                        slider.value = 1 - ServiceLocator.Instance.PollutionManager.AirPollutionLevel / 100;
+                    }
+                    foreach (var slider in _soilSliders)
+                    {
+                        slider.value = 1 - ServiceLocator.Instance.PollutionManager.SoilPollutionLevel / 100;
+                    }
+                    foreach (var slider in _waterSliders)
+                    {
+                        slider.value = 1 - ServiceLocator.Instance.PollutionManager.WaterPollutionLevel / 100;
+                    }
+                    _airLoseUI.SetActive(true);
                 }
-                foreach (var slider in _soilSliders)
+                else if (ServiceLocator.Instance.PollutionManager.SoilPollutionLevel > 99)
                 {
-                    slider.value = 1 - ServiceLocator.Instance.PollutionManager.SoilPollutionLevel / 100;
+                    _gameOver = true;
+                    ServiceLocator.Instance.AudioManager.ChangeBackgroundMusic(_loseMusic);
+                    Time.timeScale = 0f;
+                    foreach (var slider in _waterSliders)
+                    {
+                        slider.value = 1 - ServiceLocator.Instance.PollutionManager.WaterPollutionLevel / 100;
+                    }
+                    foreach (var slider in _soilSliders)
+                    {
+                        slider.value = 1 - ServiceLocator.Instance.PollutionManager.SoilPollutionLevel / 100;
+                    }
+                    foreach (var slider in _airSliders)
+                    {
+                        slider.value = 1 - ServiceLocator.Instance.PollutionManager.AirPollutionLevel / 100;
+                    }
+                    _soilLoseUI.SetActive(true);
                 }
-                foreach (var slider in _airSliders)
+                else if (ServiceLocator.Instance.PollutionManager.WaterPollutionLevel > 99)
                 {
-                    slider.value = 1 - ServiceLocator.Instance.PollutionManager.AirPollutionLevel / 100;
+                    _gameOver = true;
+                    ServiceLocator.Instance.AudioManager.ChangeBackgroundMusic(_loseMusic);
+                    Time.timeScale = 0f;
+                    foreach (var slider in _waterSliders)
+                    {
+                        slider.value = 1 - ServiceLocator.Instance.PollutionManager.WaterPollutionLevel / 100;
+                    }
+                    foreach (var slider in _soilSliders)
+                    {
+                        slider.value = 1 - ServiceLocator.Instance.PollutionManager.SoilPollutionLevel / 100;
+                    }
+                    foreach (var slider in _airSliders)
+                    {
+                        slider.value = 1 - ServiceLocator.Instance.PollutionManager.AirPollutionLevel / 100;
+                    }
+                    _waterLoseUI.SetActive(true);
                 }
-                _waterLoseUI.SetActive(true);
             }
         }
     }
