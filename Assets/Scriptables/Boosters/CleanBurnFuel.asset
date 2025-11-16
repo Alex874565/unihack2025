@@ -15,7 +15,7 @@ MonoBehaviour:
   _name: Clean Burn Fuel
   _description: A temporary fuel additive that slightly cleans up the combustion
     exhaust from all active machinery, reducing AP.
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 5dcb4cf62dcffda43b300299d4dfba5b, type: 3}
   _modifiers:
     IncomeModifier: 0
     SpeedModifier: 0

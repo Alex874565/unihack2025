@@ -14,17 +14,17 @@ public class PollutionManager : MonoBehaviour
 
     public void ModifyAirPollution(float amount)
     {
-        _airPollutionLevel += amount;
+        _airPollutionLevel += amount / 5;
         //Debug.Log("AirPollutionLevel - " + _airPollutionLevel);
     }
     public void ModifySoilPollution(float amount)
     {
-        _soilPollutionLevel += amount;
+        _soilPollutionLevel += amount / 5;
         //Debug.Log("SoilPollutionLevel - " + _soilPollutionLevel);
     }
     public void ModifyWaterPollution(float amount)
     {
-        _waterPollutionLevel += amount;
+        _waterPollutionLevel += amount / 5;
         //Debug.Log("WaterPollutionLevel - " + _waterPollutionLevel);
     }
 

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Better Air Intake
   _cost: 70
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: d6781e320d193114d98a74547bca0e5c, type: 3}
   _description: Optimizes air processing.
   _modifiers:
     IncomeModifier: 0

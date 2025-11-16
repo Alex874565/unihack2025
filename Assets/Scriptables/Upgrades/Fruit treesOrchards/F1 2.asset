@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Sealed chemical shed
   _cost: 60
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 72403fc819ae31b40b59ede7bcc4e11b, type: 3}
   _description: Prevents rain from washing chemicals.
   _modifiers:
     IncomeModifier: 0

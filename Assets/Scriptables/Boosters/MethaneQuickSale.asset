@@ -15,7 +15,7 @@ MonoBehaviour:
   _name: Methane Quick Sale
   _description: Sells a specialized, high-emission product (like high-methane beef/manure
     fuel) at a premium. Good profit boost, but  increases air pollution.
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 02b3959f26c97d84aaf9173a8fee9652, type: 3}
   _modifiers:
     IncomeModifier: 80
     SpeedModifier: 0

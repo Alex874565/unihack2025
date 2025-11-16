@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cddc0e82b5369b043ba7a0142a80b5db, type: 3}
-  m_Name: AirWaterPurifier 1
+  m_Name: AirWaterPurifier
   m_EditorClassIdentifier: 
   _name: Air and Water Purifier
   _description: The fine mist irrigation from Orchards is combined with water purification
     systems from Aquaculture, filtering airborne and waterborne contaminants simultaneously.
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: f48c1b9c81c43f348a06251ce56f8278, type: 3}
   _modifiers:
     IncomeModifier: 0
     SpeedModifier: 0

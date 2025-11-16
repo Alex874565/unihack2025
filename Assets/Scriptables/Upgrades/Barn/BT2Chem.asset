@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Dedicated Chemical Containment
   _cost: 250
-  _icon: {fileID: 8094806523809174969, guid: e96b719c6bb2e8040aae2b93caa2fbaf, type: 3}
+  _icon: {fileID: 21300000, guid: e96b719c6bb2e8040aae2b93caa2fbaf, type: 3}
   _description: Sealed area for hazardous waste.
   _modifiers:
     IncomeModifier: 0

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Automated Spill Detection
   _cost: 600
-  _icon: {fileID: -7987421655291617338, guid: f8f57cbbc01190044b97d30ffbd77016, type: 3}
+  _icon: {fileID: 21300000, guid: f8f57cbbc01190044b97d30ffbd77016, type: 3}
   _description: Has sensors that monitorize for unwanted spills.
   _modifiers:
     IncomeModifier: 0

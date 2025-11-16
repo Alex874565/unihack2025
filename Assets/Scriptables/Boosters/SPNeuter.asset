@@ -15,7 +15,7 @@ MonoBehaviour:
   _name: AP Total Neutralize
   _description: A massive, farm-wide application of a temporary binding agent. Instantly
     halts all chemical and residue seepage into the ground.
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 304f347a675a5e14ca2043330f57d5ae, type: 3}
   _modifiers:
     IncomeModifier: 0
     SpeedModifier: 0

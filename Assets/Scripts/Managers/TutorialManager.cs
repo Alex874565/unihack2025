@@ -8,6 +8,7 @@ public class TutorialManager : MonoBehaviour
     public List<TutorialStep> TutorialSteps;
     public bool IsPlacingModules => _isPlacingModules;
     public bool InTutorial => _inTutorial;
+    public bool TutorialContinued;
 
     [System.Serializable]
     public class TutorialStep
@@ -37,7 +38,8 @@ public class TutorialManager : MonoBehaviour
         _approves = false;
         _inTutorial = true;
         _continuingTutorial = false;
-        _shopItemButton.enabled = false;
+        //_shopItemButton.enabled = false;
+        TutorialContinued = false;
         ChangeTutorialStep(0);
     }
 
@@ -52,6 +54,10 @@ public class TutorialManager : MonoBehaviour
 
     private void Update()
     {
+        if(_continuingTutorial)
+        {
+            return;
+        }
         if (!Input.GetKeyDown(KeyCode.Space)) return;
         if (!_inTutorial) return;
         if (_isPlacingModules) return;
@@ -128,7 +134,7 @@ public class TutorialManager : MonoBehaviour
         Debug.Log("Changing tutorial step to: " + step);
 
         // End tutorial if past last step
-        if (_tutorialStep >= _totalTutorialSteps)
+        if (_tutorialStep > _totalTutorialSteps)
         {
             EndTutorial();
             return;
@@ -154,18 +160,16 @@ public class TutorialManager : MonoBehaviour
         ServiceLocator.Instance.DialogueManager.HideDialogue();
         Debug.Log("TutorialManager - EndTutorial: Tutorial ended.");
         Time.timeScale = 1f;
-        _shopItemButton.enabled = true;
+        //_shopItemButton.enabled = true;
     }
 
     public void ContinueTutorial()
     {
+        _continuingTutorial = true;
         Debug.Log("TutorialManager - ContinueTutorial: Continuing tutorial at step " + _tutorialStep + " of " + _totalTutorialSteps);
-        if (_tutorialStep < _totalTutorialSteps)
-        {
-            _inTutorial = true;
-            ServiceLocator.Instance.DialogueManager.ShowDialogue();
-            ChangeTutorialStep(_tutorialStep);
-        }
+        _inTutorial = true;
+        ServiceLocator.Instance.DialogueManager.ShowDialogue();
+        ShowTutorialStep(_tutorialStep);
     }
 
     public void StartPlacingModules()

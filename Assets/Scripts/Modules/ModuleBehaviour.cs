@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Linq;
+using System.Collections;
 
 public class ModuleBehaviour : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class ModuleBehaviour : MonoBehaviour
     [SerializeField] private ModuleData _moduleData;
     [SerializeField] private Image _collectionBackgroundIcon;
     [SerializeField] private Image _collectionFillIcon;
+    [SerializeField] private RectTransform _maskTransform;
     [SerializeField] private List<UpgradeObjectEntry> _upgradeObjects;
 
     private float _collectionTimeRemaining;
@@ -21,7 +23,7 @@ public class ModuleBehaviour : MonoBehaviour
     private bool _collecting;
     private bool _isPlaced;
 
-    private bool _tutorialContinued;
+    private Coroutine _flashCoroutine;
 
     private void Start()
     {
@@ -30,7 +32,6 @@ public class ModuleBehaviour : MonoBehaviour
         _collecting = false;
         _collectionBackgroundIcon.enabled = false;
         _isPlaced = false;
-        _tutorialContinued = false;
     }
 
     private void Update()
@@ -73,10 +74,13 @@ public class ModuleBehaviour : MonoBehaviour
         //Debug.Log("ModuleBehaviour - FinishProduction: Production cycle finished, produced: " + _moneyCollected);
         FillProductionIcon();
         _collecting = false;
-        if (!_tutorialContinued)
+
+        _flashCoroutine = StartCoroutine(Flash(_collectionFillIcon.rectTransform, _maskTransform));
+
+        if (!ServiceLocator.Instance.TutorialManager.TutorialContinued)
         {
+            ServiceLocator.Instance.TutorialManager.TutorialContinued = true;
             ServiceLocator.Instance.TutorialManager.ContinueTutorial();
-            _tutorialContinued = true;
         }
     }
 
@@ -103,9 +107,17 @@ public class ModuleBehaviour : MonoBehaviour
         {
             ServiceLocator.Instance.MoneyManager.GainMoney(_moneyCollected);
             _collecting = true;
-            _production = _modulesManager.ModuleTypeProductions[_moduleData.ModuleType];
             _collectionTimeRemaining = _production.SpeedModifier;
             _moneyCollected = 0f;
+            if(ServiceLocator.Instance.TutorialManager.InTutorial)
+            {
+                ServiceLocator.Instance.TutorialManager.EndTutorial();
+            }
+            if (_flashCoroutine != null)
+            {
+                StopCoroutine(_flashCoroutine);
+                _collectionFillIcon.rectTransform.localScale = Vector3.one;
+            }
         }
     }
 
@@ -134,6 +146,10 @@ public class ModuleBehaviour : MonoBehaviour
         if (_moduleData.BaseProduction.SpeedModifier != 0)
         {
             _collectionBackgroundIcon.enabled = true;
+            if(!_modulesManager.ModuleTypeProductions.ContainsKey(_moduleData.ModuleType))
+            {
+                ServiceLocator.Instance.ModulesManager.CalculateModuleTypeProduction(_moduleData.ModuleType);
+            }
             _production = _modulesManager.ModuleTypeProductions[_moduleData.ModuleType];
             _collectionTimeRemaining = _production.SpeedModifier;
             _collecting = true;
@@ -149,5 +165,18 @@ public class ModuleBehaviour : MonoBehaviour
             uo.Object.SetActive(false);
         }
         _upgradeObjects.Where(uo => uo.UpgradePhase == upgradePhase).First().Object.SetActive(true);
+    }
+
+    IEnumerator Flash(RectTransform spriteTransform, RectTransform maskTransform)
+    {
+        while (true)
+        {
+            //spriteTransform.localScale = Vector3.one * 1.1f;
+            maskTransform.localScale = Vector3.one * 1.1f;
+            yield return new WaitForSeconds(0.5f);
+            //spriteTransform.localScale = Vector3.one;
+            maskTransform.localScale = Vector3.one;
+            yield return new WaitForSeconds(0.5f);
+        }
     }
 }

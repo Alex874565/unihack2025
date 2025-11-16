@@ -15,7 +15,7 @@ MonoBehaviour:
   _name: High-Density Planting
   _description: Packs crops too densely for maximum yield. Boosts profit significantly
     (2x Revenue), but results in noticeable increase in chemical runoff (WP).
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: e0d6f10627a96d943a4fb3625444000e, type: 3}
   _modifiers:
     IncomeModifier: 100
     SpeedModifier: 0

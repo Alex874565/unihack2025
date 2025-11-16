@@ -800,6 +800,7 @@ MonoBehaviour:
     Object: {fileID: 880210848629856347}
   - UpgradePhase: 3
     Object: {fileID: 1874001598661821661}
+  _maskTransform: {fileID: 3455805291114707316}
 --- !u!212 &5763143348350129309
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Air quality monitor
   _cost: 60
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: e8c21f535fb654641a82f3d9bac05ba7, type: 3}
   _description: Detects methane leaks.
   _modifiers:
     IncomeModifier: 0

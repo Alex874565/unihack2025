@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Drip irigation install
   _cost: 200
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 22150522ac9a3494cb03541be067f601, type: 3}
   _description: Cuts water runoff and erosion.
   _modifiers:
     IncomeModifier: 0

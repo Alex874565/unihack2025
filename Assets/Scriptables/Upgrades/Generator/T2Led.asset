@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: LED Lighting
   _cost: 140
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: c810d228436b4cf4f8c82b2242097d1a, type: 3}
   _description: 'Cuts electrical load required for illuminating '
   _modifiers:
     IncomeModifier: 0

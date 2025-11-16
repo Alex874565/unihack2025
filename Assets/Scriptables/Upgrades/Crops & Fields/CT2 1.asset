@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: GPS guides
   _cost: 150
-  _icon: {fileID: -2443836319834650832, guid: 3f45a3f5e406ab14c9d7d192117cdf7d, type: 3}
+  _icon: {fileID: 21300000, guid: 3f45a3f5e406ab14c9d7d192117cdf7d, type: 3}
   _description: Ensures tractors take efficient routes
   _modifiers:
     IncomeModifier: 0

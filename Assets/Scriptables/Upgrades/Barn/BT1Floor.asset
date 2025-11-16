@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Changed Floor
   _cost: 60
-  _icon: {fileID: 1872046095217962169, guid: 8ddaac72862ae3f4d835a4f8f26111da, type: 3}
+  _icon: {fileID: 21300000, guid: 8ddaac72862ae3f4d835a4f8f26111da, type: 3}
   _description: Finally, no more leaks!
   _modifiers:
     IncomeModifier: 0

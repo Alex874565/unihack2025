@@ -16,7 +16,7 @@ MonoBehaviour:
   _description: To avoid immediate river contamination, polluted water is quickly
     diverted to a temporary field. Significantly reduces Water Pollution, but causes
     a brief surge in Soil Pollution.
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 020c914ddeb9962479e1c3ffbd27a929, type: 3}
   _modifiers:
     IncomeModifier: 0
     SpeedModifier: 0

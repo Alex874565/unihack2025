@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Grid Connection
   _cost: 300
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: c810d228436b4cf4f8c82b2242097d1a, type: 3}
   _description: Allows the farm to  draw from the main power grid
   _modifiers:
     IncomeModifier: 0

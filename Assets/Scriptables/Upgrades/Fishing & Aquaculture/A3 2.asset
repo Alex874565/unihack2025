@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: UV sterilization
   _cost: 360
-  _icon: {fileID: -6416277928962355756, guid: 81d264bddb9af3343bead4e07c17298c, type: 3}
+  _icon: {fileID: 21300000, guid: 81d264bddb9af3343bead4e07c17298c, type: 3}
   _description: Non-damaging way of sterilizing water!
   _modifiers:
     IncomeModifier: 0

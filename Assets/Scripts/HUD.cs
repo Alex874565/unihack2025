@@ -118,6 +118,8 @@ public class HUD : MonoBehaviour
 
     private void OpenShop()
     {
+        if(ServiceLocator.Instance.TutorialManager.InTutorial || ServiceLocator.Instance.ModulesManager.IsPlacingModule)
+            return;
         _shopUIManager.ShowShop();
     }
 

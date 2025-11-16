@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ModulePlacer : MonoBehaviour
 {
+    public bool IsPlacingModule => _isPlacingModule;
     [SerializeField] private ModulesGrid _modulesGrid;
     [SerializeField] private float _minX;
     [SerializeField] private float _maxX;

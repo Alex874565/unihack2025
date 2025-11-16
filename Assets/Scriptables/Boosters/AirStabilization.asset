@@ -16,7 +16,7 @@ MonoBehaviour:
   _description: Combines advanced manure venting from Livestock with soil cover crops
     from Fields to stabilize volatile emissions (AP) and prevent residue leeching
     (SP).
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 3c763a011d4d41544825536a56c51686, type: 3}
   _modifiers:
     IncomeModifier: 0
     SpeedModifier: 0

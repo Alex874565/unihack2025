@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Routine oil change
   _cost: 60
-  _icon: {fileID: 0}
+  _icon: {fileID: 572240949181110524, guid: 3f255ad9b1de7064e9896d1dd95ac0a7, type: 3}
   _description: Long overdue.
   _modifiers:
     IncomeModifier: 0

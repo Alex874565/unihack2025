@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Electric Robots
   _cost: 2500
-  _icon: {fileID: 0}
+  _icon: {fileID: 3514183859683287320, guid: 848c710955493f6429f1cdefae1af5a2, type: 3}
   _description: Self-driving, self-sufficient,  all-obeying  efficient farming machines!
   _modifiers:
     IncomeModifier: 0

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Automated Barn
   _cost: 3000
-  _icon: {fileID: 8803597786136709886, guid: f0fa9eb20e19a5849bdea850eb71700a, type: 3}
+  _icon: {fileID: 21300000, guid: f0fa9eb20e19a5849bdea850eb71700a, type: 3}
   _description: High tech robots help in increasing revenue and keeping pollution
     low.
   _modifiers:
