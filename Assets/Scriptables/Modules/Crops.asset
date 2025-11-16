@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9253d7b6972ca184bb21993b9342ce11, type: 3}
   m_Name: Crops
   m_EditorClassIdentifier: 
-  _moduleName: MONOCULTURE TILLAGE SYSTEM
+  _moduleName: Monoculture Tillage System
   _moduleType: 4
   _moduleDescription: Highly errosive and uses lots of chemicals to keep fruits flies
     free.
   _baseProduction:
-    IncomeModifier: 0
-    SpeedModifier: 0
+    IncomeModifier: 9
+    SpeedModifier: 5.5
     AirPollutionModifier: 0.5
     WaterPollutionModifier: 1
     SoilPollutionModifier: 1.5
     PollutionModifierType: 0
-  _cost: 0
+  _cost: 100
   _icon: {fileID: -7889490847531562903, guid: 565b9ff7a3402a64f9927b75aedda58e, type: 3}
   _modulePrefab: {fileID: 2291025834556395363, guid: 66f9d73cd500ddb4197a5bb6747bdd01, type: 3}
   _upgrades:

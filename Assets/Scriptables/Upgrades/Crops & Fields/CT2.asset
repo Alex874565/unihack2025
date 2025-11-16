@@ -14,10 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Reduced Till-field System
   _cost: 400
+<<<<<<< HEAD
   _icon: {fileID: 0}
   _description: Less tilling, less damage to the soil.
+=======
+  _icon: {fileID: -2443836319834650832, guid: 3f45a3f5e406ab14c9d7d192117cdf7d, type: 3}
+  _description: 
+>>>>>>> 54e8385eaeae7d8d37d18e8034df0ece31889563
   _modifiers:
-    IncomeModifier: 125
+    IncomeModifier: 22
     SpeedModifier: 5.5
     AirPollutionModifier: 0.5
     WaterPollutionModifier: 1

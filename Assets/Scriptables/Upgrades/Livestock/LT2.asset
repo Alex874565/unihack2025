@@ -17,7 +17,7 @@ MonoBehaviour:
   _icon: {fileID: 0}
   _description: Cleaner management.
   _modifiers:
-    IncomeModifier: 150
+    IncomeModifier: 33
     SpeedModifier: 4.5
     AirPollutionModifier: 0.7
     WaterPollutionModifier: 0.8

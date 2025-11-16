@@ -14,8 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Basic Sediment Dredge
   _cost: 60
+<<<<<<< HEAD
   _icon: {fileID: 0}
   _description: By cleaning the bed of mud, water flow is improved.
+=======
+  _icon: {fileID: 6358224306040858829, guid: 8a1cbda1a9397214f80e4afd948cb4b2, type: 3}
+  _description: 
+>>>>>>> 54e8385eaeae7d8d37d18e8034df0ece31889563
   _modifiers:
     IncomeModifier: 0
     SpeedModifier: 0

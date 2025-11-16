@@ -14,8 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Mechanical filter
   _cost: 150
+<<<<<<< HEAD
   _icon: {fileID: 0}
   _description: Upgrades the filter for better recirculation.
+=======
+  _icon: {fileID: 2997319495297565821, guid: a4ecc04f674ecde4f9206ef4caa2dc8c, type: 3}
+  _description: Recirculates water by filtering some of it.
+>>>>>>> 54e8385eaeae7d8d37d18e8034df0ece31889563
   _modifiers:
     IncomeModifier: 0
     SpeedModifier: 0

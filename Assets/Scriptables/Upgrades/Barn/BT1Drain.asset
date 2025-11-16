@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Drainage Ditches
   _cost: 60
-  _icon: {fileID: 0}
+  _icon: {fileID: 1872046095217962169, guid: 8ddaac72862ae3f4d835a4f8f26111da, type: 3}
   _description: Routes minor runoffs away for water.
   _modifiers:
     IncomeModifier: 0

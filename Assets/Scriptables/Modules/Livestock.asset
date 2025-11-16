@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9253d7b6972ca184bb21993b9342ce11, type: 3}
   m_Name: Livestock
   m_EditorClassIdentifier: 
-  _moduleName: INTENSIVE FEEDLOT
+  _moduleName: Intensive Feedlot
   _moduleType: 3
   _moduleDescription: Highly wasteful methane producing module
   _baseProduction:
-    IncomeModifier: 50
+    IncomeModifier: 11
     SpeedModifier: 4.5
     AirPollutionModifier: 1
     WaterPollutionModifier: 1

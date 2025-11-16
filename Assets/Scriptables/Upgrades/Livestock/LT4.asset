@@ -17,7 +17,7 @@ MonoBehaviour:
   _icon: {fileID: 0}
   _description: Zero-carbon herd.
   _modifiers:
-    IncomeModifier: 800
+    IncomeModifier: 177
     SpeedModifier: 4.5
     AirPollutionModifier: 0
     WaterPollutionModifier: 0

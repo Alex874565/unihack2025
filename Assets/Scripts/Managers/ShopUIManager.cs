@@ -29,6 +29,10 @@ public class ShopUIManager : MonoBehaviour
     [SerializeField] private List<TMP_Text> _waterPollutionFields;
     [SerializeField] private List<TMP_Text> _costFields;
 
+    [SerializeField] private Color _positiveModifierColor;
+    [SerializeField] private Color _negativeModifierColor;
+    [SerializeField] private Color _neutralModifierColor;
+
     private List<ShopItem> items;
 
     public void ShowShop()
@@ -99,9 +103,9 @@ public void HideShop()
             TMP_Text nameField = _nameFields[items.IndexOf(item)];
             nameField.text = item.ShopItemType switch
             {
-                ShopItemTypes.Upgrade => item.UpgradeData.Name + ", Upgrade",
-                ShopItemTypes.Module => item.ModuleData.ModuleType.ToString() + ", Building",
-                ShopItemTypes.Booster => item.BoosterData.Name + ", Booster",
+                ShopItemTypes.Upgrade => item.UpgradeData.Name,
+                ShopItemTypes.Module => item.ModuleData.ModuleName,
+                ShopItemTypes.Booster => item.BoosterData.Name,
                 _ => "Unknown Item"
             };
         
@@ -115,10 +119,10 @@ public void HideShop()
                 var boosterTier = ServiceLocator.Instance.BoostersManager.GetBoosterTier(item.BoosterData.Name);
                 tierField.text = boosterTier switch
                 {
-                    BoosterTiers.Tier1 => "Common",
-                    BoosterTiers.Tier2 => "Uncommon",
-                    BoosterTiers.Tier3 => "Rare",
-                    BoosterTiers.Tier4 => "High Risk High Reward",
+                    BoosterTiers.Tier1 => "Common Booster",
+                    BoosterTiers.Tier2 => "Uncommon Booster",
+                    BoosterTiers.Tier3 => "Rare Booster",
+                    BoosterTiers.Tier4 => "High Risk High Reward Booster",
                     _ => ""
                 };
                 tierField.color = boosterTier switch
@@ -134,10 +138,10 @@ public void HideShop()
             {
                 tierField.text = item.UpgradeData.Phase switch
                 {
-                    UpgradePhases.Phase1 => "Common",
-                    UpgradePhases.Phase2 => "Uncommon",
-                    UpgradePhases.Phase3 => "Rare",
-                    UpgradePhases.Phase4 => "Awesome",
+                    UpgradePhases.Phase1 => "Common Upgrade",
+                    UpgradePhases.Phase2 => "Uncommon Upgrade",
+                    UpgradePhases.Phase3 => "Rare Upgrade",
+                    UpgradePhases.Phase4 => "Awesome Upgrade",
                     _ => ""
                 };
                 tierField.color = item.UpgradeData.Phase switch
@@ -151,7 +155,8 @@ public void HideShop()
             }
             else
             {
-                tierField.text = "";
+                tierField.text = "Building";
+                tierField.color = Color.white;
             }
         
     }
@@ -171,15 +176,22 @@ public void HideShop()
 
     public void SetIncomeModifier(ShopItem item)
     {
-            TMP_Text incomeField = _incomeFields[items.IndexOf(item)];
-            incomeField.text = item.ShopItemType switch
-            {
-                ShopItemTypes.Upgrade => item.UpgradeData.Modifiers.IncomeModifier.ToString(),
-                ShopItemTypes.Module => item.ModuleData.BaseProduction.IncomeModifier.ToString(),
-                ShopItemTypes.Booster => item.BoosterData.Modifiers.IncomeModifier.ToString("P0"),
-                _ => ""
-            };
-        
+        TMP_Text incomeField = _incomeFields[items.IndexOf(item)];
+        incomeField.text = item.ShopItemType switch
+        {
+            ShopItemTypes.Upgrade => item.UpgradeData.Modifiers.IncomeModifier.ToString() + "/s",
+            ShopItemTypes.Module => item.ModuleData.BaseProduction.IncomeModifier.ToString() + "/s",
+            ShopItemTypes.Booster => item.BoosterData.Modifiers.IncomeModifier.ToString() + "%",
+            _ => ""
+        };
+        incomeField.color = item.ShopItemType switch
+        {
+            ShopItemTypes.Upgrade => (item.UpgradeData.IsNewTier || item.UpgradeData.Modifiers.IncomeModifier == 0) ? _neutralModifierColor : item.UpgradeData.Modifiers.IncomeModifier > 0 ? _positiveModifierColor : _negativeModifierColor,
+            ShopItemTypes.Module => item.ModuleData.BaseProduction.IncomeModifier == 0 ? _neutralModifierColor : _positiveModifierColor,
+            ShopItemTypes.Booster => item.BoosterData.Modifiers.IncomeModifier > 0 ? _positiveModifierColor :
+                                    item.BoosterData.Modifiers.IncomeModifier < 0 ? _negativeModifierColor : _neutralModifierColor,
+            _ => Color.white
+        };
     }
 
     public void SetProductionSpeed(ShopItem item)
@@ -187,12 +199,19 @@ public void HideShop()
             TMP_Text speedField = _speedFields[items.IndexOf(item)];
             speedField.text = item.ShopItemType switch
             {
-                ShopItemTypes.Upgrade => item.UpgradeData.Modifiers.SpeedModifier.ToString(),
-                ShopItemTypes.Module => item.ModuleData.BaseProduction.SpeedModifier.ToString(),
-                ShopItemTypes.Booster => item.BoosterData.Modifiers.SpeedModifier.ToString("P0"),
+                ShopItemTypes.Upgrade => item.UpgradeData.Modifiers.SpeedModifier.ToString() + 's',
+                ShopItemTypes.Module => item.ModuleData.BaseProduction.SpeedModifier.ToString() + 's',
+                ShopItemTypes.Booster => item.BoosterData.Modifiers.SpeedModifier.ToString() + "%",
                 _ => ""
             };
-        
+            speedField.color = item.ShopItemType switch
+            {
+                ShopItemTypes.Upgrade => (item.UpgradeData.IsNewTier || item.UpgradeData.Modifiers.SpeedModifier == 0) ? _neutralModifierColor : item.UpgradeData.Modifiers.SpeedModifier > 0 ? _positiveModifierColor : _negativeModifierColor,
+                ShopItemTypes.Module => item.ModuleData.BaseProduction.SpeedModifier == 0 ? _neutralModifierColor : _positiveModifierColor,
+                ShopItemTypes.Booster => item.BoosterData.Modifiers.SpeedModifier > 0 ? _positiveModifierColor :
+                                        item.BoosterData.Modifiers.SpeedModifier < 0 ? _negativeModifierColor : _neutralModifierColor,
+                _ => Color.white
+            };
     }
 
     public void SetWaterPollution(ShopItem item)
@@ -200,12 +219,19 @@ public void HideShop()
             TMP_Text waterPollutionField = _waterPollutionFields[items.IndexOf(item)];
             waterPollutionField.text = item.ShopItemType switch
             {
-                ShopItemTypes.Upgrade => item.UpgradeData.Modifiers.WaterPollutionModifier.ToString(),
-                ShopItemTypes.Module => item.ModuleData.BaseProduction.WaterPollutionModifier.ToString(),
-                ShopItemTypes.Booster => item.BoosterData.Modifiers.WaterPollutionModifier.ToString("P0"),
+                ShopItemTypes.Upgrade =>  item.UpgradeData.Modifiers.WaterPollutionModifier.ToString() + "/s",
+                ShopItemTypes.Module => item.ModuleData.BaseProduction.WaterPollutionModifier.ToString() + "/s",
+                ShopItemTypes.Booster => item.BoosterData.Modifiers.WaterPollutionModifier.ToString() + "%",
                 _ => ""
             };
-        
+            waterPollutionField.color = item.ShopItemType switch
+            {
+                ShopItemTypes.Upgrade => (item.UpgradeData.IsNewTier || item.UpgradeData.Modifiers.WaterPollutionModifier == 0) ? _neutralModifierColor : item.UpgradeData.Modifiers.WaterPollutionModifier > 0 ? _positiveModifierColor : _negativeModifierColor,
+                ShopItemTypes.Module => item.ModuleData.BaseProduction.WaterPollutionModifier == 0 ? _neutralModifierColor : _positiveModifierColor,
+                ShopItemTypes.Booster => item.BoosterData.Modifiers.WaterPollutionModifier > 0 ? _positiveModifierColor :
+                                        item.BoosterData.Modifiers.WaterPollutionModifier < 0 ? _negativeModifierColor : _neutralModifierColor,
+                _ => Color.white
+            };
     }
 
     public void SetSoilPollution(ShopItem item)
@@ -213,12 +239,19 @@ public void HideShop()
             TMP_Text soilPollutionField = _soilPollutionFields[items.IndexOf(item)];
             soilPollutionField.text = item.ShopItemType switch
             {
-                ShopItemTypes.Upgrade => item.UpgradeData.Modifiers.SoilPollutionModifier.ToString(),
-                ShopItemTypes.Module => item.ModuleData.BaseProduction.SoilPollutionModifier.ToString(),
-                ShopItemTypes.Booster => item.BoosterData.Modifiers.SoilPollutionModifier.ToString("P0"),
+                ShopItemTypes.Upgrade => item.UpgradeData.Modifiers.SoilPollutionModifier.ToString() + "/s",
+                ShopItemTypes.Module => item.ModuleData.BaseProduction.SoilPollutionModifier.ToString() + "/s",
+                ShopItemTypes.Booster => item.BoosterData.Modifiers.SoilPollutionModifier.ToString() + "%",
                 _ => ""
             };
-        
+        soilPollutionField.color = item.ShopItemType switch
+        {
+            ShopItemTypes.Upgrade => (item.UpgradeData.IsNewTier || item.UpgradeData.Modifiers.SoilPollutionModifier == 0) ? _neutralModifierColor : item.UpgradeData.Modifiers.SoilPollutionModifier > 0 ? _positiveModifierColor : _negativeModifierColor,
+            ShopItemTypes.Module => item.ModuleData.BaseProduction.SoilPollutionModifier == 0 ? _neutralModifierColor : _positiveModifierColor,
+            ShopItemTypes.Booster => item.BoosterData.Modifiers.SoilPollutionModifier > 0 ? _positiveModifierColor :
+                                    item.BoosterData.Modifiers.SoilPollutionModifier < 0 ? _negativeModifierColor : _neutralModifierColor,
+            _ => Color.white
+        };
     }
 
     public void SetAirPollution(ShopItem item)
@@ -226,12 +259,19 @@ public void HideShop()
             TMP_Text airPollutionField = _airPollutionFields[items.IndexOf(item)];
             airPollutionField.text = item.ShopItemType switch
             {
-                ShopItemTypes.Upgrade => item.UpgradeData.Modifiers.AirPollutionModifier.ToString(),
-                ShopItemTypes.Module => item.ModuleData.BaseProduction.AirPollutionModifier.ToString(),
-                ShopItemTypes.Booster => item.BoosterData.Modifiers.AirPollutionModifier.ToString("P0"),
+                ShopItemTypes.Upgrade => item.UpgradeData.Modifiers.AirPollutionModifier.ToString() + "/s",
+                ShopItemTypes.Module => item.ModuleData.BaseProduction.AirPollutionModifier.ToString() + "/s",
+                ShopItemTypes.Booster => item.BoosterData.Modifiers.AirPollutionModifier.ToString() + "%",
                 _ => ""
             };
-        
+            airPollutionField.color = item.ShopItemType switch
+            {
+                ShopItemTypes.Upgrade => (item.UpgradeData.IsNewTier || item.UpgradeData.Modifiers.AirPollutionModifier == 0) ? _neutralModifierColor : item.UpgradeData.Modifiers.AirPollutionModifier > 0 ? _positiveModifierColor : _negativeModifierColor,
+                ShopItemTypes.Module => item.ModuleData.BaseProduction.AirPollutionModifier == 0 ? _neutralModifierColor : _positiveModifierColor,
+                ShopItemTypes.Booster => item.BoosterData.Modifiers.AirPollutionModifier > 0 ? _positiveModifierColor :
+                                        item.BoosterData.Modifiers.AirPollutionModifier < 0 ? _negativeModifierColor : _neutralModifierColor,
+                _ => Color.white
+            };
     }
 
     public void SetCost(ShopItem item)
@@ -244,7 +284,7 @@ public void HideShop()
                 ShopItemTypes.Booster => "Cost: " + ServiceLocator.Instance.BoostersManager.GetBoosterCost(item.BoosterData.Name).ToString(),
                 _ => ""
             };
-        
+            costField.color = ServiceLocator.Instance.MoneyManager.CurrentMoney >= item.GetPrice() ? Color.white : Color.red;
     }
 
     public void SetAllUIElements()

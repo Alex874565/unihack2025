@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: No-till Planter System
   _cost: 1600
-  _icon: {fileID: 0}
+  _icon: {fileID: -7976458602639703264, guid: 3fedf933ab2932a46b0cb361ade1b9ef, type: 3}
   _description: No tills, no thrills!
   _modifiers:
-    IncomeModifier: 313
+    IncomeModifier: 56
     SpeedModifier: 5.5
     AirPollutionModifier: 0.2
     WaterPollutionModifier: 0.4

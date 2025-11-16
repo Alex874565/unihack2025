@@ -17,7 +17,7 @@ MonoBehaviour:
   _icon: {fileID: 0}
   _description: Fuly zero chemical zone!
   _modifiers:
-    IncomeModifier: 990
+    IncomeModifier: 165
     SpeedModifier: 6
     AirPollutionModifier: 0
     WaterPollutionModifier: 0

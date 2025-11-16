@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Regenerative Farm System
   _cost: 5700
-  _icon: {fileID: 0}
+  _icon: {fileID: -6363092920636658896, guid: d5e0fed6fe4335044b2583e4c309396d, type: 3}
   _description: Sequstrates carbon and reuses most resources.
   _modifiers:
-    IncomeModifier: 940
+    IncomeModifier: 170
     SpeedModifier: 5.5
     AirPollutionModifier: 0
     WaterPollutionModifier: 0

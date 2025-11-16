@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Integrated Rainwater Harvester
   _cost: 1000
-  _icon: {fileID: 0}
+  _icon: {fileID: -7987421655291617338, guid: f8f57cbbc01190044b97d30ffbd77016, type: 3}
   _description: Recycles rainwater. Never gets wet!
   _modifiers:
     IncomeModifier: 5
