@@ -119,11 +119,14 @@ public class ModulePlacer : MonoBehaviour
             _modulePrefab.transform.position = new Vector3(moduleX, moduleY, 0);
             if (_modulesGrid.IsSpaceFree(mouseRow, mouseColumn))
             {
-                _modulePrefab.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.7f);
+                if (!_modulePrefab.activeSelf)
+                {
+                    _modulePrefab.SetActive(true);
+                }
                 _gridCells[mouseRow][mouseColumn].GetComponent<SpriteRenderer>().color = _hoveringColor;
             } else
             {
-                _modulePrefab.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0f);
+                _modulePrefab.SetActive(false);
             }
             if (Input.GetMouseButtonDown(0))
             {

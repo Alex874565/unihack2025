@@ -7,18 +7,21 @@ public class ShopCardController : MonoBehaviour
 
     private void Awake()
     {
-        audioManager = FindObjectOfType<AudioManager>();
+        audioManager = ServiceLocator.Instance.AudioManager;
     }
 
     public void ScaleUp()
     {
-        gameObject.transform.localScale *= 1.1f;
-
-        // Play hover sound once per hover
-        if (!hasHovered && audioManager != null && audioManager.hover != null)
+        if (!ServiceLocator.Instance.TutorialManager.InTutorial)
         {
-            audioManager.PlaySFX(audioManager.hover);
-            hasHovered = true;
+            gameObject.transform.localScale *= 1.1f;
+
+            // Play hover sound once per hover
+            if (!hasHovered && audioManager != null && audioManager.hover != null)
+            {
+                audioManager.PlaySFX(audioManager.hover);
+                hasHovered = true;
+            }
         }
     }
 

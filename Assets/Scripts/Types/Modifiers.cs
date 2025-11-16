@@ -110,4 +110,17 @@ public class Modifiers
             $"PollutionIsPercent: {PollutionModifierType}";
     }
 
+    public Modifiers Abs()
+    {
+        return new Modifiers
+        {
+            IncomeModifier = Mathf.Abs(IncomeModifier),
+            SpeedModifier = Mathf.Abs(SpeedModifier),
+            AirPollutionModifier = Mathf.Abs(AirPollutionModifier),
+            WaterPollutionModifier = Mathf.Abs(WaterPollutionModifier),
+            SoilPollutionModifier = Mathf.Abs(SoilPollutionModifier),
+
+            PollutionModifierType = PollutionModifierType
+        };
+    }
 }

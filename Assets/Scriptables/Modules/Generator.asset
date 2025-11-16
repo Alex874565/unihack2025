@@ -23,7 +23,7 @@ MonoBehaviour:
     SoilPollutionModifier: 0.8
     PollutionModifierType: 0
   _cost: 0
-  _icon: {fileID: 21300000, guid: d6781e320d193114d98a74547bca0e5c, type: 3}
+  _icon: {fileID: -3405751870926961752, guid: 8217e0b9fc5ca2740b5f2910577fd82d, type: 3}
   _modulePrefab: {fileID: 1217461214151489653, guid: ef050d8f482bbd34b8b238ece5ffae8b, type: 3}
   _upgrades:
   - {fileID: 11400000, guid: 652a869e6c0b7574b9a16469d3d45156, type: 2}

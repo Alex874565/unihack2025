@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Smart Energy Metering
   _cost: 400
-  _icon: {fileID: 21300000, guid: dbf3476faa73ca844b3698f7d8255a44, type: 3}
+  _icon: {fileID: -6162299750988045478, guid: 24d98cf1a4957f845821a84787ed5bde, type: 3}
   _description: Using smart meters, limits current usage where it's not needed.
   _modifiers:
     IncomeModifier: 0

@@ -7,7 +7,7 @@ public class UIButtonHover : MonoBehaviour, IPointerEnterHandler
 
     private void Start()
     {
-        audioManager = FindObjectOfType<AudioManager>();
+        audioManager = ServiceLocator.Instance.AudioManager;
     }
 
     public void OnPointerEnter(PointerEventData eventData)

@@ -114,13 +114,20 @@ public class BoostersManager : MonoBehaviour
         }
         else
         {
-            foreach (var moduleType in _moduleBoosterModifiers.Keys)
+            foreach (var module in ServiceLocator.Instance.ModulesManager.ModulesDatabase.Modules)
             {
-                if(moduleType == ModuleTypes.Barn)
+                if(module.ModuleType == ModuleTypes.Barn)
                 {
                     continue;
                 }
-                SetBoosterModifiers(moduleType, _moduleBoosterModifiers[moduleType] + booster.Modifiers);
+                if (!_moduleBoosterModifiers.ContainsKey(module.ModuleType))
+                {
+                    SetBoosterModifiers(module.ModuleType, booster.Modifiers);
+                }
+                else
+                {
+                    SetBoosterModifiers(module.ModuleType, _moduleBoosterModifiers[module.ModuleType] + booster.Modifiers);
+                }
             }
         }
     }
@@ -140,14 +147,16 @@ public class BoostersManager : MonoBehaviour
         }
         else
         {
-            foreach (var moduleType in _moduleBoosterModifiers.Keys)
+            var keys = new List<ModuleTypes>(_moduleBoosterModifiers.Keys);
+
+            foreach (var moduleType in keys)
             {
-                if(moduleType == ModuleTypes.Barn)
-                {
+                if (moduleType == ModuleTypes.Barn)
                     continue;
-                }
+
                 SetBoosterModifiers(moduleType, _moduleBoosterModifiers[moduleType] - booster.Modifiers);
             }
+
         }
     }
 
@@ -165,6 +174,7 @@ public class BoostersManager : MonoBehaviour
 
     public void SetBoosterModifiers(ModuleTypes moduleType, Modifiers modifiers)
     {
+        Debug.Log("SetBoosterModifiers - Setting booster modifiers for " + moduleType + " to: " + modifiers.ToString());
         _moduleBoosterModifiers[moduleType] = modifiers;
 
         //Debug.Log("SetBoosterModifiers - set " + moduleType + " to:" + _moduleBoosterModifiers[moduleType].ToString());

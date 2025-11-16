@@ -49,18 +49,9 @@ public class ModulesManager : MonoBehaviour
         {
             ServiceLocator.Instance.UpgradesManager.AddPossibleUpgrade(upgrade);
         }
-        if (module.ModuleType == ModuleTypes.Barn)
-        {
-            Modifiers barnProduction = new Modifiers();
-            barnProduction.AirPollutionModifier = 0;
-            barnProduction.SoilPollutionModifier = 0;
-            barnProduction.WaterPollutionModifier = 0;
-            SetModuleTypeProduction(ModuleTypes.Barn, barnProduction);
-        }
-        else
-        {
-            SetModuleTypeProduction(module.ModuleType, module.BaseProduction);
-        }
+       
+        SetModuleTypeProduction(module.ModuleType, module.BaseProduction);
+        
         _modulePlacer.StartPlacingModule(module);
     }
 
@@ -76,9 +67,17 @@ public class ModulesManager : MonoBehaviour
 
     public void CalculateModuleTypeProduction(ModuleTypes moduleType)
     {
-        if(moduleType == ModuleTypes.Barn)
+        Debug.LogWarning("CalculateModuleTypeProduction - moduleType is Barn, returning.");
+        Modifiers barnProduction = _modulesDatabase.Modules.Where(m => m.ModuleType == ModuleTypes.Barn).First().BaseProduction;
+
+        if (ServiceLocator.Instance.UpgradesManager.ModuleUpgradeModifiers.ContainsKey(ModuleTypes.Barn))
         {
-            Debug.LogWarning("CalculateModuleTypeProduction - moduleType is Barn, returning.");
+            barnProduction += ServiceLocator.Instance.UpgradesManager.ModuleUpgradeModifiers[ModuleTypes.Barn];
+        }
+
+        if (moduleType == ModuleTypes.Barn)
+        {
+            SetModuleTypeProduction(ModuleTypes.Barn, barnProduction);
 
             return;
         }
@@ -96,22 +95,14 @@ public class ModulesManager : MonoBehaviour
             totalProduction += ServiceLocator.Instance.UpgradesManager.ModuleUpgradeModifiers[moduleType];
         }
 
-        // add barn modifiers 
-        Modifiers barnModifiers = _barn.BaseProduction;
-        if(ServiceLocator.Instance.UpgradesManager.ModuleBaseModifiers.ContainsKey(ModuleTypes.Barn))
-        {
-            barnModifiers = ServiceLocator.Instance.UpgradesManager.ModuleBaseModifiers[ModuleTypes.Barn];
-        }
-
-        if (ServiceLocator.Instance.UpgradesManager.ModuleUpgradeModifiers.ContainsKey(ModuleTypes.Barn))
-        {
-            barnModifiers += ServiceLocator.Instance.UpgradesManager.ModuleUpgradeModifiers[ModuleTypes.Barn];
-        }
-        totalProduction += totalProduction * barnModifiers / 100;
+        Debug.Log("Barn Modifier for " + moduleType + ": " + barnProduction);
+        Debug.Log("Pre-Barn Total production for " + moduleType + ": " + totalProduction);
+        totalProduction += totalProduction.Abs() * barnProduction / 100;
+        Debug.Log("Post-Barn Total production for " + moduleType + ": " + totalProduction);
 
         // add percent booster modifiers
         if (ServiceLocator.Instance.BoostersManager.ModuleBoosterModifiers.ContainsKey(moduleType)) {
-            totalProduction += totalProduction * (ServiceLocator.Instance.BoostersManager.ModuleBoosterModifiers[moduleType]/100);
+            totalProduction += totalProduction.Abs() * (ServiceLocator.Instance.BoostersManager.ModuleBoosterModifiers[moduleType]/100);
         }
 
         SetModuleTypeProduction(moduleType, totalProduction);

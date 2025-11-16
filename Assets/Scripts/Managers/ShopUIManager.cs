@@ -38,10 +38,18 @@ public class ShopUIManager : MonoBehaviour
     [SerializeField] private Color _negativeModifierColor;
     [SerializeField] private Color _neutralModifierColor;
 
+    [SerializeField] private AudioClip _buzzer;
+
+    [SerializeField] private List<RectTransform> _cards;
+
     private List<ShopItem> items;
 
     public void ShowShop()
     {
+        foreach (RectTransform card in _cards)
+        {
+            card.localScale = new Vector3(6, 10, 10);
+        }
         items = ServiceLocator.Instance.ShopManager.GetSelectedItems();
         SetAllUIElements();
         _upgradesCanvas.SetActive(true);
@@ -92,6 +100,7 @@ public class ShopUIManager : MonoBehaviour
             }
             else
             {
+                ServiceLocator.Instance.AudioManager.PlaySFX(_buzzer);
                 StartCoroutine(FlashText(_costFields[items.IndexOf(item)]));
             }
         });

@@ -104,7 +104,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 2598
+        y: 7794
         width: 1919
         height: 866
       alignment: 0
@@ -126,6 +126,248 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1919
+        y: 7794
+        width: 1919
+        height: 866
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6bd5b28736b9b549bb839bb1df99fb0
+      internalID: -1636588900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CloudsHealthy_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6928
+        width: 1919
+        height: 866
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d5774a69bcedbe4f9270cffe085388a
+      internalID: -1723296250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CloudsHealthy_3
+      rect:
+        serializedVersion: 2
+        x: 1919
+        y: 6928
+        width: 1919
+        height: 866
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05115c90f3701224e831f3c8a2e27ae5
+      internalID: 586638331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CloudsHealthy_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6062
+        width: 1919
+        height: 866
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e9b865d4bdb2774fafc391e93061980
+      internalID: -749523241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CloudsHealthy_5
+      rect:
+        serializedVersion: 2
+        x: 1919
+        y: 6062
+        width: 1919
+        height: 866
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdcae6591611ade48b40f668cda5ffe2
+      internalID: 700439405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CloudsHealthy_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5196
+        width: 1919
+        height: 866
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6188c31617b2d62429a18dbe50cd8154
+      internalID: -588462571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CloudsHealthy_7
+      rect:
+        serializedVersion: 2
+        x: 1919
+        y: 5196
+        width: 1919
+        height: 866
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ddf0088f50a1464f85019056daf3449
+      internalID: 1739536642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CloudsHealthy_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4330
+        width: 1919
+        height: 866
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b789c79a45cf08e4fa8639705641f5f2
+      internalID: 1875469221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CloudsHealthy_9
+      rect:
+        serializedVersion: 2
+        x: 1919
+        y: 4330
+        width: 1919
+        height: 866
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 269c536043999ef448e8f1a305006ca1
+      internalID: -1724515046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CloudsHealthy_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3464
+        width: 1919
+        height: 866
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c368b0daddd11441bcb77658ff4b13c
+      internalID: -1695406141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CloudsHealthy_11
+      rect:
+        serializedVersion: 2
+        x: 1919
+        y: 3464
+        width: 1919
+        height: 866
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cad41d02cced2440acbdfb59782e4cd
+      internalID: 1812808802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CloudsHealthy_12
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 2598
         width: 1919
         height: 866
@@ -137,14 +379,36 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9728c4f430df9ef4093a8772a790104e
-      internalID: -1636588900
+      spriteID: 51cb0cd7b9edb2949a849ed7b317c1f8
+      internalID: 46296724
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CloudsHealthy_2
+      name: CloudsHealthy_13
+      rect:
+        serializedVersion: 2
+        x: 1919
+        y: 2598
+        width: 1919
+        height: 866
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80bbe027b5be978429b029f7b26b398d
+      internalID: 1665307754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CloudsHealthy_14
       rect:
         serializedVersion: 2
         x: 0
@@ -159,14 +423,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8b1c4f88d9a1124787022e9bda193e2
-      internalID: -1723296250
+      spriteID: 0583f1bb2d371c6489b499d8569eba40
+      internalID: 821332799
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CloudsHealthy_3
+      name: CloudsHealthy_15
       rect:
         serializedVersion: 2
         x: 1919
@@ -181,14 +445,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4954522c7cd2f514bbdb8b3775e7d200
-      internalID: 586638331
+      spriteID: d698ef0843120e3449bf9c15f6f9e73c
+      internalID: -1418958522
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CloudsHealthy_4
+      name: CloudsHealthy_16
       rect:
         serializedVersion: 2
         x: 0
@@ -203,14 +467,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7c7b3fe7ab7e6540b8f7c01a70016f1
-      internalID: -749523241
+      spriteID: d601ca631f0cd5247ba4b5e26f44357d
+      internalID: -833392875
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CloudsHealthy_5
+      name: CloudsHealthy_17
       rect:
         serializedVersion: 2
         x: 1919
@@ -225,14 +489,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7546e6d068c9914e9110c998b041410
-      internalID: 700439405
+      spriteID: 9ffa21e2d4d69bb4f86dbb65ab8a001c
+      internalID: -1608437983
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CloudsHealthy_6
+      name: CloudsHealthy_18
       rect:
         serializedVersion: 2
         x: 0
@@ -247,14 +511,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac9bac593b7ecba409cf2167cd5b1d87
-      internalID: -588462571
+      spriteID: cb15c1161b5feee4aafa2d040964c778
+      internalID: 1359587719
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CloudsHealthy_7
+      name: CloudsHealthy_19
       rect:
         serializedVersion: 2
         x: 1919
@@ -269,8 +533,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d2034a51ed6b0344a4ab5eb03d9fd2f
-      internalID: 1739536642
+      spriteID: a1c7c7af816c46c41a38ffb403029e93
+      internalID: -1111872329
       vertices: []
       indices: 
       edges: []
@@ -291,12 +555,24 @@ TextureImporter:
     nameFileIdTable:
       CloudsHealthy_0: -5769885154111616825
       CloudsHealthy_1: -1636588900
+      CloudsHealthy_10: -1695406141
+      CloudsHealthy_11: 1812808802
+      CloudsHealthy_12: 46296724
+      CloudsHealthy_13: 1665307754
+      CloudsHealthy_14: 821332799
+      CloudsHealthy_15: -1418958522
+      CloudsHealthy_16: -833392875
+      CloudsHealthy_17: -1608437983
+      CloudsHealthy_18: 1359587719
+      CloudsHealthy_19: -1111872329
       CloudsHealthy_2: -1723296250
       CloudsHealthy_3: 586638331
       CloudsHealthy_4: -749523241
       CloudsHealthy_5: 700439405
       CloudsHealthy_6: -588462571
       CloudsHealthy_7: 1739536642
+      CloudsHealthy_8: 1875469221
+      CloudsHealthy_9: -1724515046
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

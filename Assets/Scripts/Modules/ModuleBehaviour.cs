@@ -36,8 +36,8 @@ public class ModuleBehaviour : MonoBehaviour
 
     private Coroutine _flashCoroutine;
 
-    private Color _positiveColor;
-    private Color _negativeColor;
+    [SerializeField] private Color _positiveColor;
+    [SerializeField] private Color _negativeColor;
 
     private void Start()
     {
@@ -46,8 +46,6 @@ public class ModuleBehaviour : MonoBehaviour
         _collecting = false;
         _stats.SetActive(false);
         _isPlaced = false;
-        _positiveColor = ServiceLocator.Instance.ShopUIManager.PositiveModifierColor;
-        _negativeColor = ServiceLocator.Instance.ShopUIManager.NegativeModifierColor;
     }
 
     private void Update()
@@ -92,6 +90,7 @@ public class ModuleBehaviour : MonoBehaviour
         //Debug.Log("ModuleBehaviour - FinishProduction: Production cycle finished, produced: " + _moneyCollected);
         FillProductionIcon();
         _collecting = false;
+        ServiceLocator.Instance.AudioManager.PlaySFX(_moduleAudio);
 
         _flashCoroutine = StartCoroutine(Flash(_collectionFillIcon.rectTransform, _maskTransform));
 
@@ -131,10 +130,11 @@ public class ModuleBehaviour : MonoBehaviour
             {
                 ServiceLocator.Instance.TutorialManager.EndTutorial();
             }
+            ServiceLocator.Instance.AudioManager.PlaySFX(_collectAudio);
             if (_flashCoroutine != null)
             {
                 StopCoroutine(_flashCoroutine);
-                _collectionFillIcon.rectTransform.localScale = Vector3.one;
+                _maskTransform.localScale = Vector3.one;
             }
         }
     }
@@ -202,10 +202,10 @@ public class ModuleBehaviour : MonoBehaviour
     {
         if (_moduleData.ModuleType == ModuleTypes.Barn)
         {
-            _productionText.text = $"{production.IncomeModifier:F2}%";
-            _airPollutionText.text = $"{production.AirPollutionModifier / 10:F2}%";
-            _soilPollutionText.text = $"{production.SoilPollutionModifier / 10:F2}%";
-            _waterPollutionText.text = $"{production.WaterPollutionModifier / 10:F2}%";
+            _productionText.text = $"{production.IncomeModifier}%";
+            _airPollutionText.text = $"{production.AirPollutionModifier}%";
+            _soilPollutionText.text = $"{production.SoilPollutionModifier}%";
+            _waterPollutionText.text = $"{production.WaterPollutionModifier}%";
         }
         else
         {

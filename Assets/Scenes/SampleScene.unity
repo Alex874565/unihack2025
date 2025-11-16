@@ -9251,6 +9251,7 @@ MonoBehaviour:
   _hoveringColor: {r: 0, g: 1, b: 0, a: 0.1254902}
   _placeAudio: {fileID: 0}
   _placeParticles: {fileID: 0}
+  _hoverGridCellAudio: {fileID: 0}
 --- !u!114 &708624624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23102,6 +23103,8 @@ MonoBehaviour:
   _positiveModifierColor: {r: 0, g: 0, b: 0, a: 0}
   _negativeModifierColor: {r: 0, g: 0, b: 0, a: 0}
   _neutralModifierColor: {r: 0, g: 0, b: 0, a: 0}
+  _buzzer: {fileID: 0}
+  _cards: []
 --- !u!114 &1837058996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23116,6 +23119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grassTiles: {fileID: 0}
   clouds: {fileID: 0}
+  waterTiles: {fileID: 0}
 --- !u!114 &1837058997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23209,6 +23213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a3599d09822a394dbe7f3ee3d41d287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _audioManager: {fileID: 0}
 --- !u!114 &1837059001
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ public class UIButtonClick : MonoBehaviour
 
     private void Start()
     {
-        audioManager = FindObjectOfType<AudioManager>();
+        audioManager = ServiceLocator.Instance.AudioManager;
         GetComponent<Button>().onClick.AddListener(OnClick);
     }
 

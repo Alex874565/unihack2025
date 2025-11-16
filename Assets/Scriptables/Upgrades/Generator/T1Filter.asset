@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Filter Cleaning
   _cost: 70
-  _icon: {fileID: 21300000, guid: d6781e320d193114d98a74547bca0e5c, type: 3}
+  _icon: {fileID: -3405751870926961752, guid: 8217e0b9fc5ca2740b5f2910577fd82d, type: 3}
   _description: Reduces fuel consumption and emissions
   _modifiers:
     IncomeModifier: 0
