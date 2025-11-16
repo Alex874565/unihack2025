@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
             }
             else 
             {
-                if (ServiceLocator.Instance.PollutionManager.AirPollutionLevel > 09)
+                if (ServiceLocator.Instance.PollutionManager.AirPollutionLevel > 99)
                 {
                     _gameOver = true;
                     ServiceLocator.Instance.AudioManager.ChangeBackgroundMusic(_loseMusic);
