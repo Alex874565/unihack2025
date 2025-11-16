@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cddc0e82b5369b043ba7a0142a80b5db, type: 3}
   m_Name: WPNeuter
   m_EditorClassIdentifier: 
-  _name: AP Total Neutralize
-  _description: A complete shutdown of all combustion sources and venting systems.
-    Stops AP entirely for a very brief panic window.
+  _name: WP Total Neutralize
+  _description: An industrial-grade flash purification system is activated. Instantly
+    nullifies all water discharge contamination for a few  seconds.
   _icon: {fileID: 0}
   _modifiers:
     IncomeModifier: 0
     SpeedModifier: 0
-    AirPollutionModifier: -100
-    WaterPollutionModifier: 0
+    AirPollutionModifier: 0
+    WaterPollutionModifier: -100
     SoilPollutionModifier: 0
     PollutionModifierType: 0
   _isOneTime: 0

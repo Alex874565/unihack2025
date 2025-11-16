@@ -13,9 +13,51 @@ MonoBehaviour:
   m_Name: BoostersDatabase
   m_EditorClassIdentifier: 
   _boosters:
-  - Booster: {fileID: 11400000, guid: 8910f18553ed96040a619c922b0c786a, type: 2}
+  - Booster: {fileID: 11400000, guid: f41369db076f4bc498df3a98ffc30e44, type: 2}
     Tier: 0
-    Cost: 0
-  - Booster: {fileID: 11400000, guid: 8910f18553ed96040a619c922b0c786a, type: 2}
+    Cost: 70
+  - Booster: {fileID: 11400000, guid: bba13a05d5a16e249b905baafe8adc48, type: 2}
     Tier: 0
-    Cost: 0
+    Cost: 70
+  - Booster: {fileID: 11400000, guid: c5d6aa5e158b3144783710864670865c, type: 2}
+    Tier: 0
+    Cost: 70
+  - Booster: {fileID: 11400000, guid: e8412982cad595c4c8663c0aeb8732a3, type: 2}
+    Tier: 1
+    Cost: 150
+  - Booster: {fileID: 11400000, guid: 064947914a24870449d0f808905c4c42, type: 2}
+    Tier: 1
+    Cost: 150
+  - Booster: {fileID: 11400000, guid: 4f9f3b880083c9a4cba11c471e18e4e7, type: 2}
+    Tier: 1
+    Cost: 150
+  - Booster: {fileID: 11400000, guid: f7a9c1fa16054c84c927d8a4b7c45c0a, type: 2}
+    Tier: 1
+    Cost: 150
+  - Booster: {fileID: 11400000, guid: 03e253d2bcc366644a08fffc4297d944, type: 2}
+    Tier: 1
+    Cost: 150
+  - Booster: {fileID: 11400000, guid: 31ec2f59f228d824597512cb5e4ba00c, type: 2}
+    Tier: 1
+    Cost: 150
+  - Booster: {fileID: 11400000, guid: 0687a349c990bdc44b1750e9fb03ff6f, type: 2}
+    Tier: 1
+    Cost: 150
+  - Booster: {fileID: 11400000, guid: 09c02fca32d304349a43c8e7bf7868f5, type: 2}
+    Tier: 2
+    Cost: 400
+  - Booster: {fileID: 11400000, guid: decd2f086a573fc4b8490ca2bbcf9bd5, type: 2}
+    Tier: 2
+    Cost: 400
+  - Booster: {fileID: 11400000, guid: 6ba2d82041f877d4d9f4adf2ac2a44b4, type: 2}
+    Tier: 2
+    Cost: 400
+  - Booster: {fileID: 11400000, guid: 5a56653ce6321b244871a067e71cf1fc, type: 2}
+    Tier: 3
+    Cost: 600
+  - Booster: {fileID: 11400000, guid: 631d308ad9ce96e408fea9191fa932d0, type: 2}
+    Tier: 3
+    Cost: 600
+  - Booster: {fileID: 11400000, guid: 3ab9251a23300f1408bfb6e8d837c67b, type: 2}
+    Tier: 3
+    Cost: 600
