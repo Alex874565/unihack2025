@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Basic Sediment Dredge
   _cost: 60
-  _icon: {fileID: 0}
-  _description: 
+  _icon: {fileID: 21300000, guid: 8a1cbda1a9397214f80e4afd948cb4b2, type: 3}
+  _description: Cleaning the bottom of the pool improves waste management.
   _modifiers:
     IncomeModifier: 0
     SpeedModifier: 0

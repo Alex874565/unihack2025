@@ -16,15 +16,15 @@ MonoBehaviour:
   _moduleType: 6
   _moduleDescription: As basic as a fish basin gets.
   _baseProduction:
-    IncomeModifier: 50
+    IncomeModifier: 12.5
     SpeedModifier: 4
     AirPollutionModifier: 0.5
     WaterPollutionModifier: 0.5
     SoilPollutionModifier: 1.5
     PollutionModifierType: 0
   _cost: 80
-  _icon: {fileID: 0}
-  _modulePrefab: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 8a1cbda1a9397214f80e4afd948cb4b2, type: 3}
+  _modulePrefab: {fileID: 5076242683385740986, guid: 9022506099974184f90cc03b86765d58, type: 3}
   _upgrades:
   - {fileID: 11400000, guid: 357f7121d69c6db4ba7ee8cd1ea44374, type: 2}
   - {fileID: 11400000, guid: a00697613da128d44ac47049f964e7c3, type: 2}

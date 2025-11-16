@@ -15,7 +15,7 @@ MonoBehaviour:
   _name: WP Total Neutralize
   _description: An industrial-grade flash purification system is activated. Instantly
     nullifies all water discharge contamination for a few  seconds.
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: afe6d649a7d90a741bffc6946b4b0420, type: 3}
   _modifiers:
     IncomeModifier: 0
     SpeedModifier: 0

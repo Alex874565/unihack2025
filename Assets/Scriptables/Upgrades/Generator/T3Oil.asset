@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Optimal Oiling
   _cost: 0
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: dbf3476faa73ca844b3698f7d8255a44, type: 3}
   _description: Use the best lubricant for the mechanical parts.
   _modifiers:
     IncomeModifier: 0

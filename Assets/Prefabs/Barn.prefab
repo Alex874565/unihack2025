@@ -12,6 +12,54 @@ PrefabInstance:
       propertyPath: _moduleData
       value: 
       objectReference: {fileID: 11400000, guid: 35d9bd28b9c623e41850fbc995f5e054, type: 2}
+    - target: {fileID: 2593954679710486174, guid: 1d41041f4ecb95949824e65138de4d09, type: 3}
+      propertyPath: m_Size.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2593954679710486174, guid: 1d41041f4ecb95949824e65138de4d09, type: 3}
+      propertyPath: m_Size.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2593954679710486174, guid: 1d41041f4ecb95949824e65138de4d09, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e030b97e890007045b283be83d913408, type: 3}
+    - target: {fileID: 2593954679710486174, guid: 1d41041f4ecb95949824e65138de4d09, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4612329635854167383, guid: 1d41041f4ecb95949824e65138de4d09, type: 3}
+      propertyPath: m_Size.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4612329635854167383, guid: 1d41041f4ecb95949824e65138de4d09, type: 3}
+      propertyPath: m_Size.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4612329635854167383, guid: 1d41041f4ecb95949824e65138de4d09, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fa9e4292e4e634b489702330a8341b3d, type: 3}
+    - target: {fileID: 4612329635854167383, guid: 1d41041f4ecb95949824e65138de4d09, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5938077755090966030, guid: 1d41041f4ecb95949824e65138de4d09, type: 3}
+      propertyPath: m_Size.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5938077755090966030, guid: 1d41041f4ecb95949824e65138de4d09, type: 3}
+      propertyPath: m_Size.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5938077755090966030, guid: 1d41041f4ecb95949824e65138de4d09, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 83178e84c36c00b4f8da4e6769ec6922, type: 3}
+    - target: {fileID: 5938077755090966030, guid: 1d41041f4ecb95949824e65138de4d09, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7456356414709372688, guid: 1d41041f4ecb95949824e65138de4d09, type: 3}
       propertyPath: m_Name
       value: Barn
@@ -67,10 +115,10 @@ PrefabInstance:
     - target: {fileID: 9210429224644901488, guid: 1d41041f4ecb95949824e65138de4d09, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 21300000, guid: af702c045fe1e6e48a75a2f78888890e, type: 3}
     - target: {fileID: 9210429224644901488, guid: 1d41041f4ecb95949824e65138de4d09, type: 3}
       propertyPath: m_WasSpriteAssigned
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

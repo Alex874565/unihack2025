@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Low-Emission Fleet
   _cost: 200
-  _icon: {fileID: 0}
+  _icon: {fileID: 3792299640767658571, guid: ba89715e6528db445b60b6f5e6e9b685, type: 3}
   _description: Newer cars with LPG or Hybrid technology
   _modifiers:
     IncomeModifier: 0

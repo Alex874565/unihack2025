@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Biogas-linked dairy
   _cost: 1440
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 2ac2501e7016d3b46887b3ddf83fa74e, type: 3}
   _description: Turns waste into power!
   _modifiers:
-    IncomeModifier: 370
+    IncomeModifier: 82
     SpeedModifier: 4.5
     AirPollutionModifier: 0.3
     WaterPollutionModifier: 0.2

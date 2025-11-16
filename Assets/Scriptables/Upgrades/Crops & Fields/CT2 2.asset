@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Deeper Soil Testing
   _cost: 150
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 3f45a3f5e406ab14c9d7d192117cdf7d, type: 3}
   _description: Limits excess fertilizer use
   _modifiers:
     IncomeModifier: 0

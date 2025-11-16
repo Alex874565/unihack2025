@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Integrated pest management
   _cost: 1700
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 731685fe8c99a94469d7fee834324a74, type: 3}
   _description: Keeps pest and diseases at minimum with no harmful chemicals.
   _modifiers:
-    IncomeModifier: 500
+    IncomeModifier: 83
     SpeedModifier: 6
     AirPollutionModifier: 1
     WaterPollutionModifier: 0.2

@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
-using static UnityEditor.Progress;
 
 public class ShopManager : MonoBehaviour
 {
@@ -25,6 +24,7 @@ public class ShopManager : MonoBehaviour
 
         if (!_modulesManager.ModulesGrid.AreSpacesLeft())
         {
+            Debug.Log("No module spaces left, adding booster probability to upgrades.");
             _boosterProbability += _moduleProbability;
             _moduleProbability = 0f;
         }
@@ -129,27 +129,23 @@ public class ShopManager : MonoBehaviour
 
     public void ChooseItem(ShopItem item)
     {
-        int itemPrice = item.GetPrice();
-        if (ServiceLocator.Instance.MoneyManager.CurrentMoney > itemPrice)
+        //Debug.Log("Item chosen from shop.");
+        //Debug.Log("Chosen item type: " + item.ShopItemType);
+        if (item.ShopItemType == ShopItemTypes.Upgrade)
         {
-            //Debug.Log("Item chosen from shop.");
-            //Debug.Log("Chosen item type: " + item.ShopItemType);
-            if (item.ShopItemType == ShopItemTypes.Upgrade)
-            {
-                _upgradesManager.MakeUpgrade(_upgradesManager.GetUpgradeIndexByName(item.UpgradeData));
-            }
-            else if (item.ShopItemType == ShopItemTypes.Module)
-            {
-                _modulesManager.BuyModule(item.ModuleData);
-            }
-            else if (item.ShopItemType == ShopItemTypes.Booster)
-            {
-                ServiceLocator.Instance.BoostersManager.AddBooster(item.BoosterData);
-            }
-            ServiceLocator.Instance.MoneyManager.SpendMoney(itemPrice);
-            ServiceLocator.Instance.ShopUIManager.HideShop();
-            SelectNextItems();
+            _upgradesManager.MakeUpgrade(_upgradesManager.GetUpgradeIndexByName(item.UpgradeData));
         }
+        else if (item.ShopItemType == ShopItemTypes.Module)
+        {
+            _modulesManager.BuyModule(item.ModuleData);
+        }
+        else if (item.ShopItemType == ShopItemTypes.Booster)
+        {
+            ServiceLocator.Instance.BoostersManager.AddBooster(item.BoosterData);
+        }
+        ServiceLocator.Instance.MoneyManager.SpendMoney(item.GetPrice());
+        ServiceLocator.Instance.ShopUIManager.HideShop();
+        SelectNextItems();
     }
 
     public List<ShopItem> GetSelectedItems()

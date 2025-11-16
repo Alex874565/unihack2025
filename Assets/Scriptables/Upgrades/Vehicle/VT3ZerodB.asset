@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Zero dB Ride
   _cost: 300
-  _icon: {fileID: 0}
+  _icon: {fileID: 72864128727387479, guid: 5b61a3f812a8e9f409fb6f80f212187d, type: 3}
   _description: Soundproofs the car completely.
   _modifiers:
     IncomeModifier: 0

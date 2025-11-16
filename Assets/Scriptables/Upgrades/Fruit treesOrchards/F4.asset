@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Agroforestry Eco-system
   _cost: 3000
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 1536cde920beeec4d842b941f3123c2f, type: 3}
   _description: Fuly zero chemical zone!
   _modifiers:
-    IncomeModifier: 990
+    IncomeModifier: 165
     SpeedModifier: 6
     AirPollutionModifier: 0
     WaterPollutionModifier: 0

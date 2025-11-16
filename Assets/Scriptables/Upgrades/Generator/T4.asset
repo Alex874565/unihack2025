@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Solar PV Array
   _cost: 2100
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 2f662a61e8a100947aa0dac8c38d345c, type: 3}
   _description: Self-sufficient, operates only on clean energy
   _modifiers:
     IncomeModifier: 0

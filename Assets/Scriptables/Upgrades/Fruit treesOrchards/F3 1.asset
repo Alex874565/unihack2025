@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Polinator habitat kits
   _cost: 500
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 731685fe8c99a94469d7fee834324a74, type: 3}
   _description: Reduces need for chemical pest control.
   _modifiers:
     IncomeModifier: 0

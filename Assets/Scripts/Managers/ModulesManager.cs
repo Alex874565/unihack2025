@@ -4,6 +4,7 @@ using System.Linq;
 
 public class ModulesManager : MonoBehaviour
 {
+    public bool IsPlacingModule => _modulePlacer != null && _modulePlacer.IsPlacingModule;
     public ModulesGrid ModulesGrid => _modulesGrid;
     public List<GameObject> OwnedModules => _ownedModules;
     public Dictionary<ModuleTypes, Modifiers> ModuleTypeProductions => _moduleTypeProductions;
@@ -66,7 +67,8 @@ public class ModulesManager : MonoBehaviour
     public ModuleData GetRandomModule()
     {
         List<ModuleData> buyableModules = _modulesDatabase.Modules.Where(m => m.ModuleType != ModuleTypes.Generator && m.ModuleType != ModuleTypes.Vehicles && m.ModuleType != ModuleTypes.Barn).ToList();
-        int index = Random.Range(0, buyableModules.Count - 1);
+        int index = Random.Range(0, buyableModules.Count);
+        Debug.Log("GetRandomModule - Selected index: " + index);
         ModuleData module = buyableModules[index];
         Debug.Log(module.ModuleName);
         return module;
@@ -131,11 +133,14 @@ public class ModulesManager : MonoBehaviour
 
     public void UpdateModuleTypeVisuals(ModuleTypes moduleType, UpgradePhases phase)
     {
+        Debug.Log("UpdateModuleTypeVisuals - Updating visuals for module type: " + moduleType + " to phase: " + phase);
         foreach (var module in _ownedModules)
         {
+            Debug.Log("UpdateModuleTypeVisuals - Checking module: " + module.name);
             ModuleBehaviour moduleBehaviour = module.GetComponent<ModuleBehaviour>();
             if (moduleBehaviour.ModuleData.ModuleType == moduleType)
             {
+                Debug.Log("UpdateModuleTypeVisuals - Updating module: " + module.name);
                 moduleBehaviour.UpdateVisuals(phase);
             }
         }

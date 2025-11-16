@@ -16,7 +16,7 @@ MonoBehaviour:
   _description: Maximizes immediate yield via old-fashioned, destructive tilling
     using the vehicle fleet. Moderate profit boost, but severely increases soil erosion
     and residue (SP).
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 9343b97a0ccd2d545a5a646f7e922933, type: 3}
   _modifiers:
     IncomeModifier: 50
     SpeedModifier: 0

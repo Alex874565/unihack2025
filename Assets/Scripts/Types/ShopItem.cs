@@ -19,24 +19,20 @@ public class ShopItem
                     return UpgradeData.Cost;
                 }
                 return 0;
-                break;
             case ShopItemTypes.Module:
                 if (ModuleData != null)
                 {
                     return ModuleData.Cost;
                 }
                 return 0;
-                break;
             case ShopItemTypes.Booster:
                 if (BoosterData != null)
                 {
                     return ServiceLocator.Instance.BoostersManager.BoostersDatabase.Boosters.Where(b => b.Booster.Name == BoosterData.Name).First().Cost;
                 }
                 return 0;
-                break;
             default:
                 return 0;
-                break;
         }
     }
 }

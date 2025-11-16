@@ -15,7 +15,7 @@ MonoBehaviour:
   _name: Quick Harvest Cycle
   _description: A sudden, small surge in market demand; sell core goods immediately
     for slightly increased profit.
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 894f68146402bd54688fdf66d1c0fa39, type: 3}
   _modifiers:
     IncomeModifier: 15
     SpeedModifier: 0

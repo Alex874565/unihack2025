@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Optimized Logistics
   m_EditorClassIdentifier: 
   _name: Optimized Logistics
-  _description: 
-  _icon: {fileID: 0}
+  _description: Slightly maximizes delivery routes and efficiency, providing a small, 
+    sustained boost to income over a longer period.
+  _icon: {fileID: 21300000, guid: 97e6a180424e31746aa42664f3d31428, type: 3}
   _modifiers:
     IncomeModifier: 10
     SpeedModifier: 0

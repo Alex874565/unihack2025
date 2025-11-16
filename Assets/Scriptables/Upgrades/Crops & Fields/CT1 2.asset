@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Mapping
   _cost: 60
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 565b9ff7a3402a64f9927b75aedda58e, type: 3}
   _description: Improves fertilizer spreading efficiency
   _modifiers:
     IncomeModifier: 0

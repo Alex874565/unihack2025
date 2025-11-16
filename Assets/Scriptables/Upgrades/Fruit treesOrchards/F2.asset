@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Targeted spraying system
   _cost: 450
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 22150522ac9a3494cb03541be067f601, type: 3}
   _description: Controls the use of pest control.
   _modifiers:
-    IncomeModifier: 150
+    IncomeModifier: 30
     SpeedModifier: 6
     AirPollutionModifier: 0.4
     WaterPollutionModifier: 0.7

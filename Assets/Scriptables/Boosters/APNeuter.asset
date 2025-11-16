@@ -15,7 +15,7 @@ MonoBehaviour:
   _name: AP Total Neutralize
   _description: A complete shutdown of all combustion sources and venting systems.
     Stops AP entirely for a very brief panic window.
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 3e7d8cdb45b45474e8d33cf7a37f3c39, type: 3}
   _modifiers:
     IncomeModifier: 0
     SpeedModifier: 0

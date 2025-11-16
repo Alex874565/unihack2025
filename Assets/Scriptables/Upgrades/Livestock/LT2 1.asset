@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Fiber-rich feed
   _cost: 160
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 6c6c0bac05edac8439f1f7384b84f920, type: 3}
   _description: Cuts methane from digestion.
   _modifiers:
     IncomeModifier: 0

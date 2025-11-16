@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Recirculating Aquaculture System
   _cost: 1400
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 81d264bddb9af3343bead4e07c17298c, type: 3}
   _description: Closed loop tanks improves water consumption and use.
   _modifiers:
-    IncomeModifier: 360
+    IncomeModifier: 72
     SpeedModifier: 5
     AirPollutionModifier: 0.1
     WaterPollutionModifier: 0.6

@@ -12,19 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9253d7b6972ca184bb21993b9342ce11, type: 3}
   m_Name: Fruit trees & orchards
   m_EditorClassIdentifier: 
-  _moduleName: CHEMICAL MONOCULTURE
+  _moduleName: Chemical Monoculture
   _moduleType: 5
   _moduleDescription: An orchard with heavy anti-pest spraying.
   _baseProduction:
-    IncomeModifier: 0
-    SpeedModifier: 0
+    IncomeModifier: 10
+    SpeedModifier: 5
     AirPollutionModifier: 2
     WaterPollutionModifier: 0.7
     SoilPollutionModifier: 0.5
     PollutionModifierType: 0
-  _cost: 0
-  _icon: {fileID: 1028246555420012257, guid: 72403fc819ae31b40b59ede7bcc4e11b, type: 3}
-  _modulePrefab: {fileID: 2291025834556395363, guid: 66f9d73cd500ddb4197a5bb6747bdd01, type: 3}
+  _cost: 110
+  _icon: {fileID: 21300000, guid: 72403fc819ae31b40b59ede7bcc4e11b, type: 3}
+  _modulePrefab: {fileID: 8145273013236452104, guid: aea1e93eacc33d44b9765a0f9d23c55e, type: 3}
   _upgrades:
   - {fileID: 11400000, guid: e1fe6396255922b41a0807e2a9a55280, type: 2}
   - {fileID: 11400000, guid: 745125e54b69b3f41bdc1ab87f362cec, type: 2}

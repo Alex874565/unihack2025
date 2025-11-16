@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Cover Crop Mixer
   _cost: 375
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 3fedf933ab2932a46b0cb361ade1b9ef, type: 3}
   _description: Allows planting protective cover crops
   _modifiers:
     IncomeModifier: 0

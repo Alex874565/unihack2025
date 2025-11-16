@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: SoilWaterRecycle
   m_EditorClassIdentifier: 
   _name: Soil Water Recycle Loop
-  _description: 
-  _icon: {fileID: 0}
+  _description: A massive, farm-wide application of a temporary binding agent. Instantly 
+    halts all chemical and residue seepage into the ground.
+  _icon: {fileID: 21300000, guid: 1863a36b6386fc449afa7b341e77e385, type: 3}
   _modifiers:
     IncomeModifier: 0
     SpeedModifier: 0

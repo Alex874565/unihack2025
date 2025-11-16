@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Greywater Filtration
   _cost: 600
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: f8f57cbbc01190044b97d30ffbd77016, type: 3}
   _description: Filters water used for washing equipment
   _modifiers:
     IncomeModifier: 0

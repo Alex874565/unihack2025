@@ -16,7 +16,7 @@ MonoBehaviour:
   _description: Improperly vents stored manure for quick processing. Quickly reduces
     soil pollution (SP) by accelerating waste breakdown, but the venting releases
     high methane/AP.
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 523e4a920c3691f4db718d9e3f3f9be6, type: 3}
   _modifiers:
     IncomeModifier: 0
     SpeedModifier: 0

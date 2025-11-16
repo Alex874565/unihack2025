@@ -15,7 +15,7 @@ MonoBehaviour:
   _name: Excessive Chemical Wash
   _description: Uses cheap, powerful chemicals for a quick, perfect harvest. Boosts
     sales but drastically increases toxic water runoff from the orchard.
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: e12e9811021ddf94a99ff541611307ee, type: 3}
   _modifiers:
     IncomeModifier: 60
     SpeedModifier: 0

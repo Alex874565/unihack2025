@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: 'Rotational grazing system '
   _cost: 400
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 6c6c0bac05edac8439f1f7384b84f920, type: 3}
   _description: Cleaner management.
   _modifiers:
-    IncomeModifier: 150
+    IncomeModifier: 33
     SpeedModifier: 4.5
     AirPollutionModifier: 0.7
     WaterPollutionModifier: 0.8
