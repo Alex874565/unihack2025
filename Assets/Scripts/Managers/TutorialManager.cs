@@ -23,9 +23,6 @@ public class TutorialManager : MonoBehaviour
     private int _tutorialStep;
     private int _totalTutorialSteps;
 
-    private bool _isAngry;
-    private bool _approves;
-
     private bool _inTutorial;
     private bool _continuingTutorial;
 
@@ -33,9 +30,7 @@ public class TutorialManager : MonoBehaviour
 
     void Start()
     {
-        _totalTutorialSteps = TutorialSteps.Count;
-        _isAngry = false;
-        _approves = false;
+        _totalTutorialSteps = TutorialSteps.Count;;
         _inTutorial = true;
         _continuingTutorial = false;
         //_shopItemButton.enabled = false;
