@@ -16,7 +16,7 @@ MonoBehaviour:
   _moduleType: 3
   _moduleDescription: Highly wasteful methane producing module
   _baseProduction:
-    IncomeModifier: 50
+    IncomeModifier: 11
     SpeedModifier: 4.5
     AirPollutionModifier: 1
     WaterPollutionModifier: 1

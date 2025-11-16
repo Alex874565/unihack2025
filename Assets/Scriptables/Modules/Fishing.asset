@@ -16,7 +16,7 @@ MonoBehaviour:
   _moduleType: 6
   _moduleDescription: As basic as a fish basin gets.
   _baseProduction:
-    IncomeModifier: 50
+    IncomeModifier: 12.5
     SpeedModifier: 4
     AirPollutionModifier: 0.5
     WaterPollutionModifier: 0.5

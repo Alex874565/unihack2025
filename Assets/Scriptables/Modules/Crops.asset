@@ -17,7 +17,7 @@ MonoBehaviour:
   _moduleDescription: Highly errosive and uses lots of chemicals to keep fruits flies
     free.
   _baseProduction:
-    IncomeModifier: 50
+    IncomeModifier: 9
     SpeedModifier: 5.5
     AirPollutionModifier: 0.5
     WaterPollutionModifier: 1

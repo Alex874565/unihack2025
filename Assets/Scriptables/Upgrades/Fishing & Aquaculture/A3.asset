@@ -17,7 +17,7 @@ MonoBehaviour:
   _icon: {fileID: -6416277928962355756, guid: 81d264bddb9af3343bead4e07c17298c, type: 3}
   _description: Closed loop tanks improves water consumption and use.
   _modifiers:
-    IncomeModifier: 360
+    IncomeModifier: 72
     SpeedModifier: 5
     AirPollutionModifier: 0.1
     WaterPollutionModifier: 0.6

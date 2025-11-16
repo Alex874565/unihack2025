@@ -16,7 +16,7 @@ MonoBehaviour:
   _moduleType: 5
   _moduleDescription: An orchard with heavy anti-pest spraying.
   _baseProduction:
-    IncomeModifier: 50
+    IncomeModifier: 10
     SpeedModifier: 5
     AirPollutionModifier: 2
     WaterPollutionModifier: 0.7

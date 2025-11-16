@@ -17,7 +17,7 @@ MonoBehaviour:
   _icon: {fileID: 0}
   _description: Turns waste into power!
   _modifiers:
-    IncomeModifier: 370
+    IncomeModifier: 82
     SpeedModifier: 4.5
     AirPollutionModifier: 0.3
     WaterPollutionModifier: 0.2

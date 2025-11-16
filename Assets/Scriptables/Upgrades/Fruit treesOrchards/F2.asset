@@ -17,7 +17,7 @@ MonoBehaviour:
   _icon: {fileID: 0}
   _description: Controls the use of pest control.
   _modifiers:
-    IncomeModifier: 150
+    IncomeModifier: 30
     SpeedModifier: 6
     AirPollutionModifier: 0.4
     WaterPollutionModifier: 0.7

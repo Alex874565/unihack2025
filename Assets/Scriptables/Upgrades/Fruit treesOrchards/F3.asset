@@ -17,7 +17,7 @@ MonoBehaviour:
   _icon: {fileID: 0}
   _description: Keeps pest and diseases at minimum with no harmful chemicals.
   _modifiers:
-    IncomeModifier: 500
+    IncomeModifier: 83
     SpeedModifier: 6
     AirPollutionModifier: 1
     WaterPollutionModifier: 0.2

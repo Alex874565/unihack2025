@@ -17,7 +17,7 @@ MonoBehaviour:
   _icon: {fileID: 1273469779250015323, guid: 30e7635c5f08d0a4997eee5dacf5bd94, type: 3}
   _description: A net-zero aquaculture basin.
   _modifiers:
-    IncomeModifier: 1020
+    IncomeModifier: 40.8
     SpeedModifier: 5
     AirPollutionModifier: 0
     WaterPollutionModifier: 0
