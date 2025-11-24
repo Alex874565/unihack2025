@@ -11,7 +11,7 @@ public class LevelSelectUI : MonoBehaviour
         lvl1Button.onClick.AddListener(() =>
         {
             Debug.Log("Loading Level 1");
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene("Main");
         });
     }
 }

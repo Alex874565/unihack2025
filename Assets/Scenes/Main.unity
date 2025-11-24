@@ -24899,6 +24899,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1996343027}
+  - component: {fileID: 1996343028}
   m_Layer: 0
   m_Name: Grass
   m_TagString: Untagged
@@ -24941,6 +24942,18 @@ Transform:
   - {fileID: 1045645800}
   m_Father: {fileID: 2104094081}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1996343028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996343026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 484c57253b89b42e6b065da787eea7ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1997603086
 GameObject:
   m_ObjectHideFlags: 0
@@ -25485,6 +25498,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2022614947}
+  - component: {fileID: 2022614948}
   m_Layer: 0
   m_Name: Water
   m_TagString: Untagged
@@ -25512,6 +25526,18 @@ Transform:
   - {fileID: 693732162}
   m_Father: {fileID: 2104094081}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2022614948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022614946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d4838b0f46074124a3d3e39ca7aa7a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2038917523
 GameObject:
   m_ObjectHideFlags: 0

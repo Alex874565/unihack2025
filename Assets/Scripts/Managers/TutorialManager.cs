@@ -47,7 +47,57 @@ public class TutorialManager : MonoBehaviour
 
     private TutorialState _state = TutorialState.Normal;
 
-    private void Update()
+    //attempt to get mobile phones input instead of space
+    // --- New Helper Method ---
+private bool IsInputPressed()
+{
+    // Check for PC/Editor input (Spacebar or Left Mouse Click)
+    if (Application.platform == RuntimePlatform.WindowsPlayer || 
+        Application.isEditor || 
+        Application.platform == RuntimePlatform.OSXPlayer)
+    {
+        return Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0);
+    }
+    // Check for iOS/Android input (Any screen tap)
+    else if (Application.platform == RuntimePlatform.IPhonePlayer ||
+             Application.platform == RuntimePlatform.Android)
+    {
+        // Check for the start of a single touch on the screen
+        return Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began;
+    }
+    
+    // Default to false for unknown platforms
+    return false;
+}
+
+// --- Modified Update Method ---
+private void Update()
+{
+    if(_continuingTutorial)
+    {
+        return;
+    }
+    
+    // *** THIS IS THE CRUCIAL CHANGE ***
+    if (!IsInputPressed()) return; 
+    
+    // Original checks
+    if (!_inTutorial) return;
+    if (_isPlacingModules) return;
+
+    var typewriter = ServiceLocator.Instance.DialogueManager.Typewriter;
+
+    // --- CASE 1: Player interrupts typing ---
+    if (typewriter.IsTyping)
+    {
+        HandleInterrupt(typewriter);
+        return;
+    }
+
+    // --- CASE 2: Player presses space/taps AFTER text finished ---
+    OnLineFinished();
+}
+    /*private void Update()
     {
         if(_continuingTutorial)
         {
@@ -69,7 +119,7 @@ public class TutorialManager : MonoBehaviour
         // --- CASE 2: Player presses space AFTER text finished ---
         OnLineFinished();
     }
-
+    */
     private void HandleInterrupt(Typewriter typewriter)
     {
         switch (_state)
@@ -108,8 +158,40 @@ public class TutorialManager : MonoBehaviour
         ChangeTutorialStep(_tutorialStep + 1);
     }
 
+    //Iphone try
 
     private void ShowTutorialStep(int tutorialStep)
+{
+    // 1. Get the original text defined in the Inspector.
+    string currentText = TutorialSteps[tutorialStep].TextToShow;
+
+    // --- CRITICAL PLATFORM CHECK ---
+    // Only run the text replacement if the game is running on a phone.
+    if (Application.platform == RuntimePlatform.IPhonePlayer || 
+        Application.platform == RuntimePlatform.Android)
+    {
+        // 2. Look for the exact PC phrase and replace it with the mobile phrase.
+        // We use Contains() for a quick check, but Replace() for the precise swap.
+        if (currentText.Contains("press Space to continue")) 
+        {
+            currentText = currentText.Replace("press Space to continue", "Tap the screen to continue");
+        }
+    }
+    
+    // 3. Start Typing with the potentially modified text.
+    ServiceLocator.Instance.DialogueManager.StartTyping(currentText); 
+
+    // 4. Manage Objects (original logic)
+    foreach (var obj in TutorialSteps[tutorialStep].ObjectsToShow)
+    {
+        obj.SetActive(true);
+    }
+    foreach (var obj in TutorialSteps[tutorialStep].ObjectsToHide)
+    {
+        obj.SetActive(false);
+    }
+}
+    /*private void ShowTutorialStep(int tutorialStep)
     {
         ServiceLocator.Instance.DialogueManager.StartTyping(TutorialSteps[tutorialStep].TextToShow);
         foreach (var obj in TutorialSteps[tutorialStep].ObjectsToShow)
@@ -121,7 +203,7 @@ public class TutorialManager : MonoBehaviour
             obj.SetActive(false);
         }
     }
-
+    */
     private void ChangeTutorialStep(int step)
     {
         _tutorialStep = step;
