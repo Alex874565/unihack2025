@@ -2,27 +2,34 @@ using UnityEngine;
 
 public class CloudAligner : MonoBehaviour
 {
-    // The desired position and scale factor for mobile
-    private const float MobilePositionX = -2.3f;
-    private const float MobileScaleX = 2.3f; // Fixed X scale value
+    // The fixed X scale value you want to send to the Animator
+    private const float MobileScaleX = 2.3f; 
+    
+    // The animator component for this object
+    private Animator _cloudAnimator;
 
     void Start()
     {
+        // 1. Get the Animator component
+        _cloudAnimator = GetComponent<Animator>();
+        
         // Check: This code runs ONLY on the actual iPhone device (or Android).
         if (Application.platform == RuntimePlatform.IPhonePlayer || 
             Application.platform == RuntimePlatform.Android)
         {
-            // --- 1. Apply Position Change ---
-            // Sets the X position to the fixed value of -2.3 on mobile.
+            // --- 1. Apply Position Change (Still applies to Transform) ---
+            // Position is NOT usually controlled by the Animator, so this should work directly.
+            float MobilePositionX = -2.3f; 
             Vector3 newPosition = transform.position;
             newPosition.x = MobilePositionX; 
             transform.position = newPosition;
 
-            // --- 2. Apply Scaling Change ---
-            // Sets the X scale to the fixed value of 2.3 on mobile.
-            Vector3 newScale = transform.localScale;
-            newScale.x = MobileScaleX; 
-            transform.localScale = newScale;
+            // --- 2. Apply SCALING Change via Animator Parameter ---
+            if (_cloudAnimator != null)
+            {
+                // Set the float parameter defined in the Animator Controller
+                _cloudAnimator.SetFloat("MobileScale", MobileScaleX); 
+            }
         }
     }
 }
